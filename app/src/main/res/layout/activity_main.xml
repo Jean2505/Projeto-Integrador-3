@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     tools:context=".MainActivity">
 
     <TextView
@@ -12,7 +12,9 @@
         android:layout_height="wrap_content"
         android:text="Cadastrar profissional"
         android:layout_marginTop="55dp"
-        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline4"
+        android:textSize="38sp"
+        android:fontFamily="@font/avenirbold"
+        android:textColor="@color/azulescuro"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
@@ -23,8 +25,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
+        android:layout_marginTop="10dp"
         android:layout_marginStart="8dp"
         android:text="Nome completo : "
+        android:fontFamily="@font/avenir"
         android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvCadastro"/>
@@ -45,6 +49,7 @@
         android:layout_margin="10dp"
         android:layout_marginStart="8dp"
         android:text="Telefone : "
+        android:fontFamily="@font/avenir"
         android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etNome"/>
@@ -65,6 +70,7 @@
         android:layout_margin="10dp"
         android:layout_marginStart="8dp"
         android:text="Email : "
+        android:fontFamily="@font/avenir"
         android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etTelef"/>
@@ -85,6 +91,7 @@
         android:layout_margin="10dp"
         android:layout_marginStart="8dp"
         android:text="Endereço 1 : "
+        android:fontFamily="@font/avenir"
         android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etEmail"/>
@@ -105,6 +112,7 @@
         android:layout_margin="10dp"
         android:layout_marginStart="8dp"
         android:text="Endereço 2 : "
+        android:fontFamily="@font/avenir"
         android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etEnd1"/>
@@ -125,6 +133,7 @@
         android:layout_margin="10dp"
         android:layout_marginStart="8dp"
         android:text="Endereço 3 : "
+        android:fontFamily="@font/avenir"
         android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etEnd2"/>
@@ -138,15 +147,23 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@id/tvEnd3"/>
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnProximo"
-        android:layout_width="wrap_content"
+        android:layout_width="160dp"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
-        android:textSize="23sp"
+        android:textSize="20sp"
+        android:textColor="@color/white"
+        android:background="@drawable/custom_button"
         app:layout_constraintTop_toBottomOf="@+id/etEnd3"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:text="Próximo"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="140dp"
+        android:background="@drawable/box"
+        app:layout_constraintBottom_toBottomOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
