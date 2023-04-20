@@ -11,6 +11,8 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.android.gms.tasks.Task
 import com.google.android.material.snackbar.Snackbar
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
 import com.google.firebase.functions.FirebaseFunctions
 import com.google.firebase.functions.FirebaseFunctionsException
 import com.google.firebase.functions.ktx.functions
@@ -18,6 +20,8 @@ import com.google.firebase.ktx.Firebase
 import com.google.gson.GsonBuilder
 
 class CurriculoActivity : AppCompatActivity(), View.OnClickListener {
+
+    private lateinit var auth: FirebaseAuth
 
     private lateinit var btnVoltar: Button
     private lateinit var btnCadastrar: Button
@@ -29,6 +33,8 @@ class CurriculoActivity : AppCompatActivity(), View.OnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_curriculo)
+
+        auth = Firebase.auth
 
         functions = Firebase.functions("southamerica-east1")
 
@@ -42,9 +48,10 @@ class CurriculoActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     override fun onClick(v: View?) {
+        //val email: String
         val nome = intent.getStringExtra("INome")
-        val email = intent.getStringExtra("IEmail")
-        val senha = intent.getStringExtra("ISenha")
+        val email = intent.getStringExtra("IEmail").toString()
+        val senha = intent.getStringExtra("ISenha").toString()
         val telefone = intent.getStringExtra("ITelefone")
         val end1 = intent.getStringExtra("IEnderecoUm")
         val end2 = intent.getStringExtra("IEnderecoDois")
@@ -55,6 +62,29 @@ class CurriculoActivity : AppCompatActivity(), View.OnClickListener {
 
         if (v!!.id == R.id.btnCadastrar) {
             val d = Dentista(nome, telefone, email, senha, end1, end2, end3, cv)
+
+            auth.createUserWithEmailAndPassword(d.email, d.senha)
+                .addOnCompleteListener(this) { task ->
+                    if (task.isSuccessful) {
+                        // Sign in success, update UI with the signed-in user's information
+                        Toast.makeText(this, "Cadastro Efetuado!", Toast.LENGTH_SHORT).show()
+                        val user = auth.currentUser
+                        if (user != null) {
+                            Toast.makeText(this, user.email, Toast.LENGTH_SHORT).show()
+                        }
+
+
+
+                    } else {
+                        // If sign in fails, display a message to the user.
+                        Snackbar.make(btnCadastrar, "Erro ao cadastrar!" + task.exception.toString(),
+                            10000).show()
+                    }
+                }
+
+
+
+
             cadastrarDentista(d)
                 .addOnCompleteListener(OnCompleteListener { task ->
                     if (!task.isSuccessful) {
@@ -99,5 +129,14 @@ class CurriculoActivity : AppCompatActivity(), View.OnClickListener {
                 val res = gson.toJson(task.result?.data)
                 res
             }
+    }
+
+    public override fun onStart() {
+        super.onStart()
+        // Check if user is signed in (non-null) and update UI accordingly.
+        val currentUser = auth.currentUser
+        if(currentUser != null){
+            Toast.makeText(this, "USUÁRIO LOGADO", Toast.LENGTH_SHORT).show()
+        }
     }
 }
