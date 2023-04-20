@@ -14,7 +14,8 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         android:text="\u003C voltar"
-        android:textColor="@color/black"/>
+        android:fontFamily="@font/avenirbold"
+        android:textColor="@color/azulclaro"/>
 
 
     <TextView
@@ -26,7 +27,9 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:textSize="40sp"
-        android:text="Currículo"/>
+        android:text="Currículo"
+        android:textColor="@color/azulescuro"
+        android:fontFamily="@font/avenirbold"/>
 
     <EditText
         android:id="@+id/etCurriculo"
@@ -36,15 +39,23 @@
         app:layout_constraintTop_toBottomOf="@+id/tvCurriculo"
         android:hint="Forneça uma breve descrição da sua experiência profissional"/>
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnCadastrar"
-        android:layout_width="wrap_content"
+        android:layout_width="160dp"
         android:layout_height="wrap_content"
         android:text="Cadastrar"
+        android:textColor="@color/white"
+        android:background="@drawable/custom_button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginBottom="80dp"
-        android:textSize="25sp"/>
+        android:layout_marginBottom="115dp"
+        android:textSize="20sp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="140dp"
+        android:background="@drawable/box"
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
