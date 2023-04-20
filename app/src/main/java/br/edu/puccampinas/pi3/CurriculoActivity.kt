@@ -44,14 +44,17 @@ class CurriculoActivity : AppCompatActivity(), View.OnClickListener {
     override fun onClick(v: View?) {
         val nome = intent.getStringExtra("INome")
         val email = intent.getStringExtra("IEmail")
+        val senha = intent.getStringExtra("ISenha")
         val telefone = intent.getStringExtra("ITelefone")
         val end1 = intent.getStringExtra("IEnderecoUm")
         val end2 = intent.getStringExtra("IEnderecoDois")
         val end3 = intent.getStringExtra("IEnderecoTres")
         val cv = etCurriculo.text.toString()
 
+        Toast.makeText(this, senha, Toast.LENGTH_SHORT).show()
+
         if (v!!.id == R.id.btnCadastrar) {
-            val d = Dentista(nome, telefone, email, end1, end2, end3, cv)
+            val d = Dentista(nome, telefone, email, senha, end1, end2, end3, cv)
             cadastrarDentista(d)
                 .addOnCompleteListener(OnCompleteListener { task ->
                     if (!task.isSuccessful) {
@@ -59,6 +62,8 @@ class CurriculoActivity : AppCompatActivity(), View.OnClickListener {
                         if (e is FirebaseFunctionsException) {
                             val code = e.code
                             val details = e.details
+                            Snackbar.make(btnCadastrar, "Erro no Cadastro. Tente Novamente.",
+                                Snackbar.LENGTH_LONG).show();
                         }
                     }else{
 
@@ -66,8 +71,8 @@ class CurriculoActivity : AppCompatActivity(), View.OnClickListener {
 
                         val insertInfo = gson.fromJson(genericResp.payload.toString(), GenericInsertResponse::class.java)
 
-                        Snackbar.make(btnCadastrar, "Produto cadastrado: " + insertInfo.docId,
-                            Snackbar.LENGTH_LONG).show();
+                        Snackbar.make(btnCadastrar, "Cadastro efetuado com sucesso!",
+                            2000).show();
                     }
                 })
         } else if (v!!.id == R.id.btnVoltar) {
@@ -81,6 +86,7 @@ class CurriculoActivity : AppCompatActivity(), View.OnClickListener {
             "nome" to d.nome,
             "tel" to d.telefone,
             "email" to d.email,
+            "senha" to d.senha,
             "end1" to d.end1,
             "end2" to d.end2,
             "end3" to d.end3,

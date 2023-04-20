@@ -14,6 +14,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     private lateinit var etNome : EditText
     private lateinit var etTelef : EditText
     private lateinit var etEmail : EditText
+    private lateinit var etSenha : EditText
     private lateinit var etEnd1 : EditText
     private lateinit var etEnd2 : EditText
     private lateinit var etEnd3 : EditText
@@ -26,6 +27,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         etNome = findViewById(R.id.etNome)
         etTelef = findViewById(R.id.etTelef)
         etEmail = findViewById(R.id.etEmail)
+        etSenha = findViewById(R.id.etSenha)
         etEnd1 = findViewById(R.id.etEnd1)
         etEnd2 = findViewById(R.id.etEnd2)
         etEnd3 = findViewById(R.id.etEnd3)
@@ -35,10 +37,10 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     override fun onClick(v: View?){
-        Toast.makeText(this, "sas", Toast.LENGTH_LONG).show()
         val nome = etNome.text.toString()
         val telefone = etTelef.text.toString()
         val email = etEmail.text.toString()
+        val senha = etSenha.text.toString()
         val enderecoUm = etEnd1.text.toString()
         val enderecoDois = etEnd2.text.toString()
         val enderecoTres = etEnd3.text.toString()
@@ -48,6 +50,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         intentProximo.putExtra("INome", nome)
         intentProximo.putExtra("ITelefone", telefone)
         intentProximo.putExtra("IEmail", email)
+        intentProximo.putExtra("ISenha", senha)
         intentProximo.putExtra("IEnderecoUm", enderecoUm)
         intentProximo.putExtra("IEnderecoDois", enderecoDois)
         intentProximo.putExtra("IEnderecoTres", enderecoTres)

@@ -10,23 +10,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ff99aadf-588d-482c-bc22-61980f27fb3a" name="Changes" comment="Criado layout tela de login">
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/br/edu/puccampinas/pi3/Emergencia.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/br/edu/puccampinas/pi3/EmergenciaActivity.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/br/edu/puccampinas/pi3/EmergenciaDataSource.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/br/edu/puccampinas/pi3/EmergenciasAdapter.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_emergencia.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/emergencia_item.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/br/edu/puccampinas/pi3/CurriculoActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/br/edu/puccampinas/pi3/CurriculoActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/br/edu/puccampinas/pi3/Dentista.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/br/edu/puccampinas/pi3/Dentista.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/br/edu/puccampinas/pi3/LoginActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/br/edu/puccampinas/pi3/LoginActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/br/edu/puccampinas/pi3/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/br/edu/puccampinas/pi3/MainActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[C:\Users\FoxyN\.android\avd\Pixel_4_API_29.avd]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[C:\Users\jonie\.android\avd\Pixel_6_API_29.avd]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -46,21 +43,24 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
   <component name="ProjectId" id="2NWxL1Qr1qLGvSM9Hf8zCRv5JZe" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
-    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/AndroidStudio-atividades/PI3&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.cidr.known.project.marker": "true",
+    "cidr.known.project.marker": "true",
+    "last_opened_file_path": "C:/AndroidStudioProjetos/FragmentsExc",
+    "settings.editor.selected.configurable": "preferences.keymap"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="android.template.-1511025449">
       <recent name="br.edu.puccampinas.pi3" />
