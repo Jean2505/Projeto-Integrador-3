@@ -12,6 +12,9 @@
         android:theme="@style/Theme.PI3"
         tools:targetApi="31">
         <activity
+            android:name=".EmergenciaActivity"
+            android:exported="false" />
+        <activity
             android:name=".PerfilActivity"
             android:exported="false" />
         <activity
@@ -24,7 +27,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".EmergenciaActivity"
+            android:name=".EmergenciasActivity"
             android:exported="false" />
         <activity
             android:name=".LoginActivity"

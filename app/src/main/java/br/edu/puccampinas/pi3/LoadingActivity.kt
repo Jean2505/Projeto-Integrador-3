@@ -22,13 +22,13 @@ class LoadingActivity : AppCompatActivity() {
 
     public override fun onStart() {
         super.onStart()
-        Firebase.auth.signOut()
+        // Firebase.auth.signOut()
         // Check if user is signed in (non-null) and update UI accordingly.
         val currentUser = auth.currentUser
         if(currentUser != null){
             Toast.makeText(this, "qualquer coisa que eu quiser", Toast.LENGTH_SHORT).show()
 
-            val iLogado = Intent(this,EmergenciaActivity::class.java)
+            val iLogado = Intent(this,EmergenciasActivity::class.java)
 
             iLogado.putExtra("email", currentUser.email)
             this.startActivity(iLogado)

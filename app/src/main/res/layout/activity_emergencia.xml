@@ -6,19 +6,55 @@
     android:layout_height="match_parent"
     tools:context=".EmergenciaActivity">
 
-    <Button
-        android:id="@+id/btnPerfil"
+    <TextView
+        android:id="@+id/tvNome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="PERFIL VRAU"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvEmergencias"
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/tvTelefone"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layoutManager="LinearLayoutManager"
-        app:layout_constraintTop_toBottomOf="@id/btnPerfil"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvNome"/>
+
+    <TextView
+        android:id="@+id/tvFoto1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvTelefone"/>
+
+    <TextView
+        android:id="@+id/tvFoto2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvFoto1"/>
+
+    <TextView
+        android:id="@+id/tvFoto3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvFoto2"/>
+
+    <TextView
+        android:id="@+id/tvStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvFoto3"/>
+
+    <TextView
+        android:id="@+id/tvDataHora"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvStatus"/>
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

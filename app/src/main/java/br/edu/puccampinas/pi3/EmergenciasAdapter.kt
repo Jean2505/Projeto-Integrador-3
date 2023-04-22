@@ -1,8 +1,10 @@
 package br.edu.puccampinas.pi3
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.appcompat.widget.AppCompatCheckBox
 import androidx.appcompat.widget.AppCompatTextView
 import androidx.recyclerview.widget.DiffUtil
@@ -13,13 +15,34 @@ class EmergenciasAdapter(private val dataSet: List<Emergencia>):
     ListAdapter<Emergencia, EmergenciasAdapter.EmergenciaViewHolder>(EmergenciaDiffCallback) {
         class EmergenciaViewHolder(itemView: View) :
             RecyclerView.ViewHolder(itemView) {
-            private val EmergenciaTextView: AppCompatTextView = itemView.findViewById(R.id.tvEmergencia)
+            private val EmergenciaTextView: AppCompatTextView = itemView.findViewById(R.id.tvNome)
             private var emergenciaAtual: Emergencia? = null
+            private val TesteTextView: AppCompatTextView = itemView.findViewById(R.id.tvData)
+            private val BlocoTextView: AppCompatTextView = itemView.findViewById(R.id.tvBloco)
 
             fun bind(t: Emergencia) {
                 emergenciaAtual = t
                 EmergenciaTextView.text = t.nome
+                TesteTextView.text = t.dataHora
+                BlocoTextView.setOnClickListener {
+                    Toast.makeText(itemView.context, "Funcionou!!!!!!!!!!!!!!!!!!!!", Toast.LENGTH_SHORT).show()
+
+                    val iEmergencia = Intent(itemView.context,EmergenciaActivity::class.java)
+                    iEmergencia.putExtra("nome",t.nome)
+                    iEmergencia.putExtra("telefone",t.telefone)
+                    iEmergencia.putExtra("foto1",t.foto1)
+                    iEmergencia.putExtra("foto2",t.foto2)
+                    iEmergencia.putExtra("foto3",t.foto3)
+                    iEmergencia.putExtra("status",t.status)
+                    iEmergencia.putExtra("dataHora",t.dataHora)
+
+                    itemView.context.startActivity(iEmergencia)
+                }
+
             }
+
+
+
         }
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): EmergenciaViewHolder {
             val view = LayoutInflater.from(parent.context)

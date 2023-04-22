@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import br.edu.puccampinas.pi3.databinding.ActivityLoginBinding
-import com.google.firebase.FirebaseException
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
@@ -33,7 +32,7 @@ class LoginActivity : AppCompatActivity() {
                 .addOnCompleteListener(this) { task ->
                     if (task.isSuccessful) {
                         val user = auth.currentUser
-                        val iLogado = Intent(this, EmergenciaActivity::class.java)
+                        val iLogado = Intent(this, EmergenciasActivity::class.java)
                         if (user != null) {
                             iLogado.putExtra("email", user.email)
                             this.startActivity(iLogado)
