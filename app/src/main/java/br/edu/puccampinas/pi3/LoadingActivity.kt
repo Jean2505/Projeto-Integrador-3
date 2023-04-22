@@ -27,6 +27,11 @@ class LoadingActivity : AppCompatActivity() {
         val currentUser = auth.currentUser
         if(currentUser != null){
             Toast.makeText(this, "qualquer coisa que eu quiser", Toast.LENGTH_SHORT).show()
+
+            val iLogado = Intent(this,EmergenciaActivity::class.java)
+
+            iLogado.putExtra("email", currentUser.email)
+            this.startActivity(iLogado)
         }
         else{
             if (currentUser != null) {

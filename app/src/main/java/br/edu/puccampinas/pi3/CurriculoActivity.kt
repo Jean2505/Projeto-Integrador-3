@@ -22,7 +22,6 @@ import com.google.gson.GsonBuilder
 class CurriculoActivity : AppCompatActivity(), View.OnClickListener {
 
     private lateinit var auth: FirebaseAuth
-
     private lateinit var btnVoltar: Button
     private lateinit var btnCadastrar: Button
     private lateinit var etCurriculo: EditText
@@ -82,9 +81,6 @@ class CurriculoActivity : AppCompatActivity(), View.OnClickListener {
                     }
                 }
 
-
-
-
             cadastrarDentista(d)
                 .addOnCompleteListener(OnCompleteListener { task ->
                     if (!task.isSuccessful) {
@@ -137,6 +133,9 @@ class CurriculoActivity : AppCompatActivity(), View.OnClickListener {
         val currentUser = auth.currentUser
         if(currentUser != null){
             Toast.makeText(this, "USUÁRIO LOGADO", Toast.LENGTH_SHORT).show()
+        }
+        else{
+            Toast.makeText(this, "USUARIO SEM LOGIN", Toast.LENGTH_SHORT).show()
         }
     }
 }

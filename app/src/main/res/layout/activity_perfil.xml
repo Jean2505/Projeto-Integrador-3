@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".PerfilActivity">
+
+    <Button
+        android:id="@+id/btnVoltar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="voltar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+        android:id="@+id/tvEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Email :"
+        app:layout_constraintTop_toBottomOf="@id/btnVoltar"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <EditText
+        android:id="@+id/etEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/tvEmail"
+        android:enabled="false"
+        android:text=""/>
+
+    <Button
+        android:id="@+id/btnEdit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="editar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <Button
+        android:id="@+id/btnConcEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Concluir"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBaseline_toBaselineOf="@id/tvEmail"
+        android:enabled="false"/>
+
+    <TextView
+        android:id="@+id/tvSenha"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Senha :"
+        app:layout_constraintTop_toBottomOf="@id/etEmail"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/etSenha"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/tvSenha"
+        android:enabled="false"
+        android:text="placeholder"
+        android:inputType="textPassword"/>
+
+    <Button
+        android:id="@+id/btnConcSenha"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Concluir"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBaseline_toBaselineOf="@id/tvSenha"
+        android:enabled="false"/>
+
+    <TextView
+        android:id="@+id/tvNome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nome :"
+        app:layout_constraintTop_toBottomOf="@id/etSenha"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <EditText
+        android:id="@+id/etNome"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/tvNome"
+        android:enabled="false"
+        android:text=""/>
+    <Button
+        android:id="@+id/btnConcNome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Concluir"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBaseline_toBaselineOf="@id/tvNome"
+        android:enabled="false"/>
+
+    <TextView
+        android:id="@+id/tvTelef"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Telefone :"
+        app:layout_constraintTop_toBottomOf="@id/etNome"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <EditText
+        android:id="@+id/etTelef"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/tvTelef"
+        android:enabled="false"
+        android:text=""/>
+
+    <Button
+        android:id="@+id/btnConcTelef"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Concluir"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBaseline_toBaselineOf="@id/tvTelef"
+        android:enabled="false"/>
+
+    <TextView
+        android:id="@+id/tvEnd1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Enereço 1 :"
+        app:layout_constraintTop_toBottomOf="@id/etTelef"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <EditText
+        android:id="@+id/etEnd1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/tvEnd1"
+        android:enabled="false"
+        android:text=""/>
+
+    <Button
+        android:id="@+id/btnConcEnd1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Concluir"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBaseline_toBaselineOf="@id/tvEnd1"
+        android:enabled="false"/>
+
+    <TextView
+        android:id="@+id/tvEnd2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Enereço 2 :"
+        app:layout_constraintTop_toBottomOf="@id/etEnd1"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <EditText
+        android:id="@+id/etEnd2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/tvEnd2"
+        android:enabled="false"
+        android:text=""/>
+
+    <Button
+        android:id="@+id/btnConcEnd2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Concluir"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBaseline_toBaselineOf="@id/tvEnd2"
+        android:enabled="false"/>
+
+    <TextView
+        android:id="@+id/tvEnd3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Enereço 3 :"
+        app:layout_constraintTop_toBottomOf="@id/etEnd2"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <EditText
+        android:id="@+id/etEnd3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/tvEnd3"
+        android:enabled="false"
+        android:text=""/>
+
+    <Button
+        android:id="@+id/btnConcEnd3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Concluir"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBaseline_toBaselineOf="@id/tvEnd3"
+        android:enabled="false"/>
+
+    <TextView
+        android:id="@+id/tvCv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Currículo :"
+        app:layout_constraintTop_toBottomOf="@id/etEnd3"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <EditText
+        android:id="@+id/etCv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/tvCv"
+        android:enabled="false"
+        android:text=""/>
+
+    <Button
+        android:id="@+id/btnConcCv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Concluir"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBaseline_toBaselineOf="@id/tvCv"
+        android:enabled="false"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

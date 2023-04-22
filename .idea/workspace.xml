@@ -9,16 +9,29 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ff99aadf-588d-482c-bc22-61980f27fb3a" name="Changes" comment="Realização de login do usuário">
+    <list default="true" id="ff99aadf-588d-482c-bc22-61980f27fb3a" name="Changes" comment="Implementação do Firebase Auth para cadastro do dentista">
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/br/edu/puccampinas/pi3/PerfilActivity.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_perfil.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/br/edu/puccampinas/pi3/CurriculoActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/br/edu/puccampinas/pi3/CurriculoActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/br/edu/puccampinas/pi3/EmergenciaActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/br/edu/puccampinas/pi3/EmergenciaActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/br/edu/puccampinas/pi3/LoadingActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/br/edu/puccampinas/pi3/LoadingActivity.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/br/edu/puccampinas/pi3/LoginActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/br/edu/puccampinas/pi3/LoginActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/br/edu/puccampinas/pi3/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/br/edu/puccampinas/pi3/MainActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_curriculo.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_curriculo.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_emergencia.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_emergencia.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/emergencia_item.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/emergencia_item.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[C:\Users\User\.android\avd\Pixel_5_API_30.avd]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[C:\Users\jonie\.android\avd\Pixel_6_API_29.avd]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -35,7 +48,6 @@
   <component name="Git.Settings">
     <option name="PUSH_AUTO_UPDATE" value="true" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -59,7 +71,7 @@
   }
 }</component>
   <component name="RecentsManager">
-    <key name="android.template.-186579152">
+    <key name="android.template.498378701">
       <recent name="br.edu.puccampinas.pi3" />
     </key>
     <key name="android.template.-1511025449">
@@ -156,12 +168,12 @@
       <option name="project" value="LOCAL" />
       <updated>1682006154988</updated>
     </task>
-    <task id="LOCAL-00004" summary="Realização de login do usuário">
-      <created>1682025910559</created>
+    <task id="LOCAL-00004" summary="Implementação do Firebase Auth para cadastro do dentista">
+      <created>1682019560813</created>
       <option name="number" value="00004" />
       <option name="presentableId" value="LOCAL-00004" />
       <option name="project" value="LOCAL" />
-      <updated>1682025910559</updated>
+      <updated>1682019560813</updated>
     </task>
     <option name="localTasksCounter" value="5" />
     <servers />
@@ -180,7 +192,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Criado layout tela de login" />
     <MESSAGE value="Correção de erros e implementação de senha" />
-    <MESSAGE value="Realização de login do usuário" />
-    <option name="LAST_COMMIT_MESSAGE" value="Realização de login do usuário" />
+    <MESSAGE value="Implementação do Firebase Auth para cadastro do dentista" />
+    <option name="LAST_COMMIT_MESSAGE" value="Implementação do Firebase Auth para cadastro do dentista" />
   </component>
 </project>

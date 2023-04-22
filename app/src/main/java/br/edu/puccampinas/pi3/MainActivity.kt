@@ -7,8 +7,13 @@ import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
+
+    private lateinit var auth: FirebaseAuth
 
     private lateinit var btnProximo : Button
     private lateinit var etNome : EditText
@@ -22,6 +27,8 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        auth = Firebase.auth
 
         btnProximo = findViewById(R.id.btnProximo)
         etNome = findViewById(R.id.etNome)
@@ -44,6 +51,8 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         val enderecoUm = etEnd1.text.toString()
         val enderecoDois = etEnd2.text.toString()
         val enderecoTres = etEnd3.text.toString()
+
+        Firebase.auth.signOut()
 
         val intentProximo = Intent(this,CurriculoActivity::class.java)
 
