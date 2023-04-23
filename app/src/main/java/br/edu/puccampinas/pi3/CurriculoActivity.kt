@@ -13,6 +13,7 @@ import com.google.android.gms.tasks.Task
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
+import com.google.firebase.firestore.auth.Token
 import com.google.firebase.functions.FirebaseFunctions
 import com.google.firebase.functions.FirebaseFunctionsException
 import com.google.firebase.functions.ktx.functions
@@ -45,9 +46,9 @@ class CurriculoActivity : AppCompatActivity(), View.OnClickListener {
         btnCadastrar.setOnClickListener(this)
         btnVoltar.setOnClickListener(this)
     }
-
+    private lateinit var uid: String
     override fun onClick(v: View?) {
-        //val email: String
+
         val nome = intent.getStringExtra("INome")
         val email = intent.getStringExtra("IEmail").toString()
         val senha = intent.getStringExtra("ISenha").toString()
@@ -60,19 +61,36 @@ class CurriculoActivity : AppCompatActivity(), View.OnClickListener {
         Toast.makeText(this, senha, Toast.LENGTH_SHORT).show()
 
         if (v!!.id == R.id.btnCadastrar) {
-            val d = Dentista(nome, telefone, email, senha, end1, end2, end3, cv)
 
-            auth.createUserWithEmailAndPassword(d.email, d.senha)
+
+            auth.createUserWithEmailAndPassword(email, senha)
                 .addOnCompleteListener(this) { task ->
                     if (task.isSuccessful) {
                         // Sign in success, update UI with the signed-in user's information
-                        Toast.makeText(this, "Cadastro Efetuado!", Toast.LENGTH_SHORT).show()
-                        val user = auth.currentUser
-                        if (user != null) {
-                            Toast.makeText(this, user.email, Toast.LENGTH_SHORT).show()
-                        }
+                        Toast.makeText(this, "Cadastro Efetuado!" + auth.currentUser!!.uid, Toast.LENGTH_SHORT).show()
+                        uid = auth.currentUser!!.uid
 
+                        val d = Dentista( nome, telefone, email!!, senha!!, end1, end2, end3, cv)
+                        cadastrarDentista(d, uid)
+                            .addOnCompleteListener(OnCompleteListener { task ->
+                                if (!task.isSuccessful) {
+                                    val e = task.exception
+                                    if (e is FirebaseFunctionsException) {
+                                        val code = e.code
+                                        val details = e.details
+                                        Snackbar.make(btnCadastrar, "Erro no Cadastro. Tente Novamente.",
+                                            Snackbar.LENGTH_LONG).show();
+                                    }
+                                }else{
 
+                                    val genericResp = gson.fromJson(task.result, FunctionsGenericResponse::class.java)
+
+                                    val insertInfo = gson.fromJson(genericResp.payload.toString(), GenericInsertResponse::class.java)
+
+                                    Snackbar.make(btnCadastrar, "Cadastro efetuado com sucesso!",
+                                        2000).show();
+                                }
+                            })
 
                     } else {
                         // If sign in fails, display a message to the user.
@@ -81,34 +99,16 @@ class CurriculoActivity : AppCompatActivity(), View.OnClickListener {
                     }
                 }
 
-            cadastrarDentista(d)
-                .addOnCompleteListener(OnCompleteListener { task ->
-                    if (!task.isSuccessful) {
-                        val e = task.exception
-                        if (e is FirebaseFunctionsException) {
-                            val code = e.code
-                            val details = e.details
-                            Snackbar.make(btnCadastrar, "Erro no Cadastro. Tente Novamente.",
-                                Snackbar.LENGTH_LONG).show();
-                        }
-                    }else{
-
-                        val genericResp = gson.fromJson(task.result, FunctionsGenericResponse::class.java)
-
-                        val insertInfo = gson.fromJson(genericResp.payload.toString(), GenericInsertResponse::class.java)
-
-                        Snackbar.make(btnCadastrar, "Cadastro efetuado com sucesso!",
-                            2000).show();
-                    }
-                })
         } else if (v!!.id == R.id.btnVoltar) {
             val intentVoltar = Intent(this, MainActivity::class.java)
             this.startActivity(intentVoltar)
         }
     }
+    private fun cadastrarDentista(d: Dentista, uid: String): Task<String> {
 
-    private fun cadastrarDentista(d: Dentista): Task<String> {
         val data = hashMapOf(
+            "uid" to uid,
+            "status" to true,
             "nome" to d.nome,
             "tel" to d.telefone,
             "email" to d.email,

@@ -3,7 +3,6 @@ package br.edu.puccampinas.pi3
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import br.edu.puccampinas.pi3.databinding.ActivityEmergenciaBinding
-import br.edu.puccampinas.pi3.databinding.ActivityEmergenciasBinding
 
 class EmergenciaActivity : AppCompatActivity() {
 

@@ -11,6 +11,7 @@ import com.google.firebase.ktx.Firebase
 
 class LoginActivity : AppCompatActivity() {
 
+
     private lateinit var binding: ActivityLoginBinding
     private lateinit var auth: FirebaseAuth
 
