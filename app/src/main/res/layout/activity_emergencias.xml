@@ -6,11 +6,20 @@
     android:layout_height="match_parent"
     tools:context=".EmergenciasActivity">
 
-    <Button
+
+    <ImageView
+        android:layout_width="264dp"
+        android:layout_height="62dp"
+        android:src="@drawable/logo2"
+        android:layout_marginLeft="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnPerfil"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="PERFIL VRAU"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:background="@drawable/perfil"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
 
@@ -18,6 +27,7 @@
         android:id="@+id/rvEmergencias"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginTop="62dp"
         app:layoutManager="LinearLayoutManager"
         app:layout_constraintTop_toBottomOf="@id/btnPerfil"/>
 

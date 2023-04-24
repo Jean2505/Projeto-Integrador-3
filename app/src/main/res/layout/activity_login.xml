@@ -10,7 +10,7 @@
         android:id="@+id/imgTeeth"
         android:layout_width="350dp"
         android:layout_height="102dp"
-        android:src="@drawable/logo"
+        android:src="@drawable/logo2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -32,9 +32,13 @@
     <EditText
         android:id="@+id/etEmail"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="45dp"
         android:layout_margin="10dp"
-        android:paddingTop="20dp"
+        android:textColor="@color/black"
+        android:background="@drawable/textbox"
+        android:drawableLeft="@drawable/email"
+        android:drawablePadding="5dp"
+        android:paddingLeft="10dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvEmail"/>
 
@@ -55,13 +59,16 @@
     <EditText
         android:id="@+id/etSenha"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="45dp"
         android:layout_margin="10dp"
-        android:paddingTop="20dp"
+        android:background="@drawable/textbox"
+        android:textColor="@color/black"
+        android:drawableLeft="@drawable/lock"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvSenha"
         android:inputType="textPassword"
-        />
+        android:drawablePadding="8dp"
+        android:paddingLeft="10dp"/>
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnLogar"
@@ -106,7 +113,7 @@
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="140dp"
+        android:layout_height="180dp"
         android:background="@drawable/box"
         app:layout_constraintBottom_toBottomOf="parent"/>
 

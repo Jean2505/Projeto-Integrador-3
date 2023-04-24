@@ -16,10 +16,11 @@ class EmergenciaActivity : AppCompatActivity() {
 
         binding.tvNome.text = intent.getStringExtra("nome")
         binding.tvTelefone.text = intent.getStringExtra("telefone")
-        binding.tvFoto1.text = intent.getStringExtra("foto1")
-        binding.tvFoto2.text = intent.getStringExtra("foto2")
-        binding.tvFoto3.text = intent.getStringExtra("foto3")
-        binding.tvStatus.text = intent.getStringExtra("status")
+        //binding.tvFoto1.sr = intent.getStringExtra("foto1")
+        //binding.tvFoto2.src = intent.getStringExtra("foto2")
+        //binding.tvFoto3.text = intent.getStringExtra("foto3")
+        //binding.ivFoto1.setImageResource(R.drawable.bebe2)
+
         binding.tvDataHora.text = intent.getStringExtra("dataHora")
     }
 }
