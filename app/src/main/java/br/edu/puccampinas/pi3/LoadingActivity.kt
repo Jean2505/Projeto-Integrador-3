@@ -3,10 +3,14 @@ package br.edu.puccampinas.pi3
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.CountDownTimer
+import android.os.Handler
+import android.os.Looper
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
+import java.util.*
 
 class LoadingActivity : AppCompatActivity() {
 
@@ -19,6 +23,7 @@ class LoadingActivity : AppCompatActivity() {
         auth = Firebase.auth
 
     }
+
 
     public override fun onStart() {
         super.onStart()
@@ -45,4 +50,5 @@ class LoadingActivity : AppCompatActivity() {
             this.startActivity(intentLogin)
         }
     }
+
 }

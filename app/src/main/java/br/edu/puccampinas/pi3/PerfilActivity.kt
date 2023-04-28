@@ -3,6 +3,7 @@ package br.edu.puccampinas.pi3
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.MotionEvent
 import android.widget.Toast
 import br.edu.puccampinas.pi3.databinding.ActivityPerfilBinding
 import com.google.firebase.auth.ktx.auth
@@ -22,6 +23,14 @@ class PerfilActivity : AppCompatActivity() {
         binding = ActivityPerfilBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        binding.scSwitch.setOnCheckedChangeListener{ buttonView, isChecked ->
+            if(isChecked)
+            {
+                binding.tvStatus.text = "Disponível"
+            }else{
+                binding.tvStatus.text = "Ocupado"
+            }
+        }
         //val user = Firebase.auth.currentUser
 
         binding.btnEdit.setOnClickListener{
@@ -185,7 +194,6 @@ class PerfilActivity : AppCompatActivity() {
                 }
             }
     }
-
 
 
 }
