@@ -8,6 +8,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import br.edu.puccampinas.pi3.datastore.UserPreferencesRepository
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.android.gms.tasks.Task
 import com.google.android.material.snackbar.Snackbar
@@ -18,6 +19,7 @@ import com.google.firebase.functions.FirebaseFunctions
 import com.google.firebase.functions.FirebaseFunctionsException
 import com.google.firebase.functions.ktx.functions
 import com.google.firebase.ktx.Firebase
+import com.google.firebase.messaging.ktx.messaging
 import com.google.gson.GsonBuilder
 
 class CurriculoActivity : AppCompatActivity(), View.OnClickListener {
@@ -29,6 +31,7 @@ class CurriculoActivity : AppCompatActivity(), View.OnClickListener {
 
     private lateinit var functions: FirebaseFunctions
     private val gson = GsonBuilder().enableComplexMapKeySerialization().create()
+    private lateinit var userPreferencesRepository: UserPreferencesRepository
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -105,18 +108,19 @@ class CurriculoActivity : AppCompatActivity(), View.OnClickListener {
         }
     }
     private fun cadastrarDentista(d: Dentista, uid: String): Task<String> {
-
+        val fcmToken = userPreferencesRepository.fcmToken
         val data = hashMapOf(
             "uid" to uid,
             "status" to true,
             "nome" to d.nome,
             "tel" to d.telefone,
             "email" to d.email,
-            "senha" to d.senha,
+            //"senha" to d.senha,
             "end1" to d.end1,
             "end2" to d.end2,
             "end3" to d.end3,
-            "cv" to d.cv
+            "cv" to d.cv,
+            "fcmToken" to fcmToken
         )
         return functions
             .getHttpsCallable("addDentista")
@@ -138,4 +142,5 @@ class CurriculoActivity : AppCompatActivity(), View.OnClickListener {
             Toast.makeText(this, "USUARIO SEM LOGIN", Toast.LENGTH_SHORT).show()
         }
     }
+
 }
