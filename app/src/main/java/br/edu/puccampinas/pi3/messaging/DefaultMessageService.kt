@@ -6,7 +6,6 @@ import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
 import android.media.RingtoneManager
-import android.util.Log
 import androidx.core.app.NotificationCompat
 import br.edu.puccampinas.pi3.EmergenciaActivity
 import br.edu.puccampinas.pi3.R
@@ -22,11 +21,12 @@ class DefaultMessageService : FirebaseMessagingService() {
      */
 
     override fun onMessageReceived(remoteMessage: RemoteMessage) {
-        showNotification("Pressione para ver detalhes")
+        val msgData = remoteMessage.data
+        var msg = msgData["text"]
 
+        showNotification("Pressione para ver detalhes", msgData["nome"].toString(),
+            msgData["telefone"].toString())
     }
-
-
 
     /***
      * Aqui a gente vai adicionar um novo fcmToken no banco de dados através de um update
@@ -44,9 +44,11 @@ class DefaultMessageService : FirebaseMessagingService() {
      * ou enviar um parametro na Intent para tratar qual fragment abrir.(desafio para vc fazer)
      */
 
-    private fun showNotification(messageBody: String) {
+    private fun showNotification(messageBody: String, nome: String, telefone: String) {
         val intent = Intent(this, EmergenciaActivity::class.java)
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+        intent.putExtra("nome", nome)
+        intent.putExtra("telefone", telefone)
         val pendingIntent = PendingIntent.getActivity(this,0,intent,PendingIntent.FLAG_IMMUTABLE)
         val channelId = "canal_padrao"
         val defaultSoundUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION)

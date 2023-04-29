@@ -19,6 +19,7 @@ import com.google.firebase.functions.FirebaseFunctions
 import com.google.firebase.functions.FirebaseFunctionsException
 import com.google.firebase.functions.ktx.functions
 import com.google.firebase.ktx.Firebase
+import com.google.firebase.messaging.FirebaseMessaging
 import com.google.firebase.messaging.ktx.messaging
 import com.google.gson.GsonBuilder
 
@@ -33,9 +34,13 @@ class CurriculoActivity : AppCompatActivity(), View.OnClickListener {
     private val gson = GsonBuilder().enableComplexMapKeySerialization().create()
     private lateinit var userPreferencesRepository: UserPreferencesRepository
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         setContentView(R.layout.activity_curriculo)
+
+        userPreferencesRepository = UserPreferencesRepository.getInstance(this)
 
         auth = Firebase.auth
 
@@ -108,7 +113,9 @@ class CurriculoActivity : AppCompatActivity(), View.OnClickListener {
         }
     }
     private fun cadastrarDentista(d: Dentista, uid: String): Task<String> {
-        val fcmToken = userPreferencesRepository.fcmToken
+        val fcmToken = Firebase.messaging.token.result
+
+        Toast.makeText(this, fcmToken, Toast.LENGTH_LONG).show()
         val data = hashMapOf(
             "uid" to uid,
             "status" to true,

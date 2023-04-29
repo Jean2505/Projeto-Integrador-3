@@ -1,7 +1,9 @@
 package br.edu.puccampinas.pi3
 
+import android.app.PendingIntent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import br.edu.puccampinas.pi3.databinding.ActivityEmergenciaBinding
 
 class EmergenciaActivity : AppCompatActivity() {
@@ -13,7 +15,7 @@ class EmergenciaActivity : AppCompatActivity() {
 
         binding = ActivityEmergenciaBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
+        Toast.makeText(this, intent.getStringExtra("nome"), Toast.LENGTH_SHORT).show()
         binding.tvNome.text = intent.getStringExtra("nome")
         binding.tvTelefone.text = intent.getStringExtra("telefone")
         //binding.tvFoto1.sr = intent.getStringExtra("foto1")

@@ -28,11 +28,16 @@ class LoadingActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        userPreferencesRepository = UserPreferencesRepository.getInstance(this)
+
         setContentView(R.layout.activity_loading)
 
+
+
         auth = Firebase.auth
-        storeFcmToken()
-        askNotificationPermission()
+        storeFcmToken();
+        askNotificationPermission();
     }
     private fun storeFcmToken(){
         Firebase.messaging.token.addOnCompleteListener(OnCompleteListener { task ->
@@ -41,6 +46,7 @@ class LoadingActivity : AppCompatActivity() {
             }
             // guardar esse token.
             userPreferencesRepository.fcmToken = task.result
+            Toast.makeText(this, userPreferencesRepository.fcmToken, Toast.LENGTH_SHORT).show()
         })
     }
 
@@ -49,6 +55,7 @@ class LoadingActivity : AppCompatActivity() {
         ActivityResultContracts.RequestPermission()
     ) { isGranted: Boolean ->
         if (!isGranted) {
+            Toast.makeText(this, "NOTIFICAÇÕES DESABILITADAS", Toast.LENGTH_SHORT).show()
         }
     }
     private fun askNotificationPermission() {
@@ -58,12 +65,13 @@ class LoadingActivity : AppCompatActivity() {
                 PackageManager.PERMISSION_GRANTED
             ) {
                 // FCM SDK (and your app) can post notifications.
+                Toast.makeText(this, "PODE FAZER NOTIFICAS", Toast.LENGTH_LONG).show()
             } else if (shouldShowRequestPermissionRationale(Manifest.permission.POST_NOTIFICATIONS)) {
                 // TODO: display an educational UI explaining to the user the features that will be enabled
                 //       by them granting the POST_NOTIFICATION permission. This UI should provide the user
                 //       "OK" and "No thanks" buttons. If the user selects "OK," directly request the permission.
                 //       If the user selects "No thanks," allow the user to continue without notifications.
-                requestPermissionLauncher.launch(Manifest.permission.POST_NOTIFICATIONS)
+                //requestPermissionLauncher.launch(Manifest.permission.POST_NOTIFICATIONS)
             } else {
                 // Directly ask for the permission
                 requestPermissionLauncher.launch(Manifest.permission.POST_NOTIFICATIONS)
