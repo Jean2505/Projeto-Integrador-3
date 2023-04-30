@@ -24,6 +24,7 @@ class PerfilActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.scSwitch.setOnCheckedChangeListener{ buttonView, isChecked ->
+            attStatus(isChecked)
             if(isChecked)
             {
                 binding.tvStatus.text = "Disponível"
@@ -31,7 +32,11 @@ class PerfilActivity : AppCompatActivity() {
                 binding.tvStatus.text = "Ocupado"
             }
         }
-        //val user = Firebase.auth.currentUser
+
+        binding.btnVoltar.setOnClickListener{
+            val intent = Intent(this, EmergenciasActivity::class.java)
+            this.startActivity(intent)
+        }
 
         binding.btnEdit.setOnClickListener{
             binding.etEmail.isEnabled = true
@@ -173,6 +178,17 @@ class PerfilActivity : AppCompatActivity() {
         }
     }
 
+    private fun attStatus(status: Boolean) {
+        db.collection("dentistas").whereEqualTo("email", user!!.email)
+            .get()
+            .addOnSuccessListener { documents ->
+                for(document in documents) {
+                    db.collection("dentistas").document(document.id)
+                        .update("status", status)
+                }
+            }
+    }
+
     public override fun onStart() {
         super.onStart()
         binding.etEmail.hint = user!!.email
@@ -189,6 +205,17 @@ class PerfilActivity : AppCompatActivity() {
                                 binding.etEnd2.hint = documento.getString("end2")
                                 binding.etEnd3.hint = documento.getString("end3")
                                 binding.etCv.hint = documento.getString("cv")
+
+                                //Toast.makeText(this, documento.getString("status"), Toast.LENGTH_SHORT).show()
+
+                                if(documento.getBoolean("status") == true) {
+                                    binding.scSwitch.isChecked = true
+                                    binding.tvStatus.text = "Disponível"
+                                }
+                                else if (documento.getBoolean("status") == false) {
+                                    binding.scSwitch.isChecked = false
+                                    binding.tvStatus.text = "Ocupado"
+                                }
                             }
                         }
                 }

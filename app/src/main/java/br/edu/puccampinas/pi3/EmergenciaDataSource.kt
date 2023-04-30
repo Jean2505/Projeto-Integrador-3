@@ -1,7 +1,7 @@
 package br.edu.puccampinas.pi3
 
 fun emergenciaList(): List<Emergencia>{
-    return listOf(
+    return mutableListOf(
         Emergencia(nome = "João Augusto Ferraz",
             telefone = "11111-1111",
             foto1 = "cywhrvbuyewb",

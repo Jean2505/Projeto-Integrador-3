@@ -10,6 +10,7 @@ import androidx.appcompat.widget.AppCompatTextView
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import java.io.Serializable
 
 class EmergenciasAdapter(private val dataSet: List<Emergencia>):
     ListAdapter<Emergencia, EmergenciasAdapter.EmergenciaViewHolder>(EmergenciaDiffCallback) {
@@ -30,9 +31,9 @@ class EmergenciasAdapter(private val dataSet: List<Emergencia>):
                     val iEmergencia = Intent(itemView.context,EmergenciaActivity::class.java)
                     iEmergencia.putExtra("nome",t.nome)
                     iEmergencia.putExtra("telefone",t.telefone)
-                    iEmergencia.putExtra("foto1",t.foto1)
-                    iEmergencia.putExtra("foto2",t.foto2)
-                    iEmergencia.putExtra("foto3",t.foto3)
+                    iEmergencia.putExtra("Foto1",t.foto1)
+                    iEmergencia.putExtra("Foto2",t.foto2)
+                    iEmergencia.putExtra("Foto3",t.foto3)
                     iEmergencia.putExtra("status",t.status)
                     iEmergencia.putExtra("dataHora",t.dataHora)
 
