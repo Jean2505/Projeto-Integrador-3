@@ -8,7 +8,8 @@ fun emergenciaList(): List<Emergencia>{
             foto2 = "cbhewvcbuye",
             foto3 = "cbhuredbcuj",
             status = "Nova",
-            dataHora = "22/04/2023 15:27"),
+            dataHora = "22/04/2023 15:27",
+            emergencia = "a"),
 
         Emergencia(nome = "Jean Victor Chaves",
             telefone = "22222-2222",
@@ -16,7 +17,8 @@ fun emergenciaList(): List<Emergencia>{
             foto2 = "cbhewvcbuye",
             foto3 = "cbhuredbcuj",
             status = "Nova",
-            dataHora = "25/05/2023 05:25"),
+            dataHora = "25/05/2023 05:25",
+            emergencia = "a"),
 
         Emergencia(nome = "Guilherme Vieira",
             telefone = "33333-3333",
@@ -24,6 +26,7 @@ fun emergenciaList(): List<Emergencia>{
             foto2 = "cbhewvcbuye",
             foto3 = "cbhuredbcuj",
             status = "Nova",
-            dataHora = "26/05/2023 15:27")
+            dataHora = "26/05/2023 15:27",
+            emergencia = "a")
     )
 }

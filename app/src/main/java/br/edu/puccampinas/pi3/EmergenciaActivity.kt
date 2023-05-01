@@ -78,9 +78,14 @@ class EmergenciaActivity : AppCompatActivity() {
                     for (document in documents) {
                         val doc = hashMapOf(
                             "profissional" to user.uid,
-                            "status" to "aceita"
+                            "status" to "aceita",
+                            "emergencia" to intent.getStringExtra("emergencia")
                         )
-                        db.collection("aceites").add(doc)
+                        db.collection("aceites").add(doc).addOnSuccessListener {
+                            Toast.makeText(this, "Emergência aceita!", Toast.LENGTH_SHORT).show()
+                            binding.btnAceitar.isClickable = false
+                            binding.btnRecusar.isClickable = false
+                        }
                     }
                 }
         }
@@ -93,9 +98,14 @@ class EmergenciaActivity : AppCompatActivity() {
                     for (document in documents) {
                         val doc = hashMapOf(
                             "profissional" to user.uid,
-                            "status" to "recusada"
+                            "status" to "recusada",
+                            "emergencia" to intent.getStringExtra("emergencia")
                         )
-                        db.collection("aceites").add(doc)
+                        db.collection("aceites").add(doc).addOnSuccessListener {
+                            Toast.makeText(this, "Emergência recusada!", Toast.LENGTH_SHORT).show()
+                            binding.btnAceitar.isClickable = false
+                            binding.btnRecusar.isClickable = false
+                        }
                     }
                 }
         }

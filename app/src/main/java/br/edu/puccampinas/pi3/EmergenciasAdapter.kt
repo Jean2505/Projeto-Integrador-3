@@ -36,6 +36,7 @@ class EmergenciasAdapter(private val dataSet: List<Emergencia>):
                     iEmergencia.putExtra("Foto3",t.foto3)
                     iEmergencia.putExtra("status",t.status)
                     iEmergencia.putExtra("dataHora",t.dataHora)
+                    iEmergencia.putExtra("emergencia",t.emergencia)
 
                     itemView.context.startActivity(iEmergencia)
                 }

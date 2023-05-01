@@ -33,12 +33,14 @@ class DefaultMessageService : FirebaseMessagingService() {
             intent.putExtra("Foto1", msgData["Foto1"])
             intent.putExtra("Foto2", msgData["Foto2"])
             intent.putExtra("Foto3", msgData["Foto3"])
+            intent.putExtra("dataHora", msgData["dataHora"])
+            intent.putExtra("emergencia", msgData["emergencia"])
             sendBroadcast(intent)
         }
 
         showNotification("Pressione para ver detalhes", msgData["nome"].toString(),
             msgData["telefone"].toString(), msgData["Foto1"].toString(), msgData["Foto2"].toString(),
-            msgData["Foto3"].toString())
+            msgData["Foto3"].toString(), msgData["dataHora"].toString(), msgData["emergencia"].toString())
     }
 
     /***
@@ -58,7 +60,7 @@ class DefaultMessageService : FirebaseMessagingService() {
      */
 
     private fun showNotification(messageBody: String, nome: String, telefone: String, Foto1: String,
-                                    Foto2: String, Foto3: String) {
+                                 Foto2: String, Foto3: String, dataHora: String, emergencia: String) {
         val intent = Intent(this, EmergenciaActivity::class.java)
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
         intent.putExtra("nome", nome)
@@ -66,6 +68,8 @@ class DefaultMessageService : FirebaseMessagingService() {
         intent.putExtra("Foto1", Foto1)
         intent.putExtra("Foto2", Foto2)
         intent.putExtra("Foto3", Foto3)
+        intent.putExtra("dataHora", dataHora)
+        intent.putExtra("emergencia", emergencia)
         val pendingIntent = PendingIntent.getActivity(this,0,intent,PendingIntent.FLAG_UPDATE_CURRENT)
         val channelId = "canal_padrao"
         val defaultSoundUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION)

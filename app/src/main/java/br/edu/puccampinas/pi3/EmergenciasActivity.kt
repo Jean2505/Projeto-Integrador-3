@@ -42,7 +42,8 @@ class EmergenciasActivity : AppCompatActivity() {
             foto2 = "cbhewvcbuye",
             foto3 = "cbhuredbcuj",
             status = "Nova",
-            dataHora = "22/04/2023 15:27")
+            dataHora = "22/04/2023 15:27",
+            emergencia = "aa")
         val listaTeste =  teste.plus(lAU)
         val EmerAdapter = EmergenciasAdapter(dataSetDeTarefas)
         val recyclerView: RecyclerView = findViewById(R.id.rvEmergencias)
@@ -70,7 +71,8 @@ class EmergenciasActivity : AppCompatActivity() {
                 foto2 = intent.getStringExtra("Foto2")!!,
                 foto3 = intent.getStringExtra("Foto3")!!,
                 status = "Nova",
-                dataHora = "69/04/2023 15:27")
+                dataHora = intent.getStringExtra("dataHora")!!,
+                emergencia = intent.getStringExtra("emergencia")!!)
             lista.add(Emerg)
 
             val EmerAdapter = EmergenciasAdapter(lista)
