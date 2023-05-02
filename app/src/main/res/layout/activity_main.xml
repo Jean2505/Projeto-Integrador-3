@@ -10,7 +10,7 @@
         android:id="@+id/tvCadastro"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Cadastrar profissional"
+        android:text="@string/main__cadastrarProfissional"
         android:layout_marginTop="55dp"
         android:textSize="38sp"
         android:fontFamily="@font/avenirbold"
@@ -19,7 +19,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
 
-
     <TextView
         android:id="@+id/tvNome"
         android:layout_width="wrap_content"
@@ -27,13 +26,13 @@
         android:layout_margin="10dp"
         android:layout_marginTop="10dp"
         android:layout_marginStart="8dp"
-        android:text="Nome completo : "
+        android:text="@string/main__nomeCompleto"
         android:fontFamily="@font/avenir"
         android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvCadastro"/>
 
-    <EditText
+    <androidx.appcompat.widget.AppCompatEditText
         android:id="@+id/etNome"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -48,13 +47,13 @@
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:layout_marginStart="8dp"
-        android:text="Telefone : "
+        android:text="@string/main__telefone"
         android:fontFamily="@font/avenir"
         android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etNome"/>
 
-    <EditText
+    <androidx.appcompat.widget.AppCompatEditText
         android:id="@+id/etTelef"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -69,13 +68,13 @@
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:layout_marginStart="8dp"
-        android:text="Email : "
+        android:text="@string/main__email"
         android:fontFamily="@font/avenir"
         android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etTelef"/>
 
-    <EditText
+    <androidx.appcompat.widget.AppCompatEditText
         android:id="@+id/etEmail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -90,13 +89,13 @@
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:layout_marginStart="8dp"
-        android:text="Senha : "
+        android:text="@string/main__senha"
         android:fontFamily="@font/avenir"
         android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etEmail"/>
 
-    <EditText
+    <androidx.appcompat.widget.AppCompatEditText
         android:id="@+id/etSenha"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -112,13 +111,13 @@
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:layout_marginStart="8dp"
-        android:text="Endereço 1 : "
+        android:text="@string/main__endereco1"
         android:fontFamily="@font/avenir"
         android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etSenha"/>
 
-    <EditText
+    <androidx.appcompat.widget.AppCompatEditText
         android:id="@+id/etEnd1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -133,13 +132,13 @@
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:layout_marginStart="8dp"
-        android:text="Endereço 2 : "
+        android:text="@string/main__endereco2"
         android:fontFamily="@font/avenir"
         android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etEnd1"/>
 
-    <EditText
+    <androidx.appcompat.widget.AppCompatEditText
         android:id="@+id/etEnd2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -154,13 +153,13 @@
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:layout_marginStart="8dp"
-        android:text="Endereço 3 : "
+        android:text="@string/main__endereco3"
         android:fontFamily="@font/avenir"
         android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etEnd2"/>
 
-    <EditText
+    <androidx.appcompat.widget.AppCompatEditText
         android:id="@+id/etEnd3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -180,7 +179,7 @@
         app:layout_constraintTop_toBottomOf="@+id/etEnd3"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:text="Próximo"/>
+        android:text="@string/main__proximo"/>
 
     <TextView
         android:layout_width="match_parent"

@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".LoginActivity">
 
-    <ImageView
+    <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/imgTeeth"
         android:layout_width="350dp"
         android:layout_height="102dp"
@@ -20,7 +20,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/avenir"
-        android:text="Email : "
+        android:text="@string/login__email"
         android:textSize="30sp"
         android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
         app:layout_constraintStart_toStartOf="parent"
@@ -29,16 +29,17 @@
         app:layout_constraintTop_toBottomOf="@id/imgTeeth"
         />
 
-    <EditText
+    <androidx.appcompat.widget.AppCompatEditText
         android:id="@+id/etEmail"
         android:layout_width="match_parent"
         android:layout_height="45dp"
         android:layout_margin="10dp"
         android:textColor="@color/black"
         android:background="@drawable/textbox"
-        android:drawableLeft="@drawable/email"
+        android:drawableStart="@drawable/email"
         android:drawablePadding="5dp"
-        android:paddingLeft="10dp"
+        android:paddingStart="10dp"
+        android:paddingEnd="0dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvEmail"/>
 
@@ -46,7 +47,7 @@
         android:id="@+id/tvSenha"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Senha : "
+        android:text="@string/login__senha"
         android:textSize="30sp"
         android:fontFamily="@font/avenir"
         android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
@@ -56,25 +57,26 @@
         app:layout_constraintTop_toBottomOf="@id/etEmail"
         />
 
-    <EditText
+    <androidx.appcompat.widget.AppCompatEditText
         android:id="@+id/etSenha"
         android:layout_width="match_parent"
         android:layout_height="45dp"
         android:layout_margin="10dp"
         android:background="@drawable/textbox"
         android:textColor="@color/black"
-        android:drawableLeft="@drawable/lock"
+        android:drawableStart="@drawable/lock"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvSenha"
         android:inputType="textPassword"
         android:drawablePadding="8dp"
-        android:paddingLeft="10dp"/>
+        android:paddingStart="10dp"
+        android:paddingEnd="0dp"/>
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnLogar"
         android:layout_width="160dp"
         android:layout_height="wrap_content"
-        android:text="Logar"
+        android:text="@string/login__logar"
         android:textSize="20sp"
         android:textColor="@color/white"
         app:layout_constraintStart_toStartOf="parent"
@@ -90,22 +92,22 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintEnd_toStartOf="@id/btnCadastrar"
-        android:text="Não possui conta? "
+        android:text="@string/login__naoPossuiConta"
         android:fontFamily="@font/avenir"
         android:textSize="20sp"
-        android:layout_marginLeft="25dp"
+        android:layout_marginStart="25dp"
         app:layout_constraintBaseline_toBaselineOf="@id/btnCadastrar"/>
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnCadastrar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Cadastre-se aqui!"
+        android:text="@string/login__cadastreAqui"
         android:background="#00018786"
         android:textColor="@color/azulclaro"
         android:fontFamily="@font/avenirbold"
         android:textSize="17sp"
-        android:layout_marginRight="25dp"
+        android:layout_marginEnd="25dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/tvCad"
         app:layout_constraintTop_toBottomOf="@id/btnLogar"

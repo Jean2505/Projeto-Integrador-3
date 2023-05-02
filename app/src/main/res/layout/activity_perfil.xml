@@ -13,7 +13,7 @@
         android:background="#00018786"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:text="\u003C voltar"
+        android:text="@string/voltar"
         android:fontFamily="@font/avenirbold"
         android:textColor="@color/azulclaro"/>
 
@@ -23,23 +23,23 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/avenir"
         android:textSize="20sp"
-        android:text="Email :"
-        android:layout_marginLeft="5dp"
+        android:text="@string/perfil__email"
+        android:layout_marginStart="5dp"
         android:layout_marginTop="40dp"
         app:layout_constraintTop_toBottomOf="@id/btnVoltar"
         app:layout_constraintStart_toStartOf="parent"/>
 
-    <EditText
+    <androidx.appcompat.widget.AppCompatEditText
         android:id="@+id/etEmail"
         android:layout_width="350dp"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="5dp"
+        android:layout_marginStart="5dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvEmail"
         android:enabled="false"
         android:text=""/>
 
-    <ImageView
+    <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/imgTeeth"
         android:layout_width="200dp"
         android:layout_height="50dp"
@@ -52,7 +52,7 @@
         android:id="@+id/btnEdit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="editar"
+        android:text="@string/perfil__editar"
         android:fontFamily="@font/avenirbold"
         android:textColor="@color/white"
         android:layout_margin="5dp"
@@ -74,22 +74,22 @@
         android:id="@+id/tvSenha"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Senha :"
+        android:text="@string/perfil__senha"
         android:layout_margin="5dp"
         android:fontFamily="@font/avenir"
         android:textSize="20sp"
         app:layout_constraintTop_toBottomOf="@id/etEmail"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <EditText
+    <androidx.appcompat.widget.AppCompatEditText
         android:id="@+id/etSenha"
         android:layout_width="350dp"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="5dp"
+        android:layout_marginStart="5dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvSenha"
         android:enabled="false"
-        android:text="placeholder"
+        android:text="@string/perfil__placeholder"
         android:inputType="textPassword"/>
 
     <androidx.appcompat.widget.AppCompatButton
@@ -106,7 +106,7 @@
         android:id="@+id/tvNome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Nome :"
+        android:text="@string/perfil__nome"
 
         android:layout_margin="5dp"
         android:fontFamily="@font/avenir"
@@ -114,11 +114,11 @@
         app:layout_constraintTop_toBottomOf="@id/etSenha"
         app:layout_constraintStart_toStartOf="parent"/>
 
-    <EditText
+    <androidx.appcompat.widget.AppCompatEditText
         android:id="@+id/etNome"
         android:layout_width="350dp"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="5dp"
+        android:layout_marginStart="5dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvNome"
         android:enabled="false"
@@ -137,18 +137,18 @@
         android:id="@+id/tvTelef"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Telefone :"
+        android:text="@string/perfil__telefone"
         android:fontFamily="@font/avenir"
         android:layout_margin="5dp"
         android:textSize="20sp"
         app:layout_constraintTop_toBottomOf="@id/etNome"
         app:layout_constraintStart_toStartOf="parent"/>
 
-    <EditText
+    <androidx.appcompat.widget.AppCompatEditText
         android:id="@+id/etTelef"
         android:layout_width="350dp"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="5dp"
+        android:layout_marginStart="5dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvTelef"
         android:enabled="false"
@@ -168,7 +168,7 @@
         android:id="@+id/tvEnd1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Enereço 1 :"
+        android:text="@string/perfil__endereco1"
         android:fontFamily="@font/avenir"
 
         android:layout_margin="5dp"
@@ -176,11 +176,11 @@
         app:layout_constraintTop_toBottomOf="@id/etTelef"
         app:layout_constraintStart_toStartOf="parent"/>
 
-    <EditText
+    <androidx.appcompat.widget.AppCompatEditText
         android:id="@+id/etEnd1"
         android:layout_width="350dp"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="5dp"
+        android:layout_marginStart="5dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvEnd1"
         android:enabled="false"
@@ -200,7 +200,7 @@
         android:id="@+id/tvEnd2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Enereço 2 :"
+        android:text="@string/perfil__endereco2"
         android:fontFamily="@font/avenir"
 
         android:layout_margin="5dp"
@@ -208,11 +208,11 @@
         app:layout_constraintTop_toBottomOf="@id/etEnd1"
         app:layout_constraintStart_toStartOf="parent"/>
 
-    <EditText
+    <androidx.appcompat.widget.AppCompatEditText
         android:id="@+id/etEnd2"
         android:layout_width="350dp"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="5dp"
+        android:layout_marginStart="5dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvEnd2"
         android:enabled="false"
@@ -233,7 +233,7 @@
         android:id="@+id/tvEnd3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Enereço 3 :"
+        android:text="@string/perfil__endereco3"
         android:fontFamily="@font/avenir"
 
         android:layout_margin="5dp"
@@ -241,11 +241,11 @@
         app:layout_constraintTop_toBottomOf="@id/etEnd2"
         app:layout_constraintStart_toStartOf="parent"/>
 
-    <EditText
+    <androidx.appcompat.widget.AppCompatEditText
         android:id="@+id/etEnd3"
         android:layout_width="350dp"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="5dp"
+        android:layout_marginStart="5dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvEnd3"
         android:enabled="false"
@@ -265,7 +265,7 @@
         android:id="@+id/tvCv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Currículo :"
+        android:text="@string/perfil__curriculo"
         android:fontFamily="@font/avenir"
 
         android:layout_margin="5dp"
@@ -273,11 +273,11 @@
         app:layout_constraintTop_toBottomOf="@id/etEnd3"
         app:layout_constraintStart_toStartOf="parent"/>
 
-    <EditText
+    <androidx.appcompat.widget.AppCompatEditText
         android:id="@+id/etCv"
         android:layout_width="350dp"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="5dp"
+        android:layout_marginStart="5dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvCv"
         android:enabled="false"
@@ -299,8 +299,8 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/avenir"
         android:textSize="20sp"
-        android:text="Status : "
-        android:layout_marginLeft="5dp"
+        android:text="@string/perfil__status"
+        android:layout_marginStart="5dp"
         android:layout_marginTop="16dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/etCv"/>
@@ -311,7 +311,7 @@
         android:layout_height="wrap_content"
         app:layout_constraintBaseline_toBaselineOf="@id/tglStatus"
         app:layout_constraintStart_toEndOf="@id/tglStatus"
-        android:layout_marginLeft="10dp"
+        android:layout_marginStart="10dp"
         android:fontFamily="@font/avenirbold"
         android:thumb="@drawable/thumb"
         app:track="@drawable/track"/>
@@ -320,9 +320,9 @@
         android:id="@+id/tvStatus"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Ocupado"
+        android:text="@string/perfil__ocupado"
         android:fontFamily="@font/avenirbold"
-        android:layout_marginLeft="15dp"
+        android:layout_marginStart="15dp"
         android:textSize="15sp"
         app:layout_constraintStart_toEndOf="@id/scSwitch"
         app:layout_constraintBaseline_toBaselineOf="@id/scSwitch"/>

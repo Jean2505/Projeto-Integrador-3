@@ -1,3 +1,56 @@
 <resources>
     <string name="app_name">PI3</string>
+    <string name="voltar"><![CDATA[< voltar]]></string>
+
+    <!-- activity_curriculo.xml -->
+    <string name="curriculo__curriculo">Currículo</string>
+    <string name="curriculo__descricao">Forneça uma breve descrição da sua experiência profissional</string>
+    <string name="curriculo__cadastrar">Cadastrar</string>
+
+    <!-- activity_emergencia.xml -->
+    <string name="emergencia__detalhes">Detalhes da emergência</string>
+    <string name="emergencia__aloHumora">ALOHUMORA</string>
+    <string name="emergencia__nome">Nome:</string>
+    <string name="emergencia__alo1">Alo</string>
+    <string name="emergencia__telefone">Telefone:</string>
+    <string name="emergencia__alo2">Alo</string>
+    <string name="emergencia__aceitar">Aceitar</string>
+    <string name="emergencia__negar">Negar</string>
+
+    <!-- activity_login.xml -->
+    <string name="login__email">Email :</string>
+    <string name="login__senha">Senha :</string>
+    <string name="login__logar">Logar</string>
+    <string name="login__naoPossuiConta">Não possui conta?</string>
+    <string name="login__cadastreAqui">Cadastre-se aqui!</string>
+
+
+    <!-- activity_main.xml -->
+    <string name="main__cadastrarProfissional">Cadastrar profissional</string>
+    <string name="main__nomeCompleto">Nome completo :</string>
+    <string name="main__telefone">Telefone :</string>
+    <string name="main__email">Email :</string>
+    <string name="main__senha">Senha :</string>
+    <string name="main__endereco1">Endereço 1 :</string>
+    <string name="main__endereco2">Endereço 2 :</string>
+    <string name="main__endereco3">Endereço 3 :</string>
+    <string name="main__proximo">Próximo</string>
+
+    <!-- activity_perfil.xml -->
+    <string name="perfil__email">Email :</string>
+    <string name="perfil__editar">editar</string>
+    <string name="perfil__senha">Senha :</string>
+    <string name="perfil__placeholder">placeholder</string>
+    <string name="perfil__nome">Nome :</string>
+    <string name="perfil__telefone">Telefone :</string>
+    <string name="perfil__endereco1">Enereço 1 :</string>
+    <string name="perfil__endereco2">Enereço 2 :</string>
+    <string name="perfil__endereco3">Enereço 3 :</string>
+    <string name="perfil__curriculo">Currículo :</string>
+    <string name="perfil__status">Status :</string>
+    <string name="perfil__ocupado">Ocupado</string>
+
 </resources>
+
+
+
