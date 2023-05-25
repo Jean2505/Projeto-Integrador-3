@@ -7,6 +7,8 @@ import android.content.IntentFilter
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.OnLifecycleEvent
 import androidx.recyclerview.widget.RecyclerView
 import br.edu.puccampinas.pi3.databinding.ActivityEmergenciasBinding
 import com.google.android.gms.tasks.OnCompleteListener
@@ -20,12 +22,16 @@ class EmergenciasActivity : AppCompatActivity() {
     private lateinit var binding: ActivityEmergenciasBinding
 
 
+
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_emergencias)
 
         binding = ActivityEmergenciasBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
 
         val Receiver = IntentFilter("br.edu.puccampinas.pi3.RecieverEmergencia")
 
@@ -60,10 +66,11 @@ class EmergenciasActivity : AppCompatActivity() {
 
     inner class ReceiverEmergencia : BroadcastReceiver() {
         var lista: MutableList<Emergencia> = emptyList<Emergencia>().toMutableList()
+        var i = 0
 
         override fun onReceive(context: Context, intent: Intent) {
             // This method is called when the BroadcastReceiver is receiving an Intent broadcast.
-            Toast.makeText(context, intent.getStringExtra("data"), Toast.LENGTH_SHORT).show()
+            //Toast.makeText(context, intent.getStringExtra("data"), Toast.LENGTH_SHORT).show()
 
             val Emerg = Emergencia(nome = intent.getStringExtra("nome")!!,
                 telefone = intent.getStringExtra("telefone")!!,
@@ -74,7 +81,9 @@ class EmergenciasActivity : AppCompatActivity() {
                 dataHora = intent.getStringExtra("dataHora")!!,
                 emergencia = intent.getStringExtra("emergencia")!!)
             lista.add(Emerg)
-
+            print("teste")
+            //Toast.makeText(context, i, Toast.LENGTH_SHORT).show()
+            i += 1;
             val EmerAdapter = EmergenciasAdapter(lista)
             val recyclerView: RecyclerView = findViewById(R.id.rvEmergencias)
             recyclerView.adapter = EmerAdapter

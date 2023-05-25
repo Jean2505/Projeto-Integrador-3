@@ -100,7 +100,8 @@
         android:fontFamily="@font/avenir"
         android:background="@drawable/textbox"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvTTelef"/>
+        app:layout_constraintTop_toBottomOf="@id/tvTTelef"
+        android:inputType="textPassword"/>
 
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/ivFoto1"

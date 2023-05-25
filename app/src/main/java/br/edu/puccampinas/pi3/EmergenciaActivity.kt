@@ -1,10 +1,15 @@
 package br.edu.puccampinas.pi3
 
+import android.content.BroadcastReceiver
+import android.content.Context
+import android.content.Intent
+import android.content.IntentFilter
 import android.graphics.BitmapFactory
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ImageView
 import android.widget.Toast
+import androidx.recyclerview.widget.RecyclerView
 import br.edu.puccampinas.pi3.databinding.ActivityEmergenciaBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
@@ -26,16 +31,22 @@ class EmergenciaActivity : AppCompatActivity() {
         binding = ActivityEmergenciaBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        val Receiver = IntentFilter("br.edu.puccampinas.pi3.RecieverAceite")
+
+        val rv = RecieverAceite()
+        registerReceiver(rv,Receiver)
+
+        val foto1 = "gs://prijinttres.appspot.com/${intent.getStringExtra("Foto1").toString()}"
         val storage = Firebase.storage
-        val storageRef1 = storage.getReferenceFromUrl(intent.getStringExtra("Foto1").toString())
+        val storageRef1 = storage.getReferenceFromUrl(foto1)
         val localFile1 = File.createTempFile("images","jpg")
+        Toast.makeText(this, foto1, Toast.LENGTH_LONG).show()
 
-
-        val storageRef2 = storage.getReferenceFromUrl(intent.getStringExtra("Foto2").toString())
+        /*val storageRef2 = storage.getReferenceFromUrl(intent.getStringExtra("Foto2").toString())
         val localFile2 = File.createTempFile("images1","jpg")
 
         val storageRef3 = storage.getReferenceFromUrl(intent.getStringExtra("Foto3").toString())
-        val localFile3 = File.createTempFile("images2","jpg")
+        val localFile3 = File.createTempFile("images2","jpg")*/
 
         storageRef1.getFile(localFile1).addOnSuccessListener {
             // Local temp file has been created
@@ -46,7 +57,7 @@ class EmergenciaActivity : AppCompatActivity() {
             Toast.makeText(this, "deu errado irmão", Toast.LENGTH_SHORT).show()
         }
 
-        storageRef2.getFile(localFile2).addOnSuccessListener {
+        /*storageRef2.getFile(localFile2).addOnSuccessListener {
             // Local temp file has been created
             val bitmap = BitmapFactory.decodeFile(localFile2.absolutePath)
             binding.ivFoto2.setImageBitmap(bitmap)
@@ -62,12 +73,17 @@ class EmergenciaActivity : AppCompatActivity() {
         }.addOnFailureListener {
             // Handle any errors
             Toast.makeText(this, "deu errado irmão", Toast.LENGTH_SHORT).show()
-        }
+        }*/
 
         binding.tvNome.text = intent.getStringExtra("nome")
         binding.tvTelefone.text = intent.getStringExtra("telefone")
         binding.tvDataHora.text = intent.getStringExtra("dataHora")
 
+
+        binding.btnVoltar.setOnClickListener {
+            val iVoltar = Intent(this,EmergenciasActivity::class.java)
+            this.startActivity(iVoltar)
+        }
 
 
         binding.btnAceitar.setOnClickListener {
@@ -108,6 +124,24 @@ class EmergenciaActivity : AppCompatActivity() {
                         }
                     }
                 }
+        }
+    }
+
+    inner class RecieverAceite : BroadcastReceiver() {
+        override fun onReceive(context: Context, intent: Intent) {
+            // This method is called when the BroadcastReceiver is receiving an Intent broadcast.
+            //Toast.makeText(context, intent.getStringExtra("data"), Toast.LENGTH_SHORT).show()
+
+            if(intent.getStringExtra("status") == "aceita") {
+                Toast.makeText(context, "Você foi escolhido! Agora, entre em contato com o " +
+                        "socorrista", Toast.LENGTH_LONG).show()
+                binding.tvTelefone.inputType = 3;
+            }
+            else if (intent.getStringExtra("status") == "rejeitada") {
+                Toast.makeText(context, "Emergência atribuida a outro profissional", Toast.LENGTH_LONG).show()
+                val irecusa = Intent(context,EmergenciasActivity::class.java)
+                startActivity(irecusa)
+            }
         }
     }
 }

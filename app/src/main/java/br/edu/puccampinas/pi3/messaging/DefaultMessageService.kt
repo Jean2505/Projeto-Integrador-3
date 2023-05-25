@@ -10,11 +10,14 @@ import androidx.core.app.NotificationCompat
 import br.edu.puccampinas.pi3.Emergencia
 import br.edu.puccampinas.pi3.EmergenciaActivity
 import br.edu.puccampinas.pi3.R
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.ktx.Firebase
 import com.google.firebase.messaging.FirebaseMessagingService
 import com.google.firebase.messaging.RemoteMessage
 
 class DefaultMessageService : FirebaseMessagingService() {
-
+    private var db = FirebaseFirestore.getInstance()
     public var ListaEmerg: List<Emergencia> = emptyList()
 
     /***
@@ -24,9 +27,63 @@ class DefaultMessageService : FirebaseMessagingService() {
      */
 
     override fun onMessageReceived(remoteMessage: RemoteMessage) {
+        print("mensagem recebida")
+        Firebase.auth.currentUser?.uid
         val msgData = remoteMessage.data
 
-        Intent().also { intent ->
+        if (msgData["text"] == "nova emergencia") {
+            Intent().also { intent ->
+                intent.setAction("br.edu.puccampinas.pi3.RecieverEmergencia")
+                intent.putExtra("nome", msgData["nome"])
+                intent.putExtra("telefone", msgData["telefone"])
+                intent.putExtra("Foto1", msgData["Foto1"])
+                intent.putExtra("Foto2", msgData["Foto2"])
+                intent.putExtra("Foto3", msgData["Foto3"])
+                intent.putExtra("dataHora", msgData["dataHora"])
+                intent.putExtra("emergencia", msgData["emergencia"])
+                sendBroadcast(intent)
+            }
+
+            db.collection("dentistas").whereEqualTo("uid", Firebase.auth.currentUser?.uid)
+                .get()
+                .addOnSuccessListener { documents ->
+                    for (document in documents) {
+                        if (document.getBoolean("status") == true) {
+                            showNotification(
+                                "Pressione para ver detalhes",
+                                msgData["nome"].toString(),
+                                msgData["telefone"].toString(),
+                                msgData["Foto1"].toString(),
+                                msgData["Foto2"].toString(),
+                                msgData["Foto3"].toString(),
+                                msgData["dataHora"].toString(),
+                                msgData["emergencia"].toString()
+                            )
+                        }
+                    }
+                }
+        }
+        else if (msgData["text"] == "aceita") {
+            Intent().also { aceite ->
+                aceite.setAction("br.edu.puccampinas.pi3.RecieverAceite")
+                aceite.putExtra("status", "aceita")
+                sendBroadcast(aceite)
+            }
+        }
+        else if (msgData["text"] == "rejeitada") {
+            Intent().also { aceite ->
+                aceite.setAction("br.edu.puccampinas.pi3.RecieverAceite")
+                aceite.putExtra("status", "rejeitada")
+                sendBroadcast(aceite)
+            }
+        }
+
+
+        if(msgData["text"] == "nova emergencia")
+        if(msgData["text"] == "rejeitada" || msgData["text"] == "aceita") {
+            print("CHEGOU MENSAGEM AQUI IRMA SADF");
+        }
+        /*Intent().also { intent ->
             intent.setAction("br.edu.puccampinas.pi3.RecieverEmergencia")
             intent.putExtra("nome", msgData["nome"])
             intent.putExtra("telefone", msgData["telefone"])
@@ -40,7 +97,7 @@ class DefaultMessageService : FirebaseMessagingService() {
 
         showNotification("Pressione para ver detalhes", msgData["nome"].toString(),
             msgData["telefone"].toString(), msgData["Foto1"].toString(), msgData["Foto2"].toString(),
-            msgData["Foto3"].toString(), msgData["dataHora"].toString(), msgData["emergencia"].toString())
+            msgData["Foto3"].toString(), msgData["dataHora"].toString(), msgData["emergencia"].toString())*/
     }
 
     /***
