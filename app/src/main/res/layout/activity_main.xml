@@ -1,18 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent">
+
     <TextView
         android:id="@+id/tvCadastro"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/main__cadastrarProfissional"
-        android:layout_marginTop="55dp"
-        android:textSize="38sp"
+        android:layout_marginTop="35dp"
+        android:textSize="36sp"
         android:fontFamily="@font/avenirbold"
         android:textColor="@color/azulescuro"
         app:layout_constraintEnd_toEndOf="parent"
@@ -36,10 +42,16 @@
         android:id="@+id/etNome"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:minHeight="45dp"
         android:layout_margin="10dp"
-        android:paddingTop="20dp"
+        android:textColor="@color/black"
+        android:background="@drawable/textbox"
+        android:drawableStart="@drawable/name"
+        android:drawablePadding="5dp"
+        android:paddingStart="10dp"
+        android:paddingEnd="0dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/tvNome"/>
+        app:layout_constraintTop_toBottomOf="@id/tvNome"/>
 
     <TextView
         android:id="@+id/tvTelef"
@@ -57,10 +69,16 @@
         android:id="@+id/etTelef"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:minHeight="45dp"
         android:layout_margin="10dp"
-        android:paddingTop="20dp"
+        android:textColor="@color/black"
+        android:background="@drawable/textbox"
+        android:drawableStart="@drawable/phone"
+        android:drawablePadding="5dp"
+        android:paddingStart="10dp"
+        android:paddingEnd="0dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/tvTelef"/>
+        app:layout_constraintTop_toBottomOf="@id/tvTelef"/>
 
     <TextView
         android:id="@+id/tvEmail"
@@ -78,10 +96,16 @@
         android:id="@+id/etEmail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:minHeight="45dp"
         android:layout_margin="10dp"
-        android:paddingTop="20dp"
+        android:textColor="@color/black"
+        android:background="@drawable/textbox"
+        android:drawableStart="@drawable/email"
+        android:drawablePadding="5dp"
+        android:paddingStart="10dp"
+        android:paddingEnd="0dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/tvEmail"/>
+        app:layout_constraintTop_toBottomOf="@id/tvEmail"/>
 
     <TextView
         android:id="@+id/tvSenha"
@@ -99,11 +123,16 @@
         android:id="@+id/etSenha"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:minHeight="45dp"
         android:layout_margin="10dp"
-        android:paddingTop="20dp"
-        android:inputType="textPassword"
+        android:textColor="@color/black"
+        android:background="@drawable/textbox"
+        android:drawableStart="@drawable/lock"
+        android:drawablePadding="5dp"
+        android:paddingStart="10dp"
+        android:paddingEnd="0dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/tvSenha"/>
+        app:layout_constraintTop_toBottomOf="@id/tvSenha"/>
 
     <TextView
         android:id="@+id/tvEnd1"
@@ -121,10 +150,16 @@
         android:id="@+id/etEnd1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:minHeight="45dp"
         android:layout_margin="10dp"
-        android:paddingTop="20dp"
+        android:textColor="@color/black"
+        android:background="@drawable/textbox"
+        android:drawableStart="@drawable/place"
+        android:drawablePadding="5dp"
+        android:paddingStart="10dp"
+        android:paddingEnd="0dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/tvEnd1"/>
+        app:layout_constraintTop_toBottomOf="@id/tvEnd1"/>
 
     <TextView
         android:id="@+id/tvEnd2"
@@ -142,10 +177,16 @@
         android:id="@+id/etEnd2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:minHeight="45dp"
         android:layout_margin="10dp"
-        android:paddingTop="20dp"
+        android:textColor="@color/black"
+        android:background="@drawable/textbox"
+        android:drawableStart="@drawable/place"
+        android:drawablePadding="5dp"
+        android:paddingStart="10dp"
+        android:paddingEnd="0dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/tvEnd2"/>
+        app:layout_constraintTop_toBottomOf="@id/tvEnd2"/>
 
     <TextView
         android:id="@+id/tvEnd3"
@@ -163,10 +204,43 @@
         android:id="@+id/etEnd3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:minHeight="45dp"
         android:layout_margin="10dp"
-        android:paddingTop="20dp"
+        android:textColor="@color/black"
+        android:background="@drawable/textbox"
+        android:drawableStart="@drawable/place"
+        android:drawablePadding="5dp"
+        android:paddingStart="10dp"
+        android:paddingEnd="0dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/tvEnd3"/>
+        app:layout_constraintTop_toBottomOf="@id/tvEnd3"/>
+
+        <TextView
+            android:id="@+id/tvCurriculo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:layout_marginStart="8dp"
+            android:text="Curriculo"
+            android:fontFamily="@font/avenir"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/etEnd3"/>
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/etCurriculo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="45dp"
+            android:layout_margin="10dp"
+            android:textColor="@color/black"
+            android:background="@drawable/textbox"
+            android:drawableStart="@drawable/curriculo"
+            android:drawablePadding="5dp"
+            android:paddingStart="10dp"
+            android:paddingEnd="0dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvCurriculo"/>
 
         <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnProximo"
@@ -176,7 +250,7 @@
         android:textSize="20sp"
         android:textColor="@color/white"
         android:background="@drawable/custom_button"
-        app:layout_constraintTop_toBottomOf="@+id/etEnd3"
+        app:layout_constraintTop_toBottomOf="@+id/etCurriculo"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:text="@string/main__proximo"/>
@@ -185,6 +259,8 @@
         android:layout_width="match_parent"
         android:layout_height="140dp"
         android:background="@drawable/box"
+        app:layout_constraintTop_toBottomOf="@id/btnProximo"
         app:layout_constraintBottom_toBottomOf="parent" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
