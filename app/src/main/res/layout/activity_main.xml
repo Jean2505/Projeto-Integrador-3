@@ -12,12 +12,14 @@
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent">
 
+
+
     <TextView
         android:id="@+id/tvCadastro"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/main__cadastrarProfissional"
-        android:layout_marginTop="35dp"
+        android:layout_marginTop="45dp"
         android:textSize="36sp"
         android:fontFamily="@font/avenirbold"
         android:textColor="@color/azulescuro"
@@ -36,7 +38,7 @@
         android:fontFamily="@font/avenir"
         android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvCadastro"/>
+        app:layout_constraintTop_toBottomOf="@id/tvCadastro"/>
 
     <androidx.appcompat.widget.AppCompatEditText
         android:id="@+id/etNome"
@@ -261,6 +263,18 @@
         android:background="@drawable/box"
         app:layout_constraintTop_toBottomOf="@id/btnProximo"
         app:layout_constraintBottom_toBottomOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnVoltarL"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="18dp"
+            android:background="#00018786"
+            android:text="@string/voltar"
+            android:fontFamily="@font/avenirbold"
+            android:textColor="@color/azulclaro"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

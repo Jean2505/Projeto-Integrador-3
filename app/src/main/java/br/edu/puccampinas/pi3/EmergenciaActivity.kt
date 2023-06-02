@@ -4,11 +4,14 @@ import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
 import android.content.IntentFilter
+import android.content.pm.PackageManager
 import android.graphics.BitmapFactory
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ImageView
 import android.widget.Toast
+import androidx.core.app.ActivityCompat
 import androidx.recyclerview.widget.RecyclerView
 import br.edu.puccampinas.pi3.databinding.ActivityEmergenciaBinding
 import com.google.firebase.auth.FirebaseAuth
@@ -19,6 +22,8 @@ import com.google.firebase.storage.ktx.storage
 import java.io.File
 
 class EmergenciaActivity : AppCompatActivity() {
+
+    private val phoneNumber = "998760722"
 
     private lateinit var binding: ActivityEmergenciaBinding
     private val user = Firebase.auth.currentUser
@@ -106,6 +111,16 @@ class EmergenciaActivity : AppCompatActivity() {
                 }
         }
 
+        binding.btnLigar.setOnClickListener{
+            val intentTeste = Intent(this, PerfilActivity::class.java)
+            startActivity(intentTeste)
+            if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.CALL_PHONE) == PackageManager.PERMISSION_GRANTED) {
+                realizarChamada()
+            } else {
+                ActivityCompat.requestPermissions(this, arrayOf(android.Manifest.permission.CALL_PHONE), 1)
+            }
+        }
+
         binding.btnRecusar.setOnClickListener {
             //manda recusa pro banco
             db.collection("dentistas").whereEqualTo("uid", user!!.uid)
@@ -124,6 +139,17 @@ class EmergenciaActivity : AppCompatActivity() {
                         }
                     }
                 }
+        }
+    }
+
+    private fun realizarChamada() {
+        val intent = Intent(Intent.ACTION_CALL)
+        intent.data = Uri.parse("tel:$phoneNumber")
+
+        if (intent.resolveActivity(packageManager) != null) {
+            startActivity(intent)
+        } else {
+            Toast.makeText(this, "Não é possível realizar chamadas neste dispositivo.", Toast.LENGTH_SHORT).show()
         }
     }
 
