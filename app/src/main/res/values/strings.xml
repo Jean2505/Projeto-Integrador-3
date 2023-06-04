@@ -49,6 +49,7 @@
     <string name="perfil__curriculo">Currículo</string>
     <string name="perfil__status">Status</string>
     <string name="perfil__ocupado">Ocupado</string>
+    <string name="title_activity_camera_preview">CameraPreviewActivity</string>
 
 </resources>
 

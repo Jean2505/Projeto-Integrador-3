@@ -26,6 +26,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     private lateinit var etEnd1 : EditText
     private lateinit var etEnd2 : EditText
     private lateinit var etEnd3 : EditText
+    private lateinit var etCurriculo: EditText
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,6 +42,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         etEnd1 = findViewById(R.id.etEnd1)
         etEnd2 = findViewById(R.id.etEnd2)
         etEnd3 = findViewById(R.id.etEnd3)
+        etCurriculo = findViewById(R.id.etCurriculo)
 
         btnProximo.setOnClickListener(this)
         btnVoltarL.setOnClickListener(this)
@@ -58,6 +60,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         val enderecoUm = etEnd1.text.toString()
         val enderecoDois = etEnd2.text.toString()
         val enderecoTres = etEnd3.text.toString()
+        val curriculo = etCurriculo.text.toString()
 
         Firebase.auth.signOut()
 
@@ -70,6 +73,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         intentProximo.putExtra("IEnderecoUm", enderecoUm)
         intentProximo.putExtra("IEnderecoDois", enderecoDois)
         intentProximo.putExtra("IEnderecoTres", enderecoTres)
+        intentProximo.putExtra("ICurriculo", curriculo)
 
         this.startActivity(intentProximo)
         }
