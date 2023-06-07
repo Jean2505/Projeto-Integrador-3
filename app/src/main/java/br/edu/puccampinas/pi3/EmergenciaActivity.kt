@@ -86,8 +86,9 @@ class EmergenciaActivity : AppCompatActivity() {
 
 
         binding.btnVoltar.setOnClickListener {
-            val iVoltar = Intent(this,EmergenciasActivity::class.java)
-            this.startActivity(iVoltar)
+            this.finish()
+            //val iVoltar = Intent(this,EmergenciasActivity::class.java)
+            //this.startActivity(iVoltar)
         }
 
 
@@ -97,6 +98,8 @@ class EmergenciaActivity : AppCompatActivity() {
                 .get()
                 .addOnSuccessListener { documents ->
                     for (document in documents) {
+                        db.collection("dentistas").document(document.id)
+                            .update("status", false)
                         val doc = hashMapOf(
                             "profissional" to user.uid,
                             "status" to "aceita",
@@ -106,6 +109,7 @@ class EmergenciaActivity : AppCompatActivity() {
                             Toast.makeText(this, "Emergência aceita!", Toast.LENGTH_SHORT).show()
                             binding.btnAceitar.isClickable = false
                             binding.btnRecusar.isClickable = false
+
                         }
                     }
                 }
@@ -113,8 +117,8 @@ class EmergenciaActivity : AppCompatActivity() {
 
         binding.btnLigar.setOnClickListener{
             val intentTeste = Intent(this, PerfilActivity::class.java)
-            startActivity(intentTeste)
             if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.CALL_PHONE) == PackageManager.PERMISSION_GRANTED) {
+                startActivity(intentTeste)
                 realizarChamada()
             } else {
                 ActivityCompat.requestPermissions(this, arrayOf(android.Manifest.permission.CALL_PHONE), 1)

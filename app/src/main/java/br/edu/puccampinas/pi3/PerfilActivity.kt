@@ -23,6 +23,12 @@ class PerfilActivity : AppCompatActivity() {
         binding = ActivityPerfilBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        binding.btnDeslogar.setOnClickListener {
+            Firebase.auth.signOut()
+            val iLogin = Intent(this, LoginActivity::class.java)
+            startActivity(iLogin)
+        }
+
         binding.scSwitch.setOnCheckedChangeListener{ buttonView, isChecked ->
             attStatus(isChecked)
             if(isChecked)
@@ -34,8 +40,9 @@ class PerfilActivity : AppCompatActivity() {
         }
 
         binding.btnVoltar.setOnClickListener{
-            val intent = Intent(this, EmergenciasActivity::class.java)
-            this.startActivity(intent)
+            this.finish()
+            //val intent = Intent(this, EmergenciasActivity::class.java)
+            //this.startActivity(intent)
         }
 
         binding.btnEdit.setOnClickListener{

@@ -48,7 +48,7 @@ class EmergenciasActivity : AppCompatActivity() {
             foto2 = "cbhewvcbuye",
             foto3 = "cbhuredbcuj",
             status = "Nova",
-            dataHora = "22/04/2023 15:27",
+            dataHora = System.currentTimeMillis().toString(),
             emergencia = "aa")
         val listaTeste =  teste.plus(lAU)
         val EmerAdapter = EmergenciasAdapter(dataSetDeTarefas)

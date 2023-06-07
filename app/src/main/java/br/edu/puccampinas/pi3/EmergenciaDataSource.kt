@@ -8,7 +8,7 @@ fun emergenciaList(): List<Emergencia>{
             foto2 = "cbhewvcbuye",
             foto3 = "cbhuredbcuj",
             status = "Nova",
-            dataHora = "22/04/2023 15:27",
+            dataHora = System.currentTimeMillis().toString(),
             emergencia = "a"),
 
         Emergencia(nome = "Jean Victor Chaves",
