@@ -402,9 +402,18 @@
             android:id="@+id/btnDeslogar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintStart_toEndOf="@id/tvStatus"
+            android:padding="8dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="110dp"
+            android:drawableEnd="@drawable/logout"
+            android:drawablePadding="5dp"
+            android:drawableTint="#FFFFFF"
+            android:background="#00064066"
             app:layout_constraintTop_toBottomOf="@id/etCv"
-            android:text="SAIR"/>
+            app:layout_constraintEnd_toEndOf="parent"
+            android:text="Sair da conta"
+            android:textSize="17sp"
+            android:textColor="#FFFFFF"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
