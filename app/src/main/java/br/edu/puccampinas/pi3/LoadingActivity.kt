@@ -103,5 +103,4 @@ class LoadingActivity : AppCompatActivity() {
             this.startActivity(intentLogin)
         }
     }
-
 }
