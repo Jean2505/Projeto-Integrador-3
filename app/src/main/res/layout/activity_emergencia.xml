@@ -86,8 +86,6 @@
         android:textSize="30sp"
         app:layout_constraintTop_toBottomOf="@+id/tvNome"/>
 
-
-
     <TextView
         android:id="@+id/tvTelefone"
         android:layout_width="match_parent"
@@ -107,18 +105,24 @@
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btnLigar"
-            android:layout_width="42dp"
-            android:layout_height="42dp"
-            android:background="@drawable/phoney"
-            app:layout_constraintBaseline_toBaselineOf="@id/tvTelefone"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:layout_margin="25dp"
-            />
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:backgroundTint="@color/amarelo"
+            android:drawableStart="@drawable/phone"
+            android:drawablePadding="4dp"
+            android:text="Ligue já"
+            android:textColor="@color/azulclaro"
+            android:layout_marginTop="-2dp"
+            app:layout_constraintEnd_toEndOf="@id/tvTelefone"
+            app:layout_constraintTop_toBottomOf="@id/tvTTelef"/>
 
-    <com.google.android.material.imageview.ShapeableImageView
+        <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/ivFoto1"
-        android:layout_width="300dp"
-        android:layout_height="300dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:maxHeight="300dp"
+            android:maxWidth="300dp"
         android:layout_marginTop="30dp"
         app:strokeWidth="9dp"
         app:circularflow_radiusInDP="7dp"
@@ -138,8 +142,11 @@
 
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/ivFoto2"
-        android:layout_width="300dp"
-        android:layout_height="300dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        android:maxHeight="300dp"
+        android:maxWidth="300dp"
         android:layout_marginTop="30dp"
         app:strokeWidth="9dp"
         app:circularflow_radiusInDP="7dp"
@@ -151,8 +158,11 @@
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/ivFoto3"
-            android:layout_width="300dp"
-            android:layout_height="300dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:maxHeight="300dp"
+            android:maxWidth="300dp"
             android:layout_marginTop="30dp"
             app:strokeWidth="9dp"
             app:circularflow_radiusInDP="7dp"
