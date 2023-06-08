@@ -9,23 +9,19 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ff99aadf-588d-482c-bc22-61980f27fb3a" name="Changes" comment="Implementado o aceite/recusa do cliente">
-      <change beforePath="$PROJECT_DIR$/.idea/deploymentTargetDropDown.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="ff99aadf-588d-482c-bc22-61980f27fb3a" name="Changes" comment="Tela de foto criada, imagem adicionada para placeholder, edições básicas nos editTexts">
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/br/edu/puccampinas/pi3/AndamentoActivity.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_andamento.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/br/edu/puccampinas/pi3/EmergenciaActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/br/edu/puccampinas/pi3/EmergenciaActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/br/edu/puccampinas/pi3/EmergenciaDataSource.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/br/edu/puccampinas/pi3/EmergenciaDataSource.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/br/edu/puccampinas/pi3/EmergenciasActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/br/edu/puccampinas/pi3/EmergenciasActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/br/edu/puccampinas/pi3/LoadingActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/br/edu/puccampinas/pi3/LoadingActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/br/edu/puccampinas/pi3/PerfilActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/br/edu/puccampinas/pi3/PerfilActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_perfil.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_perfil.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[C:\Users\jonie\.android\avd\Pixel_6_API_29.avd]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[C:\Users\FoxyN\.android\avd\Pixel_6_API_29.avd]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -80,6 +76,9 @@
       <recent name="br.edu.puccampinas.pi3" />
     </key>
     <key name="android.template.1123049728">
+      <recent name="br.edu.puccampinas.pi3" />
+    </key>
+    <key name="android.template.133927010">
       <recent name="br.edu.puccampinas.pi3" />
     </key>
     <key name="android.template.-1511025449">
@@ -143,6 +142,17 @@
       <option name="SKIP_ACTIVITY_VALIDATION" value="false" />
       <method v="2">
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="JetRunConfigurationType">
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <option name="filePath" />
+      <method v="2">
+        <option name="Make" enabled="true" />
       </method>
     </configuration>
   </component>
