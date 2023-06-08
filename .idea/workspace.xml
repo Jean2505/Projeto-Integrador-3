@@ -9,19 +9,15 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ff99aadf-588d-482c-bc22-61980f27fb3a" name="Changes" comment="Tela de foto criada, imagem adicionada para placeholder, edições básicas nos editTexts">
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/br/edu/puccampinas/pi3/AndamentoActivity.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_andamento.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
+    <list default="true" id="ff99aadf-588d-482c-bc22-61980f27fb3a" name="Changes" comment="Mapa adicionado. A activity do mapa foi adicionada com sucesso e já pode entrar em funcionamento, porém ainda não está implementada. Também foi adicionada a possibilidade de pegar a localização real do usuário.">
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/br/edu/puccampinas/pi3/MapsActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/br/edu/puccampinas/pi3/MapsActivity.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[C:\Users\FoxyN\.android\avd\Pixel_6_API_29.avd]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[C:\Users\jonie\.android\avd\Pixel_4_API_29.avd]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -228,7 +224,14 @@
       <option name="project" value="LOCAL" />
       <updated>1685746225172</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Mapa adicionado. A activity do mapa foi adicionada com sucesso e já pode entrar em funcionamento, porém ainda não está implementada. Também foi adicionada a possibilidade de pegar a localização real do usuário.">
+      <created>1686268231662</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1686268231662</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -251,7 +254,8 @@
     <MESSAGE value="Finalizando Layout das telas" />
     <MESSAGE value="Strings minimamente alteradas, tela de cadastro e edição de perfil remodeladas.&#10;Icones adicionados aos arquivos" />
     <MESSAGE value="Ligação funcionando, botao de voltar no cadastro" />
-    <option name="LAST_COMMIT_MESSAGE" value="Ligação funcionando, botao de voltar no cadastro" />
+    <MESSAGE value="Mapa adicionado. A activity do mapa foi adicionada com sucesso e já pode entrar em funcionamento, porém ainda não está implementada. Também foi adicionada a possibilidade de pegar a localização real do usuário." />
+    <option name="LAST_COMMIT_MESSAGE" value="Mapa adicionado. A activity do mapa foi adicionada com sucesso e já pode entrar em funcionamento, porém ainda não está implementada. Também foi adicionada a possibilidade de pegar a localização real do usuário." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

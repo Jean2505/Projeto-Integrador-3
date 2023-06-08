@@ -2,6 +2,7 @@ package br.edu.puccampinas.pi3
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import br.edu.puccampinas.pi3.databinding.ActivityMapsBinding
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.SupportMapFragment
@@ -33,6 +34,7 @@ class MapsActivity : AppCompatActivity() {
         }
 
         binding.btnVoltar.setOnClickListener {
+            Toast.makeText(this, "voltar", Toast.LENGTH_SHORT).show()
             this.finish()
         }
 
