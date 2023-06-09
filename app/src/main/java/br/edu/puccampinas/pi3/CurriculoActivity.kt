@@ -93,8 +93,6 @@ class CurriculoActivity : AppCompatActivity(), View.OnClickListener {
         intentCameraPreview.putExtra("IEnderecoTres", intent.getStringExtra("IEnderecoTres"))
         intentCameraPreview.putExtra("ICurriculo", intent.getStringExtra("ICurriculo"))
         startActivity(intentCameraPreview)
-
-
     }
     private lateinit var uid: String
     override fun onClick(v: View?) {

@@ -116,9 +116,9 @@ class EmergenciaActivity : AppCompatActivity() {
         }
 
         binding.btnLigar.setOnClickListener{
-            val intentTeste = Intent(this, PerfilActivity::class.java)
+            val iAndamento = Intent(this, AndamentoActivity::class.java)
             if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.CALL_PHONE) == PackageManager.PERMISSION_GRANTED) {
-                startActivity(intentTeste)
+                startActivity(iAndamento)
                 realizarChamada()
             } else {
                 ActivityCompat.requestPermissions(this, arrayOf(android.Manifest.permission.CALL_PHONE), 1)

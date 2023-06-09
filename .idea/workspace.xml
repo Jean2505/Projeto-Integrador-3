@@ -9,12 +9,14 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ff99aadf-588d-482c-bc22-61980f27fb3a" name="Changes" comment="Botões estilizados, botão de camera alterado, tamanho das fotos de emergencia com limite de resolução agora">
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/bell.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/custom_button3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/star.xml" afterDir="false" />
+    <list default="true" id="ff99aadf-588d-482c-bc22-61980f27fb3a" name="Changes" comment="Tela de chamada em andamento criada apenas placeholders">
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/custom_button2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/logout.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_emergencias.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_emergencias.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_camera_preview.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_camera_preview.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_emergencia.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_emergencia.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_perfil.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_perfil.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -224,14 +226,7 @@
       <option name="project" value="LOCAL" />
       <updated>1686252278435</updated>
     </task>
-    <task id="LOCAL-00011" summary="Botões estilizados, botão de camera alterado, tamanho das fotos de emergencia com limite de resolução agora">
-      <created>1686261308892</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1686261308892</updated>
-    </task>
-    <option name="localTasksCounter" value="12" />
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -255,8 +250,7 @@
     <MESSAGE value="Strings minimamente alteradas, tela de cadastro e edição de perfil remodeladas.&#10;Icones adicionados aos arquivos" />
     <MESSAGE value="Ligação funcionando, botao de voltar no cadastro" />
     <MESSAGE value="Tela de chamada em andamento criada apenas placeholders" />
-    <MESSAGE value="Botões estilizados, botão de camera alterado, tamanho das fotos de emergencia com limite de resolução agora" />
-    <option name="LAST_COMMIT_MESSAGE" value="Botões estilizados, botão de camera alterado, tamanho das fotos de emergencia com limite de resolução agora" />
+    <option name="LAST_COMMIT_MESSAGE" value="Tela de chamada em andamento criada apenas placeholders" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

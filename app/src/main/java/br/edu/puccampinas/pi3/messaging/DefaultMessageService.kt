@@ -9,6 +9,7 @@ import android.media.RingtoneManager
 import androidx.core.app.NotificationCompat
 import br.edu.puccampinas.pi3.Emergencia
 import br.edu.puccampinas.pi3.EmergenciaActivity
+import br.edu.puccampinas.pi3.PerfilActivity
 import br.edu.puccampinas.pi3.R
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
@@ -27,6 +28,7 @@ class DefaultMessageService : FirebaseMessagingService() {
      */
 
     override fun onMessageReceived(remoteMessage: RemoteMessage) {
+
         print("mensagem recebida")
         Firebase.auth.currentUser?.uid
         val msgData = remoteMessage.data
