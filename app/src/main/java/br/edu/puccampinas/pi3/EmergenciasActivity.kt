@@ -51,6 +51,11 @@ class EmergenciasActivity : AppCompatActivity() {
         val recyclerView: RecyclerView = findViewById(R.id.rvEmergencias)
         recyclerView.adapter = EmerAdapter
 
+        binding.btnAvaliacoes.setOnClickListener {
+            val intentAvaliacoes = Intent(this,AvaliacaoActivity::class.java)
+            startActivity(intentAvaliacoes)
+        }
+
         binding.btnPerfil.setOnClickListener{
             intent.getStringExtra("email")
 
