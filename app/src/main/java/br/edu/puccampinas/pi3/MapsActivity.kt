@@ -12,6 +12,7 @@ import com.google.android.gms.maps.model.MarkerOptions
 class MapsActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMapsBinding
+    var teste = LatLng(0.0, 0.0)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,9 +41,12 @@ class MapsActivity : AppCompatActivity() {
 
 
 
-
+         teste = LatLng(intent.getStringExtra("lat")!!.toDouble(),
+            intent.getStringExtra("long")!!.toDouble())
     }
-    val teste = LatLng(-22.944245,-47.009150)
+    //val teste = LatLng(-22.944245,-47.009150)
+    //val teste = LatLng(intent.getStringExtra("lat")!!.toDouble(),
+      //  intent.getStringExtra("long")!!.toDouble())
     private val places: List<Place> by lazy {
         PlacesReader(this).read()
     }

@@ -21,10 +21,6 @@ class EmergenciasActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityEmergenciasBinding
 
-
-
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_emergencias)
@@ -81,8 +77,7 @@ class EmergenciasActivity : AppCompatActivity() {
                 dataHora = intent.getStringExtra("dataHora")!!,
                 emergencia = intent.getStringExtra("emergencia")!!)
             lista.add(Emerg)
-            print("teste")
-            //Toast.makeText(context, i, Toast.LENGTH_SHORT).show()
+
             i += 1;
             val EmerAdapter = EmergenciasAdapter(lista)
             val recyclerView: RecyclerView = findViewById(R.id.rvEmergencias)

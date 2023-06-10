@@ -6,11 +6,14 @@ import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
 import android.media.RingtoneManager
+import android.widget.Toast
 import androidx.core.app.NotificationCompat
 import br.edu.puccampinas.pi3.Emergencia
 import br.edu.puccampinas.pi3.EmergenciaActivity
+import br.edu.puccampinas.pi3.MapsActivity
 import br.edu.puccampinas.pi3.PerfilActivity
 import br.edu.puccampinas.pi3.R
+import com.google.common.collect.Maps
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.ktx.Firebase
@@ -29,7 +32,7 @@ class DefaultMessageService : FirebaseMessagingService() {
 
     override fun onMessageReceived(remoteMessage: RemoteMessage) {
 
-        print("mensagem recebida")
+        println("mensagem recebida")
         Firebase.auth.currentUser?.uid
         val msgData = remoteMessage.data
 
@@ -100,6 +103,16 @@ class DefaultMessageService : FirebaseMessagingService() {
         showNotification("Pressione para ver detalhes", msgData["nome"].toString(),
             msgData["telefone"].toString(), msgData["Foto1"].toString(), msgData["Foto2"].toString(),
             msgData["Foto3"].toString(), msgData["dataHora"].toString(), msgData["emergencia"].toString())*/
+
+        if (msgData["text"] == "localizacao") {
+            Intent().also { loc ->
+                loc.setAction("br.edu.puccampinas.pi3.RecieverLocalizacao")
+                loc.putExtra("lat", msgData["lat"])
+                loc.putExtra("long", msgData["long"])
+                sendBroadcast(loc)
+            }
+        }
+
     }
 
     /***

@@ -45,13 +45,14 @@ class EmergenciaActivity : AppCompatActivity() {
         val storage = Firebase.storage
         val storageRef1 = storage.getReferenceFromUrl(foto1)
         val localFile1 = File.createTempFile("images","jpg")
-        Toast.makeText(this, foto1, Toast.LENGTH_LONG).show()
 
-        /*val storageRef2 = storage.getReferenceFromUrl(intent.getStringExtra("Foto2").toString())
-        val localFile2 = File.createTempFile("images1","jpg")
+        val foto2 = "gs://prijinttres.appspot.com/${intent.getStringExtra("Foto2").toString()}"
+        val storageRef2 = storage.getReferenceFromUrl(foto2)
+        val localFile2 = File.createTempFile("images2","jpg")
 
-        val storageRef3 = storage.getReferenceFromUrl(intent.getStringExtra("Foto3").toString())
-        val localFile3 = File.createTempFile("images2","jpg")*/
+        val foto3 = "gs://prijinttres.appspot.com/${intent.getStringExtra("Foto3").toString()}"
+        val storageRef3 = storage.getReferenceFromUrl(foto3)
+        val localFile3 = File.createTempFile("images3","jpg")
 
         storageRef1.getFile(localFile1).addOnSuccessListener {
             // Local temp file has been created
@@ -62,7 +63,7 @@ class EmergenciaActivity : AppCompatActivity() {
             Toast.makeText(this, "deu errado irmão", Toast.LENGTH_SHORT).show()
         }
 
-        /*storageRef2.getFile(localFile2).addOnSuccessListener {
+        storageRef2.getFile(localFile2).addOnSuccessListener {
             // Local temp file has been created
             val bitmap = BitmapFactory.decodeFile(localFile2.absolutePath)
             binding.ivFoto2.setImageBitmap(bitmap)
@@ -78,7 +79,7 @@ class EmergenciaActivity : AppCompatActivity() {
         }.addOnFailureListener {
             // Handle any errors
             Toast.makeText(this, "deu errado irmão", Toast.LENGTH_SHORT).show()
-        }*/
+        }
 
         binding.tvNome.text = intent.getStringExtra("nome")
         binding.tvTelefone.text = intent.getStringExtra("telefone")
@@ -117,6 +118,7 @@ class EmergenciaActivity : AppCompatActivity() {
 
         binding.btnLigar.setOnClickListener{
             val iAndamento = Intent(this, AndamentoActivity::class.java)
+            iAndamento.putExtra("emergencia",intent.getStringExtra("emergencia"))
             if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.CALL_PHONE) == PackageManager.PERMISSION_GRANTED) {
                 startActivity(iAndamento)
                 realizarChamada()
