@@ -1,5 +1,6 @@
 package br.edu.puccampinas.pi3
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.TextView
 import android.widget.Toast
@@ -28,7 +29,7 @@ class AvaliacaoActivity : AppCompatActivity() {
     private lateinit var btnChamadas : MaterialButton
     private lateinit var tvComent : TextView
     private lateinit var functions: FirebaseFunctions
-    //private val gson = GsonBuilder().enableComplexMapKeySerialization().create()
+    private val gson = GsonBuilder().enableComplexMapKeySerialization().create()
     private val user = Firebase.auth.currentUser
     private var db = FirebaseFirestore.getInstance()
     private var lista: MutableList<Avaliacoes> = emptyList<Avaliacoes>().toMutableList()
@@ -46,6 +47,29 @@ class AvaliacaoActivity : AppCompatActivity() {
 
         functions = Firebase.functions("southamerica-east1")
 
+        getMedia()
+            .addOnCompleteListener(OnCompleteListener { task ->
+                if (!task.isSuccessful) {
+                    val e = task.exception
+                    if (e is FirebaseFunctionsException) {
+                        val code = e.code
+                        val details = e.details
+                        Toast.makeText(this, "Erro ao obter media!", Toast.LENGTH_SHORT).show()
+                    }
+                }else{
+                    val genericResp = gson.fromJson(task.result, FunctionsGenericResponse::class.java)
+
+                    val insertInfo = gson.fromJson(genericResp.payload.toString(), GenericInsertResponse::class.java)
+
+
+                    println(genericResp.message)
+                    val media = String.format("%.1f", genericResp.message!!.toDouble()).toDouble()
+                    binding.tvMedia.text = "sua média é : ${media}"
+                    Toast.makeText(this, "Obteve media com sucesso", Toast.LENGTH_SHORT).show()
+
+                }
+            })
+
         db.collection("avaliacoes").whereEqualTo("uidDentista", user!!.uid)
             .get()
             .addOnSuccessListener { documents ->
@@ -53,11 +77,9 @@ class AvaliacaoActivity : AppCompatActivity() {
                     val avaliacao = Avaliacoes(nome = document["nome"].toString(),
                                                 comentario = document["coment"].toString(),
                                                 estrela = document["aval"] as Long)
-                    println(avaliacao)
                     lista.add(avaliacao)
-                    println(lista[0])
 
-                    val avalAdapter = AvaliacoesAdapter(lista)
+                    val avalAdapter = AvaliacoesAdapter(lista.asReversed())
                     val recyclerView: RecyclerView = findViewById(R.id.rvAvaliacoes)
                     recyclerView.adapter = avalAdapter
                 }
@@ -66,20 +88,27 @@ class AvaliacaoActivity : AppCompatActivity() {
         btnChamadas.setOnClickListener{
             this.finish()
         }
+
+        binding.btnPerfil.setOnClickListener {
+            val iPerfil = Intent(this, PerfilActivity::class.java)
+            startActivity(iPerfil)
+        }
     }
 
-    /*private fun getAvaliacoes(): Task<String> {
+    private fun getMedia(): Task<String> {
 
         val data = hashMapOf(
             "uid" to user!!.uid
         )
         return functions
-            .getHttpsCallable("getAvaliacoes")
+            .getHttpsCallable("getMedia")
             .call(data)
             .continueWith { task ->
+                println(task.result?.data)
                 val res = gson.toJson(task.result?.data)
+                println(res[0])
                 res
             }
-    }*/
+    }
 }
 

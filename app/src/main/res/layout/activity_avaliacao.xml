@@ -6,6 +6,14 @@
     android:layout_height="match_parent"
     tools:context=".AvaliacaoActivity">
 
+    <TextView
+        android:id="@+id/tvMedia"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:text="aaaaa"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnLogo"/>
+
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/btnLogo"
         android:layout_width="264dp"
@@ -29,7 +37,7 @@
         android:layout_height="match_parent"
         android:layout_marginTop="62dp"
         app:layoutManager="LinearLayoutManager"
-        app:layout_constraintTop_toBottomOf="@id/btnLogo"
+        app:layout_constraintTop_toBottomOf="@id/tvMedia"
         app:layout_constraintBottom_toTopOf="@+id/btnChamadas"
         android:layout_marginBottom="58dp"/>
 

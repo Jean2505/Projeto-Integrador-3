@@ -68,7 +68,8 @@ class PerfilActivity : AppCompatActivity() {
         binding.btnConcEmail.setOnClickListener{
 
             if(intent.getStringExtra("email") != null){
-                email = intent.getStringExtra("email")!!
+                //email = intent.getStringExtra("email")!!
+                email = user!!.email.toString()
                 Toast.makeText(this, email, Toast.LENGTH_SHORT).show()
             }
 

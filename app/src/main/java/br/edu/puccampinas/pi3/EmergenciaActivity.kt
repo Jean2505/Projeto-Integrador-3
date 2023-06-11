@@ -24,6 +24,7 @@ import java.io.File
 class EmergenciaActivity : AppCompatActivity() {
 
     private val phoneNumber = "998760722"
+    //private lateinit var phoneNumber: String
 
     private lateinit var binding: ActivityEmergenciaBinding
     private val user = Firebase.auth.currentUser
@@ -40,6 +41,8 @@ class EmergenciaActivity : AppCompatActivity() {
 
         val rv = RecieverAceite()
         registerReceiver(rv,Receiver)
+
+        //phoneNumber = intent.getStringExtra("telefone").toString()
 
         val foto1 = "gs://prijinttres.appspot.com/${intent.getStringExtra("Foto1").toString()}"
         val storage = Firebase.storage
@@ -149,11 +152,11 @@ class EmergenciaActivity : AppCompatActivity() {
     }
 
     private fun realizarChamada() {
-        val intent = Intent(Intent.ACTION_CALL)
-        intent.data = Uri.parse("tel:$phoneNumber")
+        val iLigar = Intent(Intent.ACTION_CALL)
+        iLigar.data = Uri.parse("tel:${intent.getStringExtra("telefone")}")
 
-        if (intent.resolveActivity(packageManager) != null) {
-            startActivity(intent)
+        if (iLigar.resolveActivity(packageManager) != null) {
+            startActivity(iLigar)
         } else {
             Toast.makeText(this, "Não é possível realizar chamadas neste dispositivo.", Toast.LENGTH_SHORT).show()
         }

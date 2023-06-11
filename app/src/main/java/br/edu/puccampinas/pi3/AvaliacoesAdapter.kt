@@ -1,8 +1,10 @@
 package br.edu.puccampinas.pi3
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.widget.AppCompatCheckBox
@@ -17,6 +19,7 @@ class AvaliacoesAdapter(private val dataSet: List<Avaliacoes>) :
     /* ViewHolder para a TAREFA, define as referencias das views e acrescenta o "click". */
     class AvaliacaoViewHolder(itemView: View) :
         RecyclerView.ViewHolder(itemView) {
+        private val denunciaButton: Button = itemView.findViewById(R.id.btnDenuncia)
         private val notaImageView:  ImageView = itemView.findViewById(R.id.ivNota)
         private val nomeavTextView: AppCompatTextView = itemView.findViewById(R.id.tvNomeAv)
         private val comentTextView: AppCompatTextView = itemView.findViewById(R.id.tvComentario)
@@ -37,9 +40,15 @@ class AvaliacoesAdapter(private val dataSet: List<Avaliacoes>) :
                 notaImageView.setImageResource(R.drawable.dente5)
             }
 
-            println(notaImageView.drawable.toString())
             nomeavTextView.text = t.nome
             comentTextView.text = t.comentario
+
+            denunciaButton.setOnClickListener {
+                val iDenuncia = Intent(itemView.context,DenunciaActivity::class.java)
+                iDenuncia.putExtra("comentario", t.comentario)
+                iDenuncia.putExtra("nome", t.nome)
+                itemView.context.startActivity(iDenuncia)
+            }
         }
     }
 

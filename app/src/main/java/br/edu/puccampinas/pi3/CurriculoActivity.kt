@@ -203,6 +203,8 @@ class CurriculoActivity : AppCompatActivity(), View.OnClickListener {
             val imgBitmap = BitmapFactory.decodeFile(intent.getStringExtra("fotoPerfil"))
             //val imgBitmap = BitmapFactory.decodeFile("/storage/emulated/0/Android/media/br.edu.puccampinas.pi3/xesque.jpeg")
             imgDentista.setImageBitmap(imgBitmap)
+            imgDentista.rotation = -90.0F
+            imgDentista.scaleY = -1.0F
 
             //imgDentista.setImageURI(intent.getStringExtra("fotoPerfil")!!.toUri())
         }

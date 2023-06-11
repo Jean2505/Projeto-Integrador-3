@@ -9,24 +9,27 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ff99aadf-588d-482c-bc22-61980f27fb3a" name="Changes" comment="Botoes estilizados">
+    <list default="true" id="ff99aadf-588d-482c-bc22-61980f27fb3a" name="Changes" comment="Correção para aparelhos físicos">
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/br/edu/puccampinas/pi3/DenunciaActivity.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_denuncia.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/deploymentTargetDropDown.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/deploymentTargetDropDown.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/br/edu/puccampinas/pi3/AvaliacaoActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/br/edu/puccampinas/pi3/AvaliacaoActivity.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/br/edu/puccampinas/pi3/AvaliacoesAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/br/edu/puccampinas/pi3/AvaliacoesAdapter.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/br/edu/puccampinas/pi3/AvaliacoesDataSource.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/br/edu/puccampinas/pi3/AvaliacoesDataSource.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/itememergencia.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/itememergencia.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_andamento.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_andamento.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_emergencias.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_emergencias.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_maps.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_maps.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_perfil.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_perfil.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/br/edu/puccampinas/pi3/CurriculoActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/br/edu/puccampinas/pi3/CurriculoActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/br/edu/puccampinas/pi3/EmergenciaActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/br/edu/puccampinas/pi3/EmergenciaActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/br/edu/puccampinas/pi3/PerfilActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/br/edu/puccampinas/pi3/PerfilActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_avaliacao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_avaliacao.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/avaliacao_item.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/avaliacao_item.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[C:\Users\FoxyN\.android\avd\Pixel_6_API_29.avd]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[C:\Users\User\.android\avd\Pixel_6_API_29.avd]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -84,6 +87,9 @@
       <recent name="br.edu.puccampinas.pi3" />
     </key>
     <key name="android.template.1123049728">
+      <recent name="br.edu.puccampinas.pi3" />
+    </key>
+    <key name="android.template.-917557547">
       <recent name="br.edu.puccampinas.pi3" />
     </key>
     <key name="android.template.133927010">
@@ -246,7 +252,14 @@
       <option name="project" value="LOCAL" />
       <updated>1686431867736</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Correção para aparelhos físicos">
+      <created>1686512409022</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1686512409022</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -272,7 +285,8 @@
     <MESSAGE value="Tela de chamada em andamento criada apenas placeholders" />
     <MESSAGE value="Criado tela de avaliacao, com recycler sample." />
     <MESSAGE value="Botoes estilizados" />
-    <option name="LAST_COMMIT_MESSAGE" value="Botoes estilizados" />
+    <MESSAGE value="Correção para aparelhos físicos" />
+    <option name="LAST_COMMIT_MESSAGE" value="Correção para aparelhos físicos" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
