@@ -16,10 +16,13 @@
         map:layout_constraintStart_toStartOf="parent"
         map:layout_constraintEnd_toEndOf="parent" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnVoltar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="VOLTAR"/>
+        android:backgroundTint="@color/azulclaro"
+        android:text="@string/voltar"
+        android:fontFamily="@font/avenirbold"
+        android:textColor="#FFFFFF"/>
 
 </FrameLayout>

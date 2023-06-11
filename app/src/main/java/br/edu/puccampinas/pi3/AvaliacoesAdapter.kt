@@ -15,10 +15,12 @@ class AvaliacoesAdapter(private val dataSet: List<Avaliacoes>) :
     class AvaliacaoViewHolder(itemView: View) :
         RecyclerView.ViewHolder(itemView) {
         private val nomeavTextView: AppCompatTextView = itemView.findViewById(R.id.tvNomeAv)
+        private val comentTextView: AppCompatTextView = itemView.findViewById(R.id.tvComentario)
         private var avaliacaoAtual: Avaliacoes? = null
         fun bind(t: Avaliacoes) {
             avaliacaoAtual = t
             nomeavTextView.text = t.nome
+            comentTextView.text = t.comentario
         }
     }
 

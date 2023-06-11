@@ -2,15 +2,21 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/itememergencia"
+    android:layout_marginTop="5dp"
+    android:layout_marginHorizontal="10dp">
 
     <TextView
         android:id="@+id/tvNomeAv"
-        android:layout_width="260dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/avenirbold"
         android:text="Marcos de Castro Santos Junior"
+        android:textSize="20sp"
         android:layout_marginTop="5dp"
         android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"/>
 
@@ -18,23 +24,25 @@
         android:id="@+id/tvNota"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/avenir"
         android:text="1 teste"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="5dp"
-        app:layout_constraintStart_toEndOf="@+id/tvNomeAv"
-        app:layout_constraintTop_toTopOf="parent"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="@+id/tvNomeAv"
+        app:layout_constraintTop_toBottomOf="@id/tvNomeAv"
         />
 
     <TextView
         android:id="@+id/tvComentario"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="raskbhjrsabhjksahbjksarbhjksabhjkasjhbkashbrkajsrjashbkrasjhbkjrhkb"
-        android:layout_marginTop="5dp"
-        android:paddingHorizontal="20dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvNomeAv"
+        android:textSize="20sp"
+        android:text="aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:paddingBottom="5dp"
+        app:layout_constraintEnd_toEndOf="@id/tvNomeAv"
+        app:layout_constraintStart_toStartOf="@id/tvNomeAv"
+        app:layout_constraintTop_toBottomOf="@id/tvNota"
         />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
