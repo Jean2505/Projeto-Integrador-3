@@ -20,12 +20,13 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"/>
 
-    <TextView
+    <ImageView
         android:id="@+id/tvNota"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="170dp"
+        android:layout_height="50dp"
         android:fontFamily="@font/avenir"
-        android:text="1 teste"
+        android:src="@drawable/dente5"
+        android:layout_marginStart="-10dp"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="@+id/tvNomeAv"
         app:layout_constraintTop_toBottomOf="@id/tvNomeAv"

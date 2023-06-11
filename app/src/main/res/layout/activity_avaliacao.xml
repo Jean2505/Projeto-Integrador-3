@@ -31,7 +31,7 @@
         app:layoutManager="LinearLayoutManager"
         app:layout_constraintTop_toBottomOf="@id/btnLogo"
         app:layout_constraintBottom_toTopOf="@+id/btnChamadas"
-        android:layout_marginBottom="60dp"/>
+        android:layout_marginBottom="58dp"/>
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnChamadas"
@@ -39,7 +39,7 @@
         android:layout_height="70dp"
         style="@style/Widget.MaterialComponents.Button.OutlinedButton"
         android:backgroundTint="#E0F2FF"
-        app:rippleColor="@color/amarelo"
+        app:rippleColor="#32FFD803"
         app:cornerRadius="0dp"
         app:strokeWidth="0dp"
         android:gravity="center"
@@ -58,7 +58,7 @@
         android:layout_height="70dp"
         style="@style/Widget.MaterialComponents.Button.OutlinedButton"
         android:backgroundTint="#E0F2FF"
-        app:rippleColor="@color/amarelo"
+        app:rippleColor="#32FFD803"
         app:cornerRadius="0dp"
         app:strokeWidth="0dp"
         android:gravity="center"
