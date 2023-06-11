@@ -138,7 +138,7 @@ class DefaultMessageService : FirebaseMessagingService() {
         intent.putExtra("Foto3", Foto3)
         intent.putExtra("dataHora", dataHora)
         intent.putExtra("emergencia", emergencia)
-        val pendingIntent = PendingIntent.getActivity(this,0,intent,PendingIntent.FLAG_UPDATE_CURRENT)
+        val pendingIntent = PendingIntent.getActivity(this,0,intent,PendingIntent.FLAG_IMMUTABLE)
         val channelId = "canal_padrao"
         val defaultSoundUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION)
         val notificationBuilder = NotificationCompat.Builder(this, channelId)
