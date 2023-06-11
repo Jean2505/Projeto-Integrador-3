@@ -3,7 +3,10 @@ package br.edu.puccampinas.pi3
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
+import android.widget.Toast
 import androidx.appcompat.widget.AppCompatCheckBox
+import androidx.appcompat.widget.AppCompatImageView
 import androidx.appcompat.widget.AppCompatTextView
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
@@ -14,11 +17,27 @@ class AvaliacoesAdapter(private val dataSet: List<Avaliacoes>) :
     /* ViewHolder para a TAREFA, define as referencias das views e acrescenta o "click". */
     class AvaliacaoViewHolder(itemView: View) :
         RecyclerView.ViewHolder(itemView) {
+        private val notaImageView:  ImageView = itemView.findViewById(R.id.ivNota)
         private val nomeavTextView: AppCompatTextView = itemView.findViewById(R.id.tvNomeAv)
         private val comentTextView: AppCompatTextView = itemView.findViewById(R.id.tvComentario)
         private var avaliacaoAtual: Avaliacoes? = null
         fun bind(t: Avaliacoes) {
             avaliacaoAtual = t
+            if( t.estrela.toString() == "0"){
+                notaImageView.setImageResource(R.drawable.dente0)
+            } else if (t.estrela.toString() == "1"){
+                notaImageView.setImageResource(R.drawable.dente1)
+            } else if (t.estrela.toString() == "2"){
+                notaImageView.setImageResource(R.drawable.dente2)
+            } else if (t.estrela.toString() == "3"){
+                notaImageView.setImageResource(R.drawable.dente3)
+            } else if (t.estrela.toString() == "4"){
+                notaImageView.setImageResource(R.drawable.dente4)
+            } else if (t.estrela.toString() == "5"){
+                notaImageView.setImageResource(R.drawable.dente5)
+            }
+
+            println(notaImageView.drawable.toString())
             nomeavTextView.text = t.nome
             comentTextView.text = t.comentario
         }

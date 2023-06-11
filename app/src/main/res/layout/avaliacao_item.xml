@@ -21,7 +21,7 @@
         app:layout_constraintStart_toStartOf="parent"/>
 
     <ImageView
-        android:id="@+id/tvNota"
+        android:id="@+id/ivNota"
         android:layout_width="170dp"
         android:layout_height="50dp"
         android:fontFamily="@font/avenir"
@@ -43,7 +43,7 @@
         android:paddingBottom="5dp"
         app:layout_constraintEnd_toEndOf="@id/tvNomeAv"
         app:layout_constraintStart_toStartOf="@id/tvNomeAv"
-        app:layout_constraintTop_toBottomOf="@id/tvNota"
+        app:layout_constraintTop_toBottomOf="@id/ivNota"
         />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
