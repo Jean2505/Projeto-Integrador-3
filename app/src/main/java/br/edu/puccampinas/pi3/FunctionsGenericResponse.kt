@@ -17,6 +17,8 @@ class FunctionsGenericResponse {
         SUCCESS("SUCCESS");
     }
 
+
+
     @SerializedName("status")
     var status: StatusType? = null;
 

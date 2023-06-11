@@ -113,6 +113,12 @@ class DefaultMessageService : FirebaseMessagingService() {
             }
         }
 
+        if (msgData["text"] == "avaliacao") {
+            println("chegou avaliação")
+            println(msgData["aval"])
+            println(msgData["coment"])
+        }
+
     }
 
     /***
@@ -120,16 +126,6 @@ class DefaultMessageService : FirebaseMessagingService() {
      */
     override fun onNewToken(token: String) {
     }
-
-    /***
-     * Este método cria uma Intent
-     * para a activity Main, vinculada a notificação.
-     * ou seja, quando acontecer a notificação, se o usuário clicar,
-     * abrirá a activity Main.
-     * Trabalhar isso para que dependendo da mensagem,
-     * você poderá abrir uma ou outra activity
-     * ou enviar um parametro na Intent para tratar qual fragment abrir.(desafio para vc fazer)
-     */
 
     private fun showNotification(messageBody: String, nome: String, telefone: String, Foto1: String,
                                  Foto2: String, Foto3: String, dataHora: String, emergencia: String) {

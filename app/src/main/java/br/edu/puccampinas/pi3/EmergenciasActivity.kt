@@ -84,7 +84,7 @@ class EmergenciasActivity : AppCompatActivity() {
             lista.add(Emerg)
 
             i += 1;
-            val EmerAdapter = EmergenciasAdapter(lista)
+            val EmerAdapter = EmergenciasAdapter(lista.asReversed())
             val recyclerView: RecyclerView = findViewById(R.id.rvEmergencias)
             recyclerView.adapter = EmerAdapter
         }

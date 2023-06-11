@@ -177,9 +177,6 @@ class PerfilActivity : AppCompatActivity() {
                 }
         }
 
-
-
-
         binding.etCv.setOnClickListener{
             binding.etCv.hint = null
         }
