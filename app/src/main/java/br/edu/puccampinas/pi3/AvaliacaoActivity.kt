@@ -63,7 +63,7 @@ class AvaliacaoActivity : AppCompatActivity() {
 
 
                     println(genericResp.message)
-                    val media = String.format("%.1f", genericResp.message!!.toDouble()).toDouble()
+                    val media = String.format("%.1f", genericResp.message!!.toDouble())
                     binding.tvMedia.text = "sua média é : ${media}"
                     Toast.makeText(this, "Obteve media com sucesso", Toast.LENGTH_SHORT).show()
 

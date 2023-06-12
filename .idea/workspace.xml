@@ -10,26 +10,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ff99aadf-588d-482c-bc22-61980f27fb3a" name="Changes" comment="Correção para aparelhos físicos">
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/br/edu/puccampinas/pi3/DenunciaActivity.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_denuncia.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/deploymentTargetDropDown.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/deploymentTargetDropDown.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/br/edu/puccampinas/pi3/HistoricoActivity.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/br/edu/puccampinas/pi3/HistoricoAdapter.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/br/edu/puccampinas/pi3/OldEmergActivity.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_historico.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_oldemerg.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/historico_item.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/deploymentTargetDropDown.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/br/edu/puccampinas/pi3/AvaliacaoActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/br/edu/puccampinas/pi3/AvaliacaoActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/br/edu/puccampinas/pi3/AvaliacoesAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/br/edu/puccampinas/pi3/AvaliacoesAdapter.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/br/edu/puccampinas/pi3/CurriculoActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/br/edu/puccampinas/pi3/CurriculoActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/br/edu/puccampinas/pi3/EmergenciaActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/br/edu/puccampinas/pi3/EmergenciaActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/br/edu/puccampinas/pi3/PerfilActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/br/edu/puccampinas/pi3/PerfilActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_avaliacao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_avaliacao.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/avaliacao_item.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/avaliacao_item.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/br/edu/puccampinas/pi3/LoadingActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/br/edu/puccampinas/pi3/LoadingActivity.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[C:\Users\User\.android\avd\Pixel_6_API_29.avd]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[C:\Users\jonie\.android\avd\Pixel_4_API_29.avd]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -62,23 +61,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
-    &quot;com.google.services.firebase.aqiPopupShown&quot;: &quot;true&quot;,
-    &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/User/AndroidStudioProjects/CameraX&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;,
-    &quot;show.migrate.to.gradle.popup&quot;: &quot;false&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.cidr.known.project.marker": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "cidr.known.project.marker": "true",
+    "com.google.services.firebase.aqiPopupShown": "true",
+    "dart.analysis.tool.window.visible": "false",
+    "last_opened_file_path": "C:/AndroidStudioProjetos/Projeto-Integrador-3-FINALL/app/src/main/res/layout",
+    "settings.editor.selected.configurable": "preferences.keymap",
+    "show.migrate.to.gradle.popup": "false"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="android.template.498378701">
       <recent name="br.edu.puccampinas.pi3" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\AndroidStudioProjetos\Projeto-Integrador-3-FINALL\app\src\main\res\layout" />
+      <recent name="C:\AndroidStudioProjetos\Projeto-Integrador-3-FINALL\app\src\main\java\br\edu\puccampinas\pi3" />
     </key>
     <key name="android.template.619931140">
       <recent name="br.edu.puccampinas.pi3" />
@@ -93,6 +96,9 @@
       <recent name="br.edu.puccampinas.pi3" />
     </key>
     <key name="android.template.133927010">
+      <recent name="br.edu.puccampinas.pi3" />
+    </key>
+    <key name="CopyKotlinDeclarationDialog.RECENTS_KEY">
       <recent name="br.edu.puccampinas.pi3" />
     </key>
     <key name="android.template.-1511025449">

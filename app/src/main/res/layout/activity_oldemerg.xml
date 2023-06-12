@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".OldEmergActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnVoltar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="18dp"
+            android:background="#00018786"
+            android:text="@string/voltar"
+            android:fontFamily="@font/avenirbold"
+            android:textColor="@color/azulclaro"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+        android:id="@+id/titulo"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_marginTop="13dp"
+        android:fontFamily="@font/avenirbold"
+        android:textColor="@color/azulescuro"
+        android:text="@string/emergencia__detalhes"
+        android:textSize="32sp"
+        android:textAlignment="center"
+        app:layout_constraintTop_toBottomOf="@id/btnVoltar"/>
+
+        <TextView
+            android:id="@+id/tvDataHora"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="18dp"
+            android:text="@string/emergencia__aloHumora"
+            android:textSize="20sp"
+            android:textColor="@color/azulclaro"
+            android:fontFamily="@font/avenir"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/titulo"/>
+
+
+    <TextView
+        android:id="@+id/tvTNome"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginStart="9dp"
+        android:fontFamily="@font/avenirbold"
+        android:textColor="@color/azulescuro"
+        android:text="@string/emergencia__nome"
+        android:textSize="30sp"
+        app:layout_constraintTop_toBottomOf="@+id/tvDataHora"/>
+
+    <TextView
+        android:id="@+id/tvNome"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_marginHorizontal="25dp"
+        android:paddingTop="10dp"
+        android:paddingStart="30dp"
+        android:paddingEnd="0dp"
+        android:textColor="@color/black"
+        android:text="@string/emergencia__alo1"
+        android:textSize="20sp"
+        android:fontFamily="@font/avenir"
+        android:background="@drawable/textbox"
+        app:layout_constraintTop_toBottomOf="@+id/tvTNome"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <TextView
+        android:id="@+id/tvTTelef"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginStart="9dp"
+        android:fontFamily="@font/avenirbold"
+        android:textColor="@color/azulescuro"
+        android:text="@string/emergencia__telefone"
+        android:textSize="30sp"
+        app:layout_constraintTop_toBottomOf="@+id/tvNome"/>
+
+    <TextView
+        android:id="@+id/tvTelefone"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_marginHorizontal="25dp"
+        android:paddingTop="10dp"
+        android:paddingStart="30dp"
+        android:paddingEnd="0dp"
+        android:textColor="@color/black"
+        android:text="@string/emergencia__alo2"
+        android:textSize="20sp"
+        android:fontFamily="@font/avenir"
+        android:background="@drawable/textbox"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvTTelef"
+        android:inputType="textPassword"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnLigar"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:backgroundTint="@color/amarelo"
+            android:drawableStart="@drawable/phone"
+            android:drawablePadding="4dp"
+            android:text="Ligue já"
+            android:textColor="@color/azulclaro"
+            android:layout_marginTop="-2dp"
+            app:layout_constraintEnd_toEndOf="@id/tvTelefone"
+            app:layout_constraintTop_toBottomOf="@id/tvTTelef"/>
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:orientation="vertical"
+        android:id="@+id/ivFoto1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:maxHeight="300dp"
+            android:maxWidth="300dp"
+        android:layout_marginTop="30dp"
+        app:strokeWidth="9dp"
+        app:circularflow_radiusInDP="7dp"
+        app:strokeColor="@color/azulclaro"
+        android:src="@drawable/bebe1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ivTeste1"/>
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivTeste1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvTelefone"/>
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:orientation="vertical"
+        android:id="@+id/ivFoto2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        android:maxHeight="300dp"
+        android:maxWidth="300dp"
+        android:layout_marginTop="30dp"
+        app:strokeWidth="9dp"
+        app:circularflow_radiusInDP="7dp"
+        app:strokeColor="@color/azulclaro"
+        android:src="@drawable/bebe2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ivFoto1"/>
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/ivFoto3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:maxHeight="300dp"
+            android:maxWidth="300dp"
+            android:layout_marginTop="30dp"
+            app:strokeWidth="9dp"
+            app:circularflow_radiusInDP="7dp"
+            app:strokeColor="@color/azulclaro"
+            android:src="@drawable/bebe3"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ivFoto2"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>
