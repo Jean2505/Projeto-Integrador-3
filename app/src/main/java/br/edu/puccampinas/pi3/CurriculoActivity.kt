@@ -26,6 +26,7 @@ import com.google.firebase.messaging.FirebaseMessaging
 import com.google.firebase.messaging.ktx.messaging
 import com.google.firebase.storage.ktx.storage
 import com.google.gson.GsonBuilder
+import com.squareup.picasso.Picasso
 import de.hdodenhof.circleimageview.CircleImageView
 import java.io.File
 
@@ -202,9 +203,10 @@ class CurriculoActivity : AppCompatActivity(), View.OnClickListener {
 
             val imgBitmap = BitmapFactory.decodeFile(intent.getStringExtra("fotoPerfil"))
             //val imgBitmap = BitmapFactory.decodeFile("/storage/emulated/0/Android/media/br.edu.puccampinas.pi3/xesque.jpeg")
-            imgDentista.setImageBitmap(imgBitmap)
-            imgDentista.rotation = -90.0F
-            imgDentista.scaleY = -1.0F
+            Picasso.with(this).load("file:" + img!!.absolutePath).fit().centerInside().into(imgDentista);
+            //imgDentista.setImageBitmap(imgBitmap)
+            //imgDentista.rotation = -90.0F
+            //imgDentista.scaleX = -1.0F
 
             //imgDentista.setImageURI(intent.getStringExtra("fotoPerfil")!!.toUri())
         }

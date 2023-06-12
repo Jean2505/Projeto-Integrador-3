@@ -19,6 +19,7 @@ import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.ktx.storage
+import com.squareup.picasso.Picasso
 import java.io.File
 
 class EmergenciaActivity : AppCompatActivity() {
@@ -60,7 +61,10 @@ class EmergenciaActivity : AppCompatActivity() {
         storageRef1.getFile(localFile1).addOnSuccessListener {
             // Local temp file has been created
             val bitmap = BitmapFactory.decodeFile(localFile1.absolutePath)
-            binding.ivFoto1.setImageBitmap(bitmap)
+            Picasso.with(this).load("file:" + localFile1.absolutePath).fit().centerInside().into(binding.ivFoto1)
+
+            //Picasso.with(this).load("file:" + localFile1.absolutePath).into(binding.ivFoto1)
+            //binding.ivFoto1.setImageBitmap(bitmap)
         }.addOnFailureListener {
             // Handle any errors
             Toast.makeText(this, "deu errado irmão", Toast.LENGTH_SHORT).show()
@@ -69,7 +73,8 @@ class EmergenciaActivity : AppCompatActivity() {
         storageRef2.getFile(localFile2).addOnSuccessListener {
             // Local temp file has been created
             val bitmap = BitmapFactory.decodeFile(localFile2.absolutePath)
-            binding.ivFoto2.setImageBitmap(bitmap)
+            Picasso.with(this).load("file:" + localFile2.absolutePath).fit().centerInside().into(binding.ivFoto2)
+            //binding.ivFoto2.setImageBitmap(bitmap)
         }.addOnFailureListener {
             // Handle any errors
             Toast.makeText(this, "deu errado irmão", Toast.LENGTH_SHORT).show()
@@ -78,7 +83,8 @@ class EmergenciaActivity : AppCompatActivity() {
         storageRef3.getFile(localFile3).addOnSuccessListener {
             // Local temp file has been created
             val bitmap = BitmapFactory.decodeFile(localFile3.absolutePath)
-            binding.ivFoto3.setImageBitmap(bitmap)
+            Picasso.with(this).load("file:" + localFile3.absolutePath).fit().centerInside().into(binding.ivFoto3)
+            //binding.ivFoto3.setImageBitmap(bitmap)
         }.addOnFailureListener {
             // Handle any errors
             Toast.makeText(this, "deu errado irmão", Toast.LENGTH_SHORT).show()
