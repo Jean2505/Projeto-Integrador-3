@@ -48,7 +48,9 @@ class HistoricoActivity : AppCompatActivity() {
             .get()
             .addOnSuccessListener { documents ->
                 Toast.makeText(this, "passou um aviao", Toast.LENGTH_SHORT).show()
+
                 for(document in documents) {
+                    val stat = document["status"]
                     db.collection("emergencias").document(document["emergencia"].toString())
                         .get()
                         .addOnSuccessListener { document2 ->
@@ -58,7 +60,7 @@ class HistoricoActivity : AppCompatActivity() {
                                 foto1 = document2["Foto1"].toString(),
                                 foto2 = document2["Foto2"].toString(),
                                 foto3 = document2["Foto3"].toString(),
-                                status = document2["status"].toString(),
+                                status = stat.toString(),
                                 dataHora = document2["dataHora"].toString(),
                                 emergencia = "document2id"
                             )

@@ -54,6 +54,10 @@ class HistoricoAdapter(private val dataSet: List<Emergencia>):
         /* Obtem a tarefa e a utiliza como "viewholder". */
         override fun onBindViewHolder(holder: HistoricoViewHolder, position: Int) {
             val t = dataSet[position]
+            if (t.status == "recusada") {
+                val newBackground = R.drawable.item_rejeitado
+                holder.itemView.setBackgroundResource(newBackground)
+            }
             holder.bind(t)
         }
         // Return the size of your dataset (invoked by the layout manager)

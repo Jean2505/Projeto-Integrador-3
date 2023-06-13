@@ -75,7 +75,7 @@ class AvaliacaoActivity : AppCompatActivity() {
             .addOnSuccessListener { documents ->
                 for(document in documents) {
                     val avaliacao = Avaliacoes(nome = document["nome"].toString(),
-                                                comentario = document["coment"].toString(),
+                                                comentario = "\"${document["coment"].toString()}\"",
                                                 estrela = document["aval"] as Long)
                     lista.add(avaliacao)
 
