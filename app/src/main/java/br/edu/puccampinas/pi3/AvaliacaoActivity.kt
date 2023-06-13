@@ -64,9 +64,14 @@ class AvaliacaoActivity : AppCompatActivity() {
 
                     println(genericResp.message)
                     val media = String.format("%.1f", genericResp.message!!.toDouble())
-                    binding.tvMedia.text = "sua média é : ${media}"
+                    if (!media.toDouble().isNaN()){
+                        println("entrou aqui ó")
+                        binding.tvMedia.text = "sua média é : ${media}"
+                    } else{
+                        binding.tvMedia.text = "Você não tem avaliações"
+                    }
+                    //binding.tvMedia.text = "sua média é : ${media}"
                     Toast.makeText(this, "Obteve media com sucesso", Toast.LENGTH_SHORT).show()
-
                 }
             })
 
@@ -86,12 +91,22 @@ class AvaliacaoActivity : AppCompatActivity() {
             }
 
         btnChamadas.setOnClickListener{
-            this.finish()
+            if(intent.getStringExtra("finish") == "sim"){
+                this.finish()
+            } else {
+                val iEmergencias = Intent(this, EmergenciasActivity::class.java)
+                startActivity(iEmergencias)
+            }
         }
 
         binding.btnPerfil.setOnClickListener {
             val iPerfil = Intent(this, PerfilActivity::class.java)
             startActivity(iPerfil)
+        }
+
+        binding.btnHistorico.setOnClickListener {
+            val iHistorico = Intent(this, HistoricoActivity::class.java)
+            startActivity(iHistorico)
         }
     }
 

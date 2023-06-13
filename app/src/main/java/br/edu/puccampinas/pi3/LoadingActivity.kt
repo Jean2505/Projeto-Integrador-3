@@ -86,7 +86,7 @@ class LoadingActivity : AppCompatActivity() {
         if(currentUser != null){
             Toast.makeText(this, "qualquer coisa que eu quiser", Toast.LENGTH_SHORT).show()
 
-            val iLogado = Intent(this,HistoricoActivity::class.java)
+            val iLogado = Intent(this,EmergenciasActivity::class.java)
 
             iLogado.putExtra("email", currentUser.email)
             this.startActivity(iLogado)

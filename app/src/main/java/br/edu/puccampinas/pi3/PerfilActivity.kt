@@ -99,13 +99,13 @@ class PerfilActivity : AppCompatActivity() {
 
             binding.etEmail.compoundDrawableTintList = ColorStateList.valueOf(corIcone)
 
-            if(intent.getStringExtra("email") != null){
+            /*if(intent.getStringExtra("email") != null){
                 //email = intent.getStringExtra("email")!!
                 email = user!!.email.toString()
                 Toast.makeText(this, email, Toast.LENGTH_SHORT).show()
-            }
+            }*/
 
-            db.collection("dentistas").whereEqualTo("email", email)
+            db.collection("dentistas").whereEqualTo("email", user!!.email)
                 .get()
                 .addOnSuccessListener { documents ->
                     for(document in documents) {
@@ -167,6 +167,7 @@ class PerfilActivity : AppCompatActivity() {
                         db.collection("dentistas").document(document.id)
                             .update("name", binding.etNome.text.toString())
                     }
+                    Toast.makeText(this, "Nome atualizado", Toast.LENGTH_SHORT).show()
                 }
         }
 
@@ -185,6 +186,7 @@ class PerfilActivity : AppCompatActivity() {
                         db.collection("dentistas").document(document.id)
                             .update("telefone", binding.etTelef.text.toString())
                     }
+                    Toast.makeText(this, "Telefone atualizado", Toast.LENGTH_SHORT).show()
                 }
         }
 
@@ -203,6 +205,7 @@ class PerfilActivity : AppCompatActivity() {
                         db.collection("dentistas").document(document.id)
                             .update("end1", binding.etEnd1.text.toString())
                     }
+                    Toast.makeText(this, "Endereço atualizado", Toast.LENGTH_SHORT).show()
                 }
         }
 
@@ -221,6 +224,7 @@ class PerfilActivity : AppCompatActivity() {
                         db.collection("dentistas").document(document.id)
                             .update("end2", binding.etEnd2.text.toString())
                     }
+                    Toast.makeText(this, "Endereço atualizado", Toast.LENGTH_SHORT).show()
                 }
         }
 
@@ -239,6 +243,7 @@ class PerfilActivity : AppCompatActivity() {
                         db.collection("dentistas").document(document.id)
                             .update("end3", binding.etEnd3.text.toString())
                     }
+                    Toast.makeText(this, "Endereço atualizado", Toast.LENGTH_SHORT).show()
                 }
         }
 
@@ -257,6 +262,7 @@ class PerfilActivity : AppCompatActivity() {
                         db.collection("dentistas").document(document.id)
                             .update("cv", binding.etCv.text.toString())
                     }
+                    Toast.makeText(this, "Curriculo atualizado", Toast.LENGTH_SHORT).show()
                 }
         }
 
@@ -308,6 +314,4 @@ class PerfilActivity : AppCompatActivity() {
                 }
             }
     }
-
-
 }

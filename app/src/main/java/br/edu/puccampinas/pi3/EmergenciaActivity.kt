@@ -14,13 +14,20 @@ import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.recyclerview.widget.RecyclerView
 import br.edu.puccampinas.pi3.databinding.ActivityEmergenciaBinding
+import com.google.android.gms.tasks.OnCompleteListener
+import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.functions.FirebaseFunctions
+import com.google.firebase.functions.FirebaseFunctionsException
+import com.google.firebase.functions.ktx.functions
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.ktx.storage
+import com.google.gson.GsonBuilder
 import com.squareup.picasso.Picasso
 import java.io.File
+
 
 class EmergenciaActivity : AppCompatActivity() {
 
@@ -30,6 +37,8 @@ class EmergenciaActivity : AppCompatActivity() {
     private lateinit var binding: ActivityEmergenciaBinding
     private val user = Firebase.auth.currentUser
     private var db = FirebaseFirestore.getInstance()
+    private lateinit var functions: FirebaseFunctions
+    private val gson = GsonBuilder().enableComplexMapKeySerialization().create()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,6 +46,10 @@ class EmergenciaActivity : AppCompatActivity() {
 
         binding = ActivityEmergenciaBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        functions = Firebase.functions("southamerica-east1")
+
+        binding.btnLigar.isClickable = false
 
         val Receiver = IntentFilter("br.edu.puccampinas.pi3.RecieverAceite")
 
@@ -97,8 +110,6 @@ class EmergenciaActivity : AppCompatActivity() {
 
         binding.btnVoltar.setOnClickListener {
             this.finish()
-            //val iVoltar = Intent(this,EmergenciasActivity::class.java)
-            //this.startActivity(iVoltar)
         }
 
 
@@ -126,14 +137,36 @@ class EmergenciaActivity : AppCompatActivity() {
         }
 
         binding.btnLigar.setOnClickListener{
-            val iAndamento = Intent(this, AndamentoActivity::class.java)
+            enviarLigacao()
+                .addOnCompleteListener(OnCompleteListener { task ->
+                    if (!task.isSuccessful) {
+                        val e = task.exception
+                        if (e is FirebaseFunctionsException) {
+                            val code = e.code
+                            val details = e.details
+                            Toast.makeText(this, "Erro ao fazer ligação, tente novamente!", Toast.LENGTH_SHORT).show()
+                        }
+                    }else{
+                        Toast.makeText(this, "ligou!", Toast.LENGTH_SHORT).show()
+                        val iAndamento = Intent(this, AndamentoActivity::class.java)
+                        iAndamento.putExtra("emergencia",intent.getStringExtra("emergencia"))
+                        if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.CALL_PHONE) == PackageManager.PERMISSION_GRANTED) {
+                            startActivity(iAndamento)
+                            realizarChamada()
+                        } else {
+                            ActivityCompat.requestPermissions(this, arrayOf(android.Manifest.permission.CALL_PHONE), 1)
+                        }
+                    }
+                })
+
+            /*val iAndamento = Intent(this, AndamentoActivity::class.java)
             iAndamento.putExtra("emergencia",intent.getStringExtra("emergencia"))
             if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.CALL_PHONE) == PackageManager.PERMISSION_GRANTED) {
                 startActivity(iAndamento)
                 realizarChamada()
             } else {
                 ActivityCompat.requestPermissions(this, arrayOf(android.Manifest.permission.CALL_PHONE), 1)
-            }
+            }*/
         }
 
         binding.btnRecusar.setOnClickListener {
@@ -168,6 +201,20 @@ class EmergenciaActivity : AppCompatActivity() {
         }
     }
 
+    private fun enviarLigacao(): Task<String> {
+
+        val data = hashMapOf(
+            "emerg" to intent.getStringExtra("emergencia")
+        )
+        return functions
+            .getHttpsCallable("dentistaLigou")
+            .call(data)
+            .continueWith { task ->
+                val res = gson.toJson(task.result?.data)
+                res
+            }
+    }
+
     inner class RecieverAceite : BroadcastReceiver() {
         override fun onReceive(context: Context, intent: Intent) {
             // This method is called when the BroadcastReceiver is receiving an Intent broadcast.
@@ -177,6 +224,7 @@ class EmergenciaActivity : AppCompatActivity() {
                 Toast.makeText(context, "Você foi escolhido! Agora, entre em contato com o " +
                         "socorrista", Toast.LENGTH_LONG).show()
                 binding.tvTelefone.inputType = 3;
+                binding.btnLigar.isClickable = true;
             }
             else if (intent.getStringExtra("status") == "rejeitada") {
                 Toast.makeText(context, "Emergência atribuida a outro profissional", Toast.LENGTH_LONG).show()

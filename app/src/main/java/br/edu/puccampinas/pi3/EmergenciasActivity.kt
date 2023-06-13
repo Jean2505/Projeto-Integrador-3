@@ -52,8 +52,9 @@ class EmergenciasActivity : AppCompatActivity() {
         recyclerView.adapter = EmerAdapter
 
         binding.btnAvaliacoes.setOnClickListener {
-            val intentAvaliacoes = Intent(this,AvaliacaoActivity::class.java)
-            startActivity(intentAvaliacoes)
+            val iAvaliacoes = Intent(this,AvaliacaoActivity::class.java)
+            iAvaliacoes.putExtra("finish", "sim")
+            startActivity(iAvaliacoes)
         }
 
         binding.btnPerfil.setOnClickListener{
@@ -62,6 +63,12 @@ class EmergenciasActivity : AppCompatActivity() {
             val iPerfil = Intent(this, PerfilActivity::class.java)
             iPerfil.putExtra("email", intent.getStringExtra("email"))
             this.startActivity(iPerfil)
+        }
+
+        binding.btnHistorico.setOnClickListener {
+            val iHistorico = Intent(this, HistoricoActivity::class.java)
+            iHistorico.putExtra("finish", "sim")
+            this.startActivity(iHistorico)
         }
     }
 
