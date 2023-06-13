@@ -95,20 +95,6 @@ class OldEmergActivity : AppCompatActivity() {
             //val iVoltar = Intent(this,EmergenciasActivity::class.java)
             //this.startActivity(iVoltar)
         }
-
-
-
-
-        binding.btnLigar.setOnClickListener{
-            val iAndamento = Intent(this, AndamentoActivity::class.java)
-            iAndamento.putExtra("emergencia",intent.getStringExtra("emergencia"))
-            if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.CALL_PHONE) == PackageManager.PERMISSION_GRANTED) {
-                startActivity(iAndamento)
-                realizarChamada()
-            } else {
-                ActivityCompat.requestPermissions(this, arrayOf(android.Manifest.permission.CALL_PHONE), 1)
-            }
-        }
     }
 
     private fun realizarChamada() {

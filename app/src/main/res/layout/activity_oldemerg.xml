@@ -103,19 +103,6 @@
         app:layout_constraintTop_toBottomOf="@id/tvTTelef"
         android:inputType="textPassword"/>
 
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btnLigar"
-            android:layout_width="wrap_content"
-            android:layout_height="48dp"
-            android:backgroundTint="@color/amarelo"
-            android:drawableStart="@drawable/phone"
-            android:drawablePadding="4dp"
-            android:text="Ligue já"
-            android:textColor="@color/azulclaro"
-            android:layout_marginTop="-2dp"
-            app:layout_constraintEnd_toEndOf="@id/tvTelefone"
-            app:layout_constraintTop_toBottomOf="@id/tvTTelef"/>
-
         <com.google.android.material.imageview.ShapeableImageView
             android:orientation="vertical"
         android:id="@+id/ivFoto1"
@@ -174,6 +161,15 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/ivFoto2"/>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="140dp"
+            android:background="@drawable/box"
+            android:layout_marginTop="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ivFoto3"/>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </ScrollView>

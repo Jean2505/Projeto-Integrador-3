@@ -21,7 +21,9 @@ class EmergenciasAdapter(private val dataSet: List<Emergencia>):
             private val TesteTextView: AppCompatTextView = itemView.findViewById(R.id.tvData)
             private val BlocoTextView: AppCompatTextView = itemView.findViewById(R.id.tvBloco)
 
+
             fun bind(t: Emergencia) {
+
                 emergenciaAtual = t
                 EmergenciaTextView.text = t.nome
                 TesteTextView.text = t.dataHora
