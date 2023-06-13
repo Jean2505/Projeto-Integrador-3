@@ -9,18 +9,8 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ff99aadf-588d-482c-bc22-61980f27fb3a" name="Changes" comment="Estrelinhas do review colocadas">
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/boxedit.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/item_aceita.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/report.xml" afterDir="false" />
+    <list default="true" id="ff99aadf-588d-482c-bc22-61980f27fb3a" name="Changes" comment="Mudanças na tela de perfil, denuncia e histórico">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/br/edu/puccampinas/pi3/HistoricoAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/br/edu/puccampinas/pi3/HistoricoAdapter.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/br/edu/puccampinas/pi3/PerfilActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/br/edu/puccampinas/pi3/PerfilActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_avaliacao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_avaliacao.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_denuncia.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_denuncia.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_perfil.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_perfil.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/avaliacao_item.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/avaliacao_item.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/historico_item.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/historico_item.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -267,7 +257,14 @@
       <option name="project" value="LOCAL" />
       <updated>1686444853655</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Mudanças na tela de perfil, denuncia e histórico">
+      <created>1686666877419</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1686666877431</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -295,7 +292,8 @@
     <MESSAGE value="Botoes estilizados" />
     <MESSAGE value="Item de avaliacao e lista de avaliacao criada" />
     <MESSAGE value="RecyclerView cor adaptada" />
-    <option name="LAST_COMMIT_MESSAGE" value="RecyclerView cor adaptada" />
+    <MESSAGE value="Mudanças na tela de perfil, denuncia e histórico" />
+    <option name="LAST_COMMIT_MESSAGE" value="Mudanças na tela de perfil, denuncia e histórico" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
