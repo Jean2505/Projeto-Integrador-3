@@ -22,7 +22,41 @@
         android:fontFamily="@font/avenirbold"
         android:textColor="@color/azulclaro"/>
 
-    <TextView
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/imgDentista"
+            android:layout_width="210dp"
+            android:layout_height="210dp"
+            android:layout_marginTop="90dp"
+            android:src="@drawable/preto"
+            app:civ_border_width="7dp"
+            app:civ_border_color="@color/azulescuro"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            />
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnFoto2"
+            android:layout_width="65dp"
+            android:layout_height="65dp"
+            android:layout_marginTop="-60dp"
+            android:background="@drawable/botaoredondo"
+            app:layout_constraintEnd_toEndOf="@id/imgDentista"
+            app:layout_constraintTop_toBottomOf="@id/imgDentista"
+            android:focusable="false"
+            android:clickable="false"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnFoto"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:background="@drawable/foto"
+            android:backgroundTint="@color/amarelo"
+            app:layout_constraintEnd_toEndOf="@id/btnFoto2"
+            app:layout_constraintStart_toStartOf="@id/btnFoto2"
+            app:layout_constraintBottom_toBottomOf="@id/btnFoto2"
+            app:layout_constraintTop_toTopOf="@id/btnFoto2"/>
+
+        <TextView
         android:id="@+id/tvEmail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -30,8 +64,8 @@
         android:textSize="20sp"
         android:text="@string/perfil__email"
         android:layout_marginStart="5dp"
-        android:layout_marginTop="40dp"
-        app:layout_constraintTop_toBottomOf="@id/btnVoltar"
+        android:layout_marginTop="20dp"
+        app:layout_constraintTop_toBottomOf="@id/imgDentista"
         app:layout_constraintStart_toStartOf="parent"/>
 
     <androidx.appcompat.widget.AppCompatEditText
@@ -43,6 +77,7 @@
         android:textColor="@color/black"
         android:background="@drawable/textbox"
         android:drawableStart="@drawable/email"
+
         android:drawablePadding="5dp"
         android:paddingStart="10dp"
         android:paddingEnd="0dp"

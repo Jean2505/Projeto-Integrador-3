@@ -19,13 +19,12 @@ class HistoricoAdapter(private val dataSet: List<Emergencia>):
             private val EmergenciaTextView: AppCompatTextView = itemView.findViewById(R.id.tvNome)
             private var emergenciaAtual: Emergencia? = null
             private val TesteTextView: AppCompatTextView = itemView.findViewById(R.id.tvData)
-            private val BlocoTextView: AppCompatTextView = itemView.findViewById(R.id.tvBloco)
 
             fun bind(t: Emergencia) {
                 emergenciaAtual = t
                 EmergenciaTextView.text = t.nome
                 TesteTextView.text = t.dataHora
-                BlocoTextView.setOnClickListener {
+                itemView.setOnClickListener {
                     Toast.makeText(itemView.context, "É o funcionas", Toast.LENGTH_SHORT).show()
 
                     val iEmergencia = Intent(itemView.context,OldEmergActivity::class.java)
@@ -56,6 +55,10 @@ class HistoricoAdapter(private val dataSet: List<Emergencia>):
             val t = dataSet[position]
             if (t.status == "recusada") {
                 val newBackground = R.drawable.item_rejeitado
+                holder.itemView.setBackgroundResource(newBackground)
+            }
+            if (t.status == "aceita") {
+                val newBackground = R.drawable.item_aceita
                 holder.itemView.setBackgroundResource(newBackground)
             }
             holder.bind(t)

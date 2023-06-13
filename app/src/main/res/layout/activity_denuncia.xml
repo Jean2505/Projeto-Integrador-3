@@ -6,34 +6,70 @@
     android:layout_height="match_parent"
     tools:context=".DenunciaActivity">
 
-    <TextView
-        android:id="@+id/tvNome"
-        android:layout_width="match_parent"
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnVoltar"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Denunciar"
+        android:layout_marginEnd="18dp"
+        android:background="#00018786"
+        android:text="@string/voltar"
+        android:fontFamily="@font/avenirbold"
+        android:textColor="@color/azulclaro"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
 
     <TextView
-        android:id="@+id/tvMotivo"
-        android:layout_width="match_parent"
+        android:id="@+id/tvNome"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Por que  esolheu?"
+        android:text="Denuncia do comentário"
+        android:textSize="30sp"
+        android:fontFamily="@font/avenir"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginHorizontal="8dp"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="60dp"/>
+
+    <TextView
+        android:id="@+id/tvMotivo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="35dp"
+        android:textSize="20sp"
+        android:layout_marginHorizontal="15dp"
+        android:paddingHorizontal="15dp"
+        android:text="Motivo da denúnciaasaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
         app:layout_constraintTop_toBottomOf="@id/tvNome"
-        app:layout_constraintStart_toStartOf="parent"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
 
     <EditText
         android:id="@+id/etMotivo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:minHeight="45dp"
+        android:layout_marginHorizontal="15dp"
+        android:background="@drawable/textbox"
+        android:textColor="@color/black"
+        android:layout_marginTop="10dp"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:drawablePadding="8dp"
+        android:paddingHorizontal="10dp"
+        android:paddingVertical="5dp"
         app:layout_constraintTop_toBottomOf="@id/tvMotivo"/>
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnEnviar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="@drawable/custom_button"
+        android:layout_marginTop="40dp"
         android:text="Enviar"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/etMotivo"
         app:layout_constraintStart_toStartOf="parent"/>
 

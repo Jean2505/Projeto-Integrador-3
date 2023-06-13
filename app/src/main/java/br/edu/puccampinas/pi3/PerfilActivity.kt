@@ -1,10 +1,12 @@
 package br.edu.puccampinas.pi3
 
 import android.content.Intent
+import android.content.res.ColorStateList
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MotionEvent
 import android.widget.Toast
+import androidx.core.content.ContextCompat
 import br.edu.puccampinas.pi3.databinding.ActivityPerfilBinding
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
@@ -46,6 +48,29 @@ class PerfilActivity : AppCompatActivity() {
         }
 
         binding.btnEdit.setOnClickListener{
+
+            val newbackground = R.drawable.boxedit
+            val corIcone = ContextCompat.getColor(this, R.color.azulescuro)
+
+            binding.etCv.setBackgroundResource(newbackground)
+            binding.etNome.setBackgroundResource(newbackground)
+            binding.etEmail.setBackgroundResource(newbackground)
+            binding.etTelef.setBackgroundResource(newbackground)
+            binding.etSenha.setBackgroundResource(newbackground)
+            binding.etEnd1.setBackgroundResource(newbackground)
+            binding.etEnd2.setBackgroundResource(newbackground)
+            binding.etEnd3.setBackgroundResource(newbackground)
+
+            binding.etCv.compoundDrawableTintList = ColorStateList.valueOf(corIcone)
+            binding.etNome.compoundDrawableTintList = ColorStateList.valueOf(corIcone)
+            binding.etTelef.compoundDrawableTintList = ColorStateList.valueOf(corIcone)
+            binding.etEmail.compoundDrawableTintList = ColorStateList.valueOf(corIcone)
+            binding.etSenha.compoundDrawableTintList = ColorStateList.valueOf(corIcone)
+            binding.etEnd1.compoundDrawableTintList = ColorStateList.valueOf(corIcone)
+            binding.etEnd2.compoundDrawableTintList = ColorStateList.valueOf(corIcone)
+            binding.etEnd3.compoundDrawableTintList = ColorStateList.valueOf(corIcone)
+
+
             binding.etEmail.isEnabled = true
             binding.btnConcEmail.isEnabled = true
             binding.etSenha.text = null
@@ -66,6 +91,13 @@ class PerfilActivity : AppCompatActivity() {
         }
 
         binding.btnConcEmail.setOnClickListener{
+
+            val newbackground = R.drawable.textbox
+            val corIcone = ContextCompat.getColor(this, R.color.azulclaro)
+
+            binding.etEmail.setBackgroundResource(newbackground)
+
+            binding.etEmail.compoundDrawableTintList = ColorStateList.valueOf(corIcone)
 
             if(intent.getStringExtra("email") != null){
                 //email = intent.getStringExtra("email")!!
@@ -98,6 +130,14 @@ class PerfilActivity : AppCompatActivity() {
         }
 
         binding.btnConcSenha.setOnClickListener{
+
+            val newbackground = R.drawable.textbox
+            val corIcone = ContextCompat.getColor(this, R.color.azulclaro)
+
+            binding.etSenha.setBackgroundResource(newbackground)
+
+            binding.etSenha.compoundDrawableTintList = ColorStateList.valueOf(corIcone)
+
             user!!.updatePassword(binding.etSenha.text.toString())
                 .addOnCompleteListener { task ->
                     if (task.isSuccessful) {
@@ -113,6 +153,13 @@ class PerfilActivity : AppCompatActivity() {
         }
 
         binding.btnConcNome.setOnClickListener{
+
+            val newbackground = R.drawable.textbox
+            val corIcone = ContextCompat.getColor(this, R.color.azulclaro)
+
+            binding.etNome.setBackgroundResource(newbackground)
+            binding.etNome.compoundDrawableTintList = ColorStateList.valueOf(corIcone)
+
             db.collection("dentistas").whereEqualTo("email", user!!.email)
                 .get()
                 .addOnSuccessListener { documents ->
@@ -124,6 +171,13 @@ class PerfilActivity : AppCompatActivity() {
         }
 
         binding.btnConcTelef.setOnClickListener{
+
+            val newbackground = R.drawable.textbox
+            val corIcone = ContextCompat.getColor(this, R.color.azulclaro)
+
+            binding.etTelef.setBackgroundResource(newbackground)
+            binding.etTelef.compoundDrawableTintList = ColorStateList.valueOf(corIcone)
+
             db.collection("dentistas").whereEqualTo("email", user!!.email)
                 .get()
                 .addOnSuccessListener { documents ->
@@ -135,6 +189,13 @@ class PerfilActivity : AppCompatActivity() {
         }
 
         binding.btnConcEnd1.setOnClickListener{
+
+            val newbackground = R.drawable.textbox
+            val corIcone = ContextCompat.getColor(this, R.color.azulclaro)
+
+            binding.etEnd1.setBackgroundResource(newbackground)
+            binding.etEnd1.compoundDrawableTintList = ColorStateList.valueOf(corIcone)
+
             db.collection("dentistas").whereEqualTo("email", user!!.email)
                 .get()
                 .addOnSuccessListener { documents ->
@@ -146,6 +207,13 @@ class PerfilActivity : AppCompatActivity() {
         }
 
         binding.btnConcEnd2.setOnClickListener{
+
+            val newbackground = R.drawable.textbox
+            val corIcone = ContextCompat.getColor(this, R.color.azulclaro)
+
+            binding.etEnd2.setBackgroundResource(newbackground)
+            binding.etEnd2.compoundDrawableTintList = ColorStateList.valueOf(corIcone)
+
             db.collection("dentistas").whereEqualTo("email", user!!.email)
                 .get()
                 .addOnSuccessListener { documents ->
@@ -157,6 +225,13 @@ class PerfilActivity : AppCompatActivity() {
         }
 
         binding.btnConcEnd3.setOnClickListener{
+
+            val newbackground = R.drawable.textbox
+            val corIcone = ContextCompat.getColor(this, R.color.azulclaro)
+
+            binding.etEnd3.setBackgroundResource(newbackground)
+            binding.etEnd3.compoundDrawableTintList = ColorStateList.valueOf(corIcone)
+
             db.collection("dentistas").whereEqualTo("email", user!!.email)
                 .get()
                 .addOnSuccessListener { documents ->
@@ -168,6 +243,13 @@ class PerfilActivity : AppCompatActivity() {
         }
 
         binding.btnConcCv.setOnClickListener{
+
+            val newbackground = R.drawable.textbox
+            val corIcone = ContextCompat.getColor(this, R.color.azulclaro)
+
+            binding.etCv.setBackgroundResource(newbackground)
+            binding.etCv.compoundDrawableTintList = ColorStateList.valueOf(corIcone)
+
             db.collection("dentistas").whereEqualTo("email", user!!.email)
                 .get()
                 .addOnSuccessListener { documents ->
