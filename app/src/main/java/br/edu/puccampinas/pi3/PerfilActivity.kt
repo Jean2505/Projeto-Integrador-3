@@ -2,15 +2,24 @@ package br.edu.puccampinas.pi3
 
 import android.content.Intent
 import android.content.res.ColorStateList
+import android.graphics.BitmapFactory
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MotionEvent
+import android.widget.Button
 import android.widget.Toast
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.ContextCompat
+import androidx.core.net.toUri
 import br.edu.puccampinas.pi3.databinding.ActivityPerfilBinding
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.ktx.Firebase
+import com.google.firebase.storage.ktx.storage
+import com.squareup.picasso.Picasso
+import de.hdodenhof.circleimageview.CircleImageView
+import java.io.File
 
 class PerfilActivity : AppCompatActivity() {
 
@@ -18,12 +27,42 @@ class PerfilActivity : AppCompatActivity() {
     private lateinit var email: String
     private lateinit var binding: ActivityPerfilBinding
     private val user = Firebase.auth.currentUser
+    private lateinit var imgDentista: CircleImageView
+    private lateinit var auth: FirebaseAuth
+    private lateinit var btnFoto: Button
+
+    private val cameraProviderResult =
+        registerForActivityResult(ActivityResultContracts.RequestPermission()){
+            if(it){
+                abrirTelaDePreview()
+            }else{
+                Toast.makeText(this, "Você precisa permitir o uso da câmera!", Toast.LENGTH_SHORT).show()
+            }
+        }
+    private val storageresult =
+        registerForActivityResult(ActivityResultContracts.RequestPermission()){
+            if(it){
+                Toast.makeText(this, "vou chorar", Toast.LENGTH_LONG).show()
+            }else{
+                Toast.makeText(this, "Você precisa permitir o uso da câmera!", Toast.LENGTH_SHORT).show()
+            }
+        }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_perfil)
 
         binding = ActivityPerfilBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        binding.btnFoto.setOnClickListener {
+            println("AAAAAAAAAAAAAAAAAA")
+            storageresult.launch(android.Manifest.permission.READ_EXTERNAL_STORAGE)
+            cameraProviderResult.launch(android.Manifest.permission.CAMERA)
+        }
+
+        btnFoto = findViewById(R.id.btnFoto)
+
+        auth = Firebase.auth
 
         binding.btnDeslogar.setOnClickListener {
             Firebase.auth.signOut()
@@ -279,6 +318,35 @@ class PerfilActivity : AppCompatActivity() {
     public override fun onStart() {
         super.onStart()
         binding.etEmail.hint = user!!.email
+        if(intent.getStringExtra("fotoPerfil") != null){
+            val img = intent.getStringExtra("fotoPerfil")?.let { File(it) }
+            Picasso.with(this).load("file:" + img!!.absolutePath).fit().centerInside().into(binding.imgDentista);
+            enviarFoto()
+        }
+        else{
+            //TODO: baixar imagem do storage
+            db.collection("dentistas").whereEqualTo("email",user!!.email).get()
+                .addOnSuccessListener { documents ->
+                    for(document in documents){
+                        val foto = document["foto"]
+                        val storage = Firebase.storage
+                        val storageRef1 = storage.getReferenceFromUrl(foto.toString())
+                        val localFile1 = File.createTempFile("images","jpg")
+
+                        storageRef1.getFile(localFile1).addOnSuccessListener {
+                            // Local temp file has been created
+                            val bitmap = BitmapFactory.decodeFile(localFile1.absolutePath)
+                            Picasso.with(this).load("file:" + localFile1.absolutePath).fit().centerInside().into(binding.imgDentista)
+
+                            //Picasso.with(this).load("file:" + localFile1.absolutePath).into(binding.ivFoto1)
+                            //binding.ivFoto1.setImageBitmap(bitmap)
+                        }.addOnFailureListener {
+                            // Handle any errors
+                            Toast.makeText(this, "deu errado irmão", Toast.LENGTH_SHORT).show()
+                        }
+                    }
+                }
+        }
         db.collection("dentistas").whereEqualTo("email", user.email)
             .get()
             .addOnSuccessListener { documents ->
@@ -309,5 +377,25 @@ class PerfilActivity : AppCompatActivity() {
             }
     }
 
+    private fun abrirTelaDePreview(){
+        val intentCameraPreview = Intent(this, CameraPreviewActivity::class.java)
+        intentCameraPreview.putExtra("perfil", "sim")
+        startActivity(intentCameraPreview)
+    }
+
+    private fun enviarFoto(){
+        val milis = System.currentTimeMillis()
+        val foto = "gs://prijinttres.appspot.com/perfis/img-${milis}.jpeg"
+        Firebase.storage.getReference().child("perfis/img-${milis}.jpeg")
+            .putFile(File(intent.getStringExtra("fotoPerfil")).toUri())
+
+        db.collection("dentistas").whereEqualTo("email",user!!.email).get()
+            .addOnSuccessListener { documents ->
+                for(document in documents){
+                    db.collection("dentistas").document(document.id)
+                        .update("foto", foto)
+                }
+            }
+    }
 
 }

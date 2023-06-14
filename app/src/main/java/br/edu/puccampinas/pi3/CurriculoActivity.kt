@@ -179,8 +179,9 @@ class CurriculoActivity : AppCompatActivity(), View.OnClickListener {
             }
     }
     private fun enviarFoto(): String {
-        val foto = "gs://prijinttres.appspot.com/perfis/img-${System.currentTimeMillis()}.jpeg"
-        Firebase.storage.getReference().child("perfis/img-${System.currentTimeMillis()}.jpeg")
+        val milis = System.currentTimeMillis()
+        val foto = "gs://prijinttres.appspot.com/perfis/img-${milis}.jpeg"
+        Firebase.storage.getReference().child("perfis/img-${milis}.jpeg")
             .putFile(File(intent.getStringExtra("fotoPerfil")).toUri())
         return foto
     }
