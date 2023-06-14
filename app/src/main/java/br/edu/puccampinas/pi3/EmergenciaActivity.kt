@@ -32,7 +32,7 @@ import java.io.File
 class EmergenciaActivity : AppCompatActivity() {
 
     private val phoneNumber = "998760722"
-    //private lateinit var phoneNumber: String
+
 
     private lateinit var binding: ActivityEmergenciaBinding
     private val user = Firebase.auth.currentUser
@@ -56,7 +56,7 @@ class EmergenciaActivity : AppCompatActivity() {
         val rv = RecieverAceite()
         registerReceiver(rv,Receiver)
 
-        //phoneNumber = intent.getStringExtra("telefone").toString()
+
 
         val foto1 = "gs://prijinttres.appspot.com/${intent.getStringExtra("Foto1").toString()}"
         val storage = Firebase.storage
@@ -72,35 +72,33 @@ class EmergenciaActivity : AppCompatActivity() {
         val localFile3 = File.createTempFile("images3","jpg")
 
         storageRef1.getFile(localFile1).addOnSuccessListener {
-            // Local temp file has been created
+
             val bitmap = BitmapFactory.decodeFile(localFile1.absolutePath)
             Picasso.with(this).load("file:" + localFile1.absolutePath).fit().centerInside().into(binding.ivFoto1)
 
-            //Picasso.with(this).load("file:" + localFile1.absolutePath).into(binding.ivFoto1)
-            //binding.ivFoto1.setImageBitmap(bitmap)
         }.addOnFailureListener {
-            // Handle any errors
-            Toast.makeText(this, "deu errado irmão", Toast.LENGTH_SHORT).show()
+
+            Toast.makeText(this, "Erro ao baixar imagem", Toast.LENGTH_SHORT).show()
         }
 
         storageRef2.getFile(localFile2).addOnSuccessListener {
-            // Local temp file has been created
+
             val bitmap = BitmapFactory.decodeFile(localFile2.absolutePath)
             Picasso.with(this).load("file:" + localFile2.absolutePath).fit().centerInside().into(binding.ivFoto2)
-            //binding.ivFoto2.setImageBitmap(bitmap)
+
         }.addOnFailureListener {
-            // Handle any errors
-            Toast.makeText(this, "deu errado irmão", Toast.LENGTH_SHORT).show()
+
+            Toast.makeText(this, "Erro ao baixar imagem", Toast.LENGTH_SHORT).show()
         }
 
         storageRef3.getFile(localFile3).addOnSuccessListener {
-            // Local temp file has been created
+
             val bitmap = BitmapFactory.decodeFile(localFile3.absolutePath)
             Picasso.with(this).load("file:" + localFile3.absolutePath).fit().centerInside().into(binding.ivFoto3)
-            //binding.ivFoto3.setImageBitmap(bitmap)
+
         }.addOnFailureListener {
-            // Handle any errors
-            Toast.makeText(this, "deu errado irmão", Toast.LENGTH_SHORT).show()
+
+            Toast.makeText(this, "Erro ao baixar imagem", Toast.LENGTH_SHORT).show()
         }
 
         binding.tvNome.text = intent.getStringExtra("nome")
@@ -147,7 +145,6 @@ class EmergenciaActivity : AppCompatActivity() {
                             Toast.makeText(this, "Erro ao fazer ligação, tente novamente!", Toast.LENGTH_SHORT).show()
                         }
                     }else{
-                        Toast.makeText(this, "ligou!", Toast.LENGTH_SHORT).show()
                         val iAndamento = Intent(this, AndamentoActivity::class.java)
                         iAndamento.putExtra("emergencia",intent.getStringExtra("emergencia"))
                         if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.CALL_PHONE) == PackageManager.PERMISSION_GRANTED) {
@@ -158,15 +155,6 @@ class EmergenciaActivity : AppCompatActivity() {
                         }
                     }
                 })
-
-            /*val iAndamento = Intent(this, AndamentoActivity::class.java)
-            iAndamento.putExtra("emergencia",intent.getStringExtra("emergencia"))
-            if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.CALL_PHONE) == PackageManager.PERMISSION_GRANTED) {
-                startActivity(iAndamento)
-                realizarChamada()
-            } else {
-                ActivityCompat.requestPermissions(this, arrayOf(android.Manifest.permission.CALL_PHONE), 1)
-            }*/
         }
 
         binding.btnRecusar.setOnClickListener {
@@ -217,8 +205,6 @@ class EmergenciaActivity : AppCompatActivity() {
 
     inner class RecieverAceite : BroadcastReceiver() {
         override fun onReceive(context: Context, intent: Intent) {
-            // This method is called when the BroadcastReceiver is receiving an Intent broadcast.
-            //Toast.makeText(context, intent.getStringExtra("data"), Toast.LENGTH_SHORT).show()
 
             if(intent.getStringExtra("status") == "aceita") {
                 Toast.makeText(context, "Você foi escolhido! Agora, entre em contato com o " +

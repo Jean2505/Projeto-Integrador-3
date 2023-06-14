@@ -102,13 +102,10 @@ class AndamentoActivity : AppCompatActivity() {
         ) { permissions ->
             when {
                 permissions.getOrDefault(android.Manifest.permission.ACCESS_FINE_LOCATION, false) -> {
-                    // Precise location access granted.
                     fusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
                     fusedLocationClient.lastLocation
                         .addOnSuccessListener { location : Location? ->
-                            // Got last known location. In some rare situations this can be null.
                             if (location != null) {
-                                Toast.makeText(this, "${location.latitude}, ${location.longitude}", Toast.LENGTH_SHORT).show()
                                 enviarLocalizacao(location.latitude.toString(), location.longitude.toString())
                                     .addOnCompleteListener(OnCompleteListener { task ->
                                         if (!task.isSuccessful) {
@@ -130,14 +127,12 @@ class AndamentoActivity : AppCompatActivity() {
                         }
                 }
                 permissions.getOrDefault(android.Manifest.permission.ACCESS_COARSE_LOCATION, false) -> {
-                    // Only approximate location access granted.
                     fusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
 
                     fusedLocationClient.lastLocation
                         .addOnSuccessListener { location : Location? ->
                             // Got last known location. In some rare situations this can be null.
                             if (location != null) {
-                                Toast.makeText(this, "${location.latitude}, ${location.longitude}", Toast.LENGTH_SHORT).show()
                                 enviarLocalizacao(location.latitude.toString(), location.longitude.toString())
                                     .addOnCompleteListener(OnCompleteListener { task ->
                                         if (!task.isSuccessful) {
@@ -158,7 +153,6 @@ class AndamentoActivity : AppCompatActivity() {
                             }
                         }
                 } else -> {
-                // No location access granted.
                 Toast.makeText(this, "Você precisa aceitar o uso da localização!", Toast.LENGTH_SHORT).show()
             }
             }
@@ -214,13 +208,12 @@ class AndamentoActivity : AppCompatActivity() {
     inner class ReceiverLocalizacao: BroadcastReceiver() {
 
         override fun onReceive(context: Context, intent: Intent) {
-            // This method is called when the BroadcastReceiver is receiving an Intent broadcast.
-            //Toast.makeText(context, intent.getStringExtra("data"), Toast.LENGTH_SHORT).show()
+
             val iMapa = Intent(context, MapsActivity::class.java)
             iMapa.putExtra("lat", intent.getStringExtra("lat"))
             iMapa.putExtra("long", intent.getStringExtra("long"))
             startActivity(iMapa)
-            Toast.makeText(context, intent.getStringExtra("lat"), Toast.LENGTH_SHORT).show()
+
         }
     }
 }

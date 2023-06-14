@@ -83,6 +83,7 @@ class DefaultMessageService : FirebaseMessagingService() {
             }
         }
         else if (msgData["text"] == "rejeitada") {
+            println("rejeitou")
             Intent().also { aceite ->
                 aceite.setAction("br.edu.puccampinas.pi3.RecieverAceite")
                 aceite.putExtra("status", "rejeitada")
@@ -104,7 +105,6 @@ class DefaultMessageService : FirebaseMessagingService() {
             println(msgData["aval"])
             println(msgData["coment"])
         }
-
     }
 
     /***

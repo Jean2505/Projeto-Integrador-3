@@ -35,29 +35,16 @@ class EmergenciasActivity : AppCompatActivity() {
         val rv = ReceiverEmergencia()
         registerReceiver(rv,Receiver)
 
-        //val recyclerView: RecyclerView = findViewById(R.id.rvEmergencias)
 
 
-        //recyclerView.childCount
+
+
         val recyclerView: RecyclerView = findViewById(R.id.rvEmergencias)
         if(recyclerView.childCount.toString() == "0"){
             binding.tvTeste.text = "Você não tem novas emergências!"
         }
 
-        /*var teste: List<Emergencia> = emptyList()
-        val dataSetDeTarefas = emergenciaList()
-        val lAU = Emergencia(nome = "TESTEEEEEASDASDSAD",
-            telefone = "11111-1111",
-            foto1 = "cywhrvbuyewb",
-            foto2 = "cbhewvcbuye",
-            foto3 = "cbhuredbcuj",
-            status = "Nova",
-            dataHora = System.currentTimeMillis().toString(),
-            emergencia = "aa")
-        val listaTeste =  teste.plus(lAU)
-        val EmerAdapter = EmergenciasAdapter(dataSetDeTarefas)
-        val recyclerView: RecyclerView = findViewById(R.id.rvEmergencias)
-        recyclerView.adapter = EmerAdapter*/
+
 
         binding.btnAvaliacoes.setOnClickListener {
             val iAvaliacoes = Intent(this,AvaliacaoActivity::class.java)
@@ -85,8 +72,6 @@ class EmergenciasActivity : AppCompatActivity() {
         var i = 0
 
         override fun onReceive(context: Context, intent: Intent) {
-            // This method is called when the BroadcastReceiver is receiving an Intent broadcast.
-            //Toast.makeText(context, intent.getStringExtra("data"), Toast.LENGTH_SHORT).show()
 
             binding.tvTeste.text = ""
 

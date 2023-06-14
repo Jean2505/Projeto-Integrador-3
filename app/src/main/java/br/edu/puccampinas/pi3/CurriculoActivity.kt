@@ -144,7 +144,6 @@ class CurriculoActivity : AppCompatActivity(), View.OnClickListener {
                             })
 
                     } else {
-                        // If sign in fails, display a message to the user.
                         Snackbar.make(btnCadastrar, "Erro ao cadastrar!" + task.exception.toString(),
                             10000).show()
                     }
@@ -191,20 +190,15 @@ class CurriculoActivity : AppCompatActivity(), View.OnClickListener {
 
     public override fun onStart() {
         super.onStart()
-        // Check if user is signed in (non-null) and update UI accordingly.
         val currentUser = auth.currentUser
 
         if(intent.getStringExtra("fotoPerfil") != null){
             val img = intent.getStringExtra("fotoPerfil")?.let { File(it) }
 
             val imgBitmap = BitmapFactory.decodeFile(intent.getStringExtra("fotoPerfil"))
-            //val imgBitmap = BitmapFactory.decodeFile("/storage/emulated/0/Android/media/br.edu.puccampinas.pi3/xesque.jpeg")
-            Picasso.with(this).load("file:" + img!!.absolutePath).fit().centerInside().into(imgDentista);
-            //imgDentista.setImageBitmap(imgBitmap)
-            //imgDentista.rotation = -90.0F
-            //imgDentista.scaleX = -1.0F
 
-            //imgDentista.setImageURI(intent.getStringExtra("fotoPerfil")!!.toUri())
+            Picasso.with(this).load("file:" + img!!.absolutePath).fit().centerInside().into(imgDentista);
+
         }
     }
 }

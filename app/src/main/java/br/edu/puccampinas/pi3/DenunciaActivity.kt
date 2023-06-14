@@ -31,7 +31,6 @@ class DenunciaActivity : AppCompatActivity() {
         binding.tvMotivo.text = "Nos diga por que você escolheu denunciar o comentário ${intent.getStringExtra("comentario")}"
 
         binding.btnEnviar.setOnClickListener {
-            Toast.makeText(this, user!!.uid, Toast.LENGTH_LONG).show()
             enviarDisputa(user!!.uid.toString(), intent.getStringExtra("nome").toString(),
                 intent.getStringExtra("comentario").toString(), binding.etMotivo.text.toString())
                 .addOnCompleteListener(OnCompleteListener { task ->
@@ -43,9 +42,6 @@ class DenunciaActivity : AppCompatActivity() {
                             Toast.makeText(this, "Erro ao abrir disputa, tente novamente!", Toast.LENGTH_SHORT).show()
                         }
                     }else{
-                        //val genericResp = gson.fromJson(task.result, FunctionsGenericResponse::class.java)
-
-                        //val insertInfo = gson.fromJson(genericResp.payload.toString(), GenericInsertResponse::class.java)
                         Toast.makeText(this, "Disputa aberta com sucesso!", Toast.LENGTH_SHORT).show()
                     }
                 })

@@ -35,7 +35,7 @@ class CameraPreviewActivity : AppCompatActivity() {
     private var imageCapture: ImageCapture? = null
 
     private lateinit var imgCaptureExecutor: ExecutorService
-    //val intentX = Intent(this, CurriculoActivity::class.java)
+
     private lateinit var intentX: Intent
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -106,10 +106,7 @@ class CameraPreviewActivity : AppCompatActivity() {
         imageCapture?.let{
             val fileName = "JPEG_${System.currentTimeMillis()}.jpeg"
             file = File(externalMediaDirs[0], fileName)
-            //intentX.putExtra("fotoPerfil", file.toUri().toString())
-            //lateinit var path: String
-            //path = Environment.getExternalStorageDirectory().toString() + fileName
-            //intentX.putExtra("fotoPerfil", BitmapFactory.decodeFile(path))
+
 
             val outputFileOptions = ImageCapture.OutputFileOptions.Builder(file).build()
 
@@ -130,9 +127,6 @@ class CameraPreviewActivity : AppCompatActivity() {
                         Log.e("CameraPreview", "Exceção ao gravar arquivo da foto: $exception")
                     }
                 })
-            //lateinit var path: String
-            //path = Environment.getExternalStorageDirectory().toString() + fileName
-            //intentX.putExtra("fotoPerfil", BitmapFactory.decodeFile(file.absolutePath))
             return file.absolutePath
         }
         return file.absolutePath

@@ -46,7 +46,6 @@ class LoadingActivity : AppCompatActivity() {
             }
             // guardar esse token.
             userPreferencesRepository.fcmToken = task.result
-            Toast.makeText(this, userPreferencesRepository.fcmToken, Toast.LENGTH_SHORT).show()
         })
     }
 
@@ -65,7 +64,6 @@ class LoadingActivity : AppCompatActivity() {
                 PackageManager.PERMISSION_GRANTED
             ) {
                 // FCM SDK (and your app) can post notifications.
-                Toast.makeText(this, "PODE FAZER NOTIFICAS", Toast.LENGTH_LONG).show()
             } else if (shouldShowRequestPermissionRationale(Manifest.permission.POST_NOTIFICATIONS)) {
                 // TODO: display an educational UI explaining to the user the features that will be enabled
                 //       by them granting the POST_NOTIFICATION permission. This UI should provide the user
@@ -84,7 +82,6 @@ class LoadingActivity : AppCompatActivity() {
         // Check if user is signed in (non-null) and update UI accordingly.
         val currentUser = auth.currentUser
         if(currentUser != null){
-            Toast.makeText(this, "qualquer coisa que eu quiser", Toast.LENGTH_SHORT).show()
 
             val iLogado = Intent(this,EmergenciasActivity::class.java)
 
@@ -92,12 +89,6 @@ class LoadingActivity : AppCompatActivity() {
             this.startActivity(iLogado)
         }
         else{
-            if (currentUser != null) {
-                Toast.makeText(this,currentUser.email.toString(), Toast.LENGTH_SHORT).show()
-            }
-            else{
-                Toast.makeText(this, "ta muito nulo", Toast.LENGTH_SHORT).show()
-            }
             val intentLogin = Intent(this,LoginActivity::class.java)
 
             this.startActivity(intentLogin)

@@ -20,6 +20,7 @@ import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.ktx.storage
+import com.squareup.picasso.Picasso
 import java.io.File
 
 class OldEmergActivity : AppCompatActivity() {
@@ -37,13 +38,12 @@ class OldEmergActivity : AppCompatActivity() {
 
         binding = ActivityOldemergBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        Toast.makeText(this, "SOCORRO PELO AMOR DE DEUS", Toast.LENGTH_LONG).show()
         val Receiver = IntentFilter("br.edu.puccampinas.pi3.RecieverAceite")
 
         val rv = RecieverAceite()
         registerReceiver(rv,Receiver)
 
-        //phoneNumber = intent.getStringExtra("telefone").toString()
+
 
         val foto1 = "gs://prijinttres.appspot.com/${intent.getStringExtra("Foto1").toString()}"
         val storage = Firebase.storage
@@ -61,28 +61,31 @@ class OldEmergActivity : AppCompatActivity() {
         storageRef1.getFile(localFile1).addOnSuccessListener {
             // Local temp file has been created
             val bitmap = BitmapFactory.decodeFile(localFile1.absolutePath)
-            binding.ivFoto1.setImageBitmap(bitmap)
+            Picasso.with(this).load("file:" + localFile1.absolutePath).fit().centerInside().into(binding.ivFoto1)
+            //binding.ivFoto1.setImageBitmap(bitmap)
         }.addOnFailureListener {
             // Handle any errors
-            Toast.makeText(this, "deu errado irmão", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Erro ao baixar imagem", Toast.LENGTH_SHORT).show()
         }
 
         storageRef2.getFile(localFile2).addOnSuccessListener {
             // Local temp file has been created
             val bitmap = BitmapFactory.decodeFile(localFile2.absolutePath)
-            binding.ivFoto2.setImageBitmap(bitmap)
+            Picasso.with(this).load("file:" + localFile2.absolutePath).fit().centerInside().into(binding.ivFoto2)
+            //binding.ivFoto2.setImageBitmap(bitmap)
         }.addOnFailureListener {
-            // Handle any errors
-            Toast.makeText(this, "deu errado irmão", Toast.LENGTH_SHORT).show()
+
+            Toast.makeText(this, "Erro ao baixar imagem", Toast.LENGTH_SHORT).show()
         }
 
         storageRef3.getFile(localFile3).addOnSuccessListener {
-            // Local temp file has been created
+
             val bitmap = BitmapFactory.decodeFile(localFile3.absolutePath)
-            binding.ivFoto3.setImageBitmap(bitmap)
+            Picasso.with(this).load("file:" + localFile3.absolutePath).fit().centerInside().into(binding.ivFoto3)
+            //binding.ivFoto3.setImageBitmap(bitmap)
         }.addOnFailureListener {
-            // Handle any errors
-            Toast.makeText(this, "deu errado irmão", Toast.LENGTH_SHORT).show()
+
+            Toast.makeText(this, "Erro ao baixar imagem", Toast.LENGTH_SHORT).show()
         }
 
         binding.tvNome.text = intent.getStringExtra("nome")
@@ -92,26 +95,12 @@ class OldEmergActivity : AppCompatActivity() {
 
         binding.btnVoltar.setOnClickListener {
             this.finish()
-            //val iVoltar = Intent(this,EmergenciasActivity::class.java)
-            //this.startActivity(iVoltar)
-        }
-    }
-
-    private fun realizarChamada() {
-        val iLigar = Intent(Intent.ACTION_CALL)
-        iLigar.data = Uri.parse("tel:${intent.getStringExtra("telefone")}")
-
-        if (iLigar.resolveActivity(packageManager) != null) {
-            startActivity(iLigar)
-        } else {
-            Toast.makeText(this, "Não é possível realizar chamadas neste dispositivo.", Toast.LENGTH_SHORT).show()
         }
     }
 
     inner class RecieverAceite : BroadcastReceiver() {
         override fun onReceive(context: Context, intent: Intent) {
-            // This method is called when the BroadcastReceiver is receiving an Intent broadcast.
-            //Toast.makeText(context, intent.getStringExtra("data"), Toast.LENGTH_SHORT).show()
+
 
             if(intent.getStringExtra("status") == "aceita") {
                 Toast.makeText(context, "Você foi escolhido! Agora, entre em contato com o " +

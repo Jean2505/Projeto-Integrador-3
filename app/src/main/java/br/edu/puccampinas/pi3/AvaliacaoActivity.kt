@@ -70,8 +70,7 @@ class AvaliacaoActivity : AppCompatActivity() {
                     } else{
                         binding.tvMedia.text = "Você não tem avaliações"
                     }
-                    //binding.tvMedia.text = "sua média é : ${media}"
-                    Toast.makeText(this, "Obteve media com sucesso", Toast.LENGTH_SHORT).show()
+
                 }
             })
 

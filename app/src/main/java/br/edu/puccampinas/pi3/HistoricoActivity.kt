@@ -35,19 +35,11 @@ class HistoricoActivity : AppCompatActivity() {
         setContentView(binding.root)
 
 
-        val Receiver = IntentFilter("br.edu.puccampinas.pi3.RecieverEmergencia")
 
-        var teste: List<Emergencia> = emptyList()
-        val dataSetDeTarefas = emergenciaList()
-
-        /*val EmerAdapter = HistoricoAdapter(dataSetDeTarefas)
-        val recyclerView: RecyclerView = findViewById(R.id.rvEmergencias)
-        recyclerView.adapter = EmerAdapter*/
 
         db.collection("aceites").whereEqualTo("profissional", user!!.uid)
             .get()
             .addOnSuccessListener { documents ->
-                Toast.makeText(this, "passou um aviao", Toast.LENGTH_SHORT).show()
 
                 for(document in documents) {
                     val stat = document["status"]

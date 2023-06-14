@@ -21,11 +21,6 @@ class MapsActivity : AppCompatActivity() {
         binding = ActivityMapsBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        /*val mapFragment = SupportMapFragment.newInstance()
-        supportFragmentManager
-            .beginTransaction()
-            .add(R.id.map, mapFragment)
-            .commit()*/
 
         val mapFragment = supportFragmentManager.findFragmentById(
             R.id.map
@@ -35,7 +30,6 @@ class MapsActivity : AppCompatActivity() {
         }
 
         binding.btnVoltar.setOnClickListener {
-            Toast.makeText(this, "voltar", Toast.LENGTH_SHORT).show()
             this.finish()
         }
 
@@ -44,9 +38,7 @@ class MapsActivity : AppCompatActivity() {
          teste = LatLng(intent.getStringExtra("lat")!!.toDouble(),
             intent.getStringExtra("long")!!.toDouble())
     }
-    //val teste = LatLng(-22.944245,-47.009150)
-    //val teste = LatLng(intent.getStringExtra("lat")!!.toDouble(),
-      //  intent.getStringExtra("long")!!.toDouble())
+
     private val places: List<Place> by lazy {
         PlacesReader(this).read()
     }
