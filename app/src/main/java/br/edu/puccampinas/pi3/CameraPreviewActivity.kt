@@ -49,6 +49,7 @@ class CameraPreviewActivity : AppCompatActivity() {
 
         startCamera()
 
+
         binding.btnTakePhoto.setOnClickListener {
             intentX = Intent(this, CurriculoActivity::class.java)
             val foto = takePhoto()
@@ -57,7 +58,25 @@ class CameraPreviewActivity : AppCompatActivity() {
             }
             Toast.makeText(this, "Salvando foto", Toast.LENGTH_SHORT).show()
             Handler().postDelayed({
-                intentX.putExtra("fotoPerfil", foto)
+                if(intent.getStringExtra("perfil") != "sim"){
+                    intentX.putExtra("fotoPerfil", foto)
+                    intentX.putExtra("IEmail", intent.getStringExtra("IEmail").toString())
+                    intentX.putExtra("INome", intent.getStringExtra("INome"))
+                    intentX.putExtra("ISenha", intent.getStringExtra("ISenha").toString())
+                    intentX.putExtra("ITelefone", intent.getStringExtra("ITelefone"))
+                    intentX.putExtra("IEnderecoUm", intent.getStringExtra("IEnderecoUm"))
+                    intentX.putExtra("IEnderecoDois", intent.getStringExtra("IEnderecoDois"))
+                    intentX.putExtra("IEnderecoTres", intent.getStringExtra("IEnderecoTres"))
+                    intentX.putExtra("ICurriculo", intent.getStringExtra("ICurriculo"))
+                    startActivity(intentX)
+                }
+                else{
+                    val iPerfil = Intent(this,PerfilActivity::class.java)
+                    iPerfil.putExtra("fotoPerfil", foto)
+                    startActivity(iPerfil)
+                    this.finish()
+                }
+                /*intentX.putExtra("fotoPerfil", foto)
                 intentX.putExtra("IEmail", intent.getStringExtra("IEmail").toString())
                 intentX.putExtra("INome", intent.getStringExtra("INome"))
                 intentX.putExtra("ISenha", intent.getStringExtra("ISenha").toString())
@@ -66,7 +85,7 @@ class CameraPreviewActivity : AppCompatActivity() {
                 intentX.putExtra("IEnderecoDois", intent.getStringExtra("IEnderecoDois"))
                 intentX.putExtra("IEnderecoTres", intent.getStringExtra("IEnderecoTres"))
                 intentX.putExtra("ICurriculo", intent.getStringExtra("ICurriculo"))
-                startActivity(intentX)
+                startActivity(intentX)*/
             }, 3000)
             //intentX.putExtra("fotoPerfil", foto)
             //startActivity(intentX)
