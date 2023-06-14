@@ -74,8 +74,9 @@ class HistoricoActivity : AppCompatActivity() {
 
 
         binding.btnAvaliacoes.setOnClickListener {
-            val intentAvaliacoes = Intent(this,AvaliacaoActivity::class.java)
-            startActivity(intentAvaliacoes)
+            val iAvaliacoes = Intent(this,AvaliacaoActivity::class.java)
+            iAvaliacoes.putExtra("finish", "nao")
+            startActivity(iAvaliacoes)
         }
 
         binding.btnPerfil.setOnClickListener{
@@ -84,6 +85,16 @@ class HistoricoActivity : AppCompatActivity() {
             val iPerfil = Intent(this, PerfilActivity::class.java)
             iPerfil.putExtra("email", intent.getStringExtra("email"))
             this.startActivity(iPerfil)
+        }
+
+        binding.btnChamadas.setOnClickListener {
+            if(intent.getStringExtra("finish") == "sim"){
+                this.finish()
+            } else{
+                val iEmergencias = Intent(this,EmergenciasActivity::class.java)
+                startActivity(iEmergencias)
+            }
+
         }
     }
 }

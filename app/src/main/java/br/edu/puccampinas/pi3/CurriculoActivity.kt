@@ -78,7 +78,6 @@ class CurriculoActivity : AppCompatActivity(), View.OnClickListener {
     private val storageresult =
         registerForActivityResult(ActivityResultContracts.RequestPermission()){
             if(it){
-                Toast.makeText(this, "vou chorar", Toast.LENGTH_LONG).show()
             }else{
                 Toast.makeText(this, "Você precisa permitir o uso da câmera!", Toast.LENGTH_SHORT).show()
             }
@@ -107,7 +106,6 @@ class CurriculoActivity : AppCompatActivity(), View.OnClickListener {
         val end3 = intent.getStringExtra("IEnderecoTres")
         val cv = intent.getStringExtra("ICurriculo")
 
-        Toast.makeText(this, senha, Toast.LENGTH_SHORT).show()
 
         if (v!!.id == R.id.btnCadastrar) {
             val foto = enviarFoto()
@@ -136,8 +134,9 @@ class CurriculoActivity : AppCompatActivity(), View.OnClickListener {
 
                                     val insertInfo = gson.fromJson(genericResp.payload.toString(), GenericInsertResponse::class.java)
 
-                                    Snackbar.make(btnCadastrar, "Cadastro efetuado com sucesso!",
-                                        2000).show();
+                                    val iCadastrou = Intent(this, LoadingActivity::class.java)
+                                    this.startActivity(iCadastrou)
+
                                 }
                             })
 
@@ -156,7 +155,7 @@ class CurriculoActivity : AppCompatActivity(), View.OnClickListener {
     private fun cadastrarDentista(d: Dentista, uid: String, foto: String): Task<String> {
         val fcmToken = Firebase.messaging.token.result
 
-        Toast.makeText(this, fcmToken, Toast.LENGTH_LONG).show()
+
         val data = hashMapOf(
             "uid" to uid,
             "status" to true,
@@ -190,14 +189,7 @@ class CurriculoActivity : AppCompatActivity(), View.OnClickListener {
         super.onStart()
         // Check if user is signed in (non-null) and update UI accordingly.
         val currentUser = auth.currentUser
-        if(currentUser != null){
-            Toast.makeText(this, "USUÁRIO LOGADO", Toast.LENGTH_SHORT).show()
-        }
-        else{
-            Toast.makeText(this, intent.getStringExtra("IEmail"), Toast.LENGTH_LONG).show()
-            Toast.makeText(this, "USUARIO SEM LOGIN", Toast.LENGTH_SHORT).show()
-        }
-        //Toast.makeText(this, intent.getStringExtra("fotoPerfil"), Toast.LENGTH_SHORT).show()
+
         if(intent.getStringExtra("fotoPerfil") != null){
             val img = intent.getStringExtra("fotoPerfil")?.let { File(it) }
 

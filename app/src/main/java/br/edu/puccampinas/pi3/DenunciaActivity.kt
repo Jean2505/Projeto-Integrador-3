@@ -27,8 +27,8 @@ class DenunciaActivity : AppCompatActivity() {
         setContentView(binding.root)
         functions = Firebase.functions("southamerica-east1")
 
-        binding.tvNome.text = "denunciar ${intent.getStringExtra("nome")}"
-        binding.tvMotivo.text = "nos diga por que você escolheu denunciar o comentario ${intent.getStringExtra("comentario")}"
+        binding.tvNome.text = "Denunciar ${intent.getStringExtra("nome")}"
+        binding.tvMotivo.text = "Nos diga por que você escolheu denunciar o comentário ${intent.getStringExtra("comentario")}"
 
         binding.btnEnviar.setOnClickListener {
             Toast.makeText(this, user!!.uid, Toast.LENGTH_LONG).show()
@@ -49,6 +49,10 @@ class DenunciaActivity : AppCompatActivity() {
                         Toast.makeText(this, "Disputa aberta com sucesso!", Toast.LENGTH_SHORT).show()
                     }
                 })
+        }
+
+        binding.btnVoltar.setOnClickListener {
+            this.finish()
         }
     }
 
