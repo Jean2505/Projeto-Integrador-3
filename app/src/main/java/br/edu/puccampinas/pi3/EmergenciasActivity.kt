@@ -7,6 +7,7 @@ import android.content.IntentFilter
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import androidx.compose.ui.graphics.Color
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.OnLifecycleEvent
 import androidx.recyclerview.widget.RecyclerView
@@ -34,9 +35,16 @@ class EmergenciasActivity : AppCompatActivity() {
         val rv = ReceiverEmergencia()
         registerReceiver(rv,Receiver)
 
+        //val recyclerView: RecyclerView = findViewById(R.id.rvEmergencias)
 
 
-        var teste: List<Emergencia> = emptyList()
+        //recyclerView.childCount
+        val recyclerView: RecyclerView = findViewById(R.id.rvEmergencias)
+        if(recyclerView.childCount.toString() == "0"){
+            binding.tvTeste.text = "Você não tem novas emergências!"
+        }
+
+        /*var teste: List<Emergencia> = emptyList()
         val dataSetDeTarefas = emergenciaList()
         val lAU = Emergencia(nome = "TESTEEEEEASDASDSAD",
             telefone = "11111-1111",
@@ -49,7 +57,7 @@ class EmergenciasActivity : AppCompatActivity() {
         val listaTeste =  teste.plus(lAU)
         val EmerAdapter = EmergenciasAdapter(dataSetDeTarefas)
         val recyclerView: RecyclerView = findViewById(R.id.rvEmergencias)
-        recyclerView.adapter = EmerAdapter
+        recyclerView.adapter = EmerAdapter*/
 
         binding.btnAvaliacoes.setOnClickListener {
             val iAvaliacoes = Intent(this,AvaliacaoActivity::class.java)
@@ -79,6 +87,8 @@ class EmergenciasActivity : AppCompatActivity() {
         override fun onReceive(context: Context, intent: Intent) {
             // This method is called when the BroadcastReceiver is receiving an Intent broadcast.
             //Toast.makeText(context, intent.getStringExtra("data"), Toast.LENGTH_SHORT).show()
+
+            binding.tvTeste.text = ""
 
             val Emerg = Emergencia(nome = intent.getStringExtra("nome")!!,
                 telefone = intent.getStringExtra("telefone")!!,

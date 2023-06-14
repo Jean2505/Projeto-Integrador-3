@@ -38,14 +38,14 @@
 
     <!-- activity_perfil.xml -->
     <string name="perfil__email">Email</string>
-    <string name="perfil__editar">editar</string>
+    <string name="perfil__editar">Editar</string>
     <string name="perfil__senha">Senha</string>
     <string name="perfil__placeholder">placeholder</string>
     <string name="perfil__nome">Nome :</string>
     <string name="perfil__telefone">Telefone</string>
-    <string name="perfil__endereco1">Enereço 1</string>
-    <string name="perfil__endereco2">Enereço 2</string>
-    <string name="perfil__endereco3">Enereço 3</string>
+    <string name="perfil__endereco1">Endereço 1</string>
+    <string name="perfil__endereco2">Endereço 2</string>
+    <string name="perfil__endereco3">Endereço 3</string>
     <string name="perfil__curriculo">Currículo</string>
     <string name="perfil__status">Status</string>
     <string name="perfil__ocupado">Ocupado</string>

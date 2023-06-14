@@ -54,6 +54,7 @@ class PerfilActivity : AppCompatActivity() {
         binding = ActivityPerfilBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+
         binding.btnFoto.setOnClickListener {
             println("AAAAAAAAAAAAAAAAAA")
             storageresult.launch(android.Manifest.permission.READ_EXTERNAL_STORAGE)
@@ -81,7 +82,13 @@ class PerfilActivity : AppCompatActivity() {
         }
 
         binding.btnVoltar.setOnClickListener{
-            this.finish()
+            if(intent.getStringExtra("foto") == "sim"){
+                val iVolta = Intent(this, EmergenciasActivity::class.java)
+                startActivity(iVolta)
+            } else {
+                this.finish()
+            }
+
             //val intent = Intent(this, EmergenciasActivity::class.java)
             //this.startActivity(intent)
         }
@@ -324,7 +331,6 @@ class PerfilActivity : AppCompatActivity() {
             enviarFoto()
         }
         else{
-            //TODO: baixar imagem do storage
             db.collection("dentistas").whereEqualTo("email",user!!.email).get()
                 .addOnSuccessListener { documents ->
                     for(document in documents){

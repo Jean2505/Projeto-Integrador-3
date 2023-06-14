@@ -23,6 +23,7 @@ class AvaliacoesAdapter(private val dataSet: List<Avaliacoes>) :
         private val notaImageView:  ImageView = itemView.findViewById(R.id.ivNota)
         private val nomeavTextView: AppCompatTextView = itemView.findViewById(R.id.tvNomeAv)
         private val comentTextView: AppCompatTextView = itemView.findViewById(R.id.tvComentario)
+        private val notaTextView: AppCompatTextView = itemView.findViewById(R.id.tvNota)
         private var avaliacaoAtual: Avaliacoes? = null
         fun bind(t: Avaliacoes) {
             avaliacaoAtual = t
@@ -42,6 +43,7 @@ class AvaliacoesAdapter(private val dataSet: List<Avaliacoes>) :
 
             nomeavTextView.text = t.nome
             comentTextView.text = t.comentario
+            notaTextView.text = "${t.estrela}/5"
 
             denunciaButton.setOnClickListener {
                 val iDenuncia = Intent(itemView.context,DenunciaActivity::class.java)

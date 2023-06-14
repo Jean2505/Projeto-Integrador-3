@@ -73,22 +73,11 @@ class CameraPreviewActivity : AppCompatActivity() {
                 else{
                     val iPerfil = Intent(this,PerfilActivity::class.java)
                     iPerfil.putExtra("fotoPerfil", foto)
+                    iPerfil.putExtra("foto", "sim")
                     startActivity(iPerfil)
                     this.finish()
                 }
-                /*intentX.putExtra("fotoPerfil", foto)
-                intentX.putExtra("IEmail", intent.getStringExtra("IEmail").toString())
-                intentX.putExtra("INome", intent.getStringExtra("INome"))
-                intentX.putExtra("ISenha", intent.getStringExtra("ISenha").toString())
-                intentX.putExtra("ITelefone", intent.getStringExtra("ITelefone"))
-                intentX.putExtra("IEnderecoUm", intent.getStringExtra("IEnderecoUm"))
-                intentX.putExtra("IEnderecoDois", intent.getStringExtra("IEnderecoDois"))
-                intentX.putExtra("IEnderecoTres", intent.getStringExtra("IEnderecoTres"))
-                intentX.putExtra("ICurriculo", intent.getStringExtra("ICurriculo"))
-                startActivity(intentX)*/
             }, 3000)
-            //intentX.putExtra("fotoPerfil", foto)
-            //startActivity(intentX)
         }
     }
 

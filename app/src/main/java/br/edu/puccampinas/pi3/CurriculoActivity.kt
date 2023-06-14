@@ -108,7 +108,10 @@ class CurriculoActivity : AppCompatActivity(), View.OnClickListener {
 
 
         if (v!!.id == R.id.btnCadastrar) {
+            btnCadastrar.isClickable = false
             val foto = enviarFoto()
+
+            Toast.makeText(this, "Efetuando cadastro, aguarde...", Toast.LENGTH_SHORT).show()
 
             auth.createUserWithEmailAndPassword(email, senha)
                 .addOnCompleteListener(this) { task ->

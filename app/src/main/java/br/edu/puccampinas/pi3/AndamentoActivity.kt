@@ -23,6 +23,7 @@ import com.google.android.gms.tasks.OnCompleteListener
 import com.google.android.gms.tasks.Task
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.ktx.auth
+import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.functions.FirebaseFunctions
 import com.google.firebase.functions.FirebaseFunctionsException
 import com.google.firebase.functions.ktx.functions
@@ -37,6 +38,7 @@ class AndamentoActivity : AppCompatActivity() {
     private lateinit var functions: FirebaseFunctions
     private val gson = GsonBuilder().enableComplexMapKeySerialization().create()
     private val user = Firebase.auth.currentUser
+    private var db = FirebaseFirestore.getInstance()
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -54,6 +56,8 @@ class AndamentoActivity : AppCompatActivity() {
 
 
         binding.btnFinalizar.setOnClickListener {
+            Toast.makeText(this, "Finalizando emergência", Toast.LENGTH_SHORT).show()
+            attStatus()
             finalizarEmergencia()
                 .addOnCompleteListener(OnCompleteListener { task ->
                     if (!task.isSuccessful) {
@@ -66,7 +70,7 @@ class AndamentoActivity : AppCompatActivity() {
                     }else{
                         val genericResp = gson.fromJson(task.result, FunctionsGenericResponse::class.java)
 
-                        val insertInfo = gson.fromJson(genericResp.payload.toString(), GenericInsertResponse::class.java)
+                        atualizarEmergencia("finalizada")
 
                         Toast.makeText(this, "Emergencia finalizada com sucesso!", Toast.LENGTH_SHORT).show()
                         val iFinaliza = Intent(this, EmergenciasActivity::class.java)
@@ -76,9 +80,19 @@ class AndamentoActivity : AppCompatActivity() {
         }
 
         binding.btnEnviarL.setOnClickListener {
+            Toast.makeText(this, "Enviando localização", Toast.LENGTH_SHORT).show()
             localizacaoResult.launch(arrayOf(
                 android.Manifest.permission.ACCESS_FINE_LOCATION,
                 android.Manifest.permission.ACCESS_COARSE_LOCATION))
+        }
+
+        binding.btnCancelar.setOnClickListener {
+            Toast.makeText(this, "Cancelando emergência", Toast.LENGTH_SHORT).show()
+            attStatus()
+            atualizarEmergencia("cancelada")
+            Toast.makeText(this, "Emergencia cancelada com sucesso!", Toast.LENGTH_SHORT).show()
+            val iCancela = Intent(this, EmergenciasActivity::class.java)
+            startActivity(iCancela)
         }
     }
     @SuppressLint("MissingPermission")
@@ -178,6 +192,22 @@ class AndamentoActivity : AppCompatActivity() {
             .continueWith { task ->
                 val res = gson.toJson(task.result?.data)
                 res
+            }
+    }
+
+    private fun atualizarEmergencia(stat: String){
+        db.collection("emergencias").document(intent.getStringExtra("emergencia")!!)
+            .update("status", stat)
+    }
+
+    private fun attStatus() {
+        db.collection("dentistas").whereEqualTo("email", user!!.email)
+            .get()
+            .addOnSuccessListener { documents ->
+                for(document in documents) {
+                    db.collection("dentistas").document(document.id)
+                        .update("status", true)
+                }
             }
     }
 

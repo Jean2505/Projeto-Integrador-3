@@ -37,15 +37,22 @@ class DefaultMessageService : FirebaseMessagingService() {
         val msgData = remoteMessage.data
 
         if (msgData["text"] == "nova emergencia") {
+            val nome = msgData["nome"]!!
+            val telefone = msgData["telefone"]!!
+            val foto1 = msgData["Foto1"]!!
+            val foto2 = msgData["Foto2"]!!
+            val foto3 = msgData["Foto3"]!!
+            val dataHora = msgData["dataHora"]!!
+            val emergencia = msgData["emergencia"]!!
             Intent().also { intent ->
                 intent.setAction("br.edu.puccampinas.pi3.RecieverEmergencia")
-                intent.putExtra("nome", msgData["nome"])
-                intent.putExtra("telefone", msgData["telefone"])
-                intent.putExtra("Foto1", msgData["Foto1"])
-                intent.putExtra("Foto2", msgData["Foto2"])
-                intent.putExtra("Foto3", msgData["Foto3"])
-                intent.putExtra("dataHora", msgData["dataHora"])
-                intent.putExtra("emergencia", msgData["emergencia"])
+                intent.putExtra("nome", nome)
+                intent.putExtra("telefone", telefone)
+                intent.putExtra("Foto1", foto1)
+                intent.putExtra("Foto2", foto2)
+                intent.putExtra("Foto3", foto3)
+                intent.putExtra("dataHora", dataHora)
+                intent.putExtra("emergencia", emergencia)
                 sendBroadcast(intent)
             }
 
@@ -56,13 +63,13 @@ class DefaultMessageService : FirebaseMessagingService() {
                         if (document.getBoolean("status") == true) {
                             showNotification(
                                 "Pressione para ver detalhes",
-                                msgData["nome"].toString(),
-                                msgData["telefone"].toString(),
-                                msgData["Foto1"].toString(),
-                                msgData["Foto2"].toString(),
-                                msgData["Foto3"].toString(),
-                                msgData["dataHora"].toString(),
-                                msgData["emergencia"].toString()
+                                nome,
+                                telefone,
+                                foto1,
+                                foto2,
+                                foto3,
+                                dataHora,
+                                emergencia
                             )
                         }
                     }
@@ -82,27 +89,6 @@ class DefaultMessageService : FirebaseMessagingService() {
                 sendBroadcast(aceite)
             }
         }
-
-
-        if(msgData["text"] == "nova emergencia")
-        if(msgData["text"] == "rejeitada" || msgData["text"] == "aceita") {
-            print("CHEGOU MENSAGEM AQUI IRMA SADF");
-        }
-        /*Intent().also { intent ->
-            intent.setAction("br.edu.puccampinas.pi3.RecieverEmergencia")
-            intent.putExtra("nome", msgData["nome"])
-            intent.putExtra("telefone", msgData["telefone"])
-            intent.putExtra("Foto1", msgData["Foto1"])
-            intent.putExtra("Foto2", msgData["Foto2"])
-            intent.putExtra("Foto3", msgData["Foto3"])
-            intent.putExtra("dataHora", msgData["dataHora"])
-            intent.putExtra("emergencia", msgData["emergencia"])
-            sendBroadcast(intent)
-        }
-
-        showNotification("Pressione para ver detalhes", msgData["nome"].toString(),
-            msgData["telefone"].toString(), msgData["Foto1"].toString(), msgData["Foto2"].toString(),
-            msgData["Foto3"].toString(), msgData["dataHora"].toString(), msgData["emergencia"].toString())*/
 
         if (msgData["text"] == "localizacao") {
             Intent().also { loc ->
@@ -129,16 +115,16 @@ class DefaultMessageService : FirebaseMessagingService() {
 
     private fun showNotification(messageBody: String, nome: String, telefone: String, Foto1: String,
                                  Foto2: String, Foto3: String, dataHora: String, emergencia: String) {
-        val intent = Intent(this, EmergenciaActivity::class.java)
-        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
-        intent.putExtra("nome", nome)
-        intent.putExtra("telefone", telefone)
-        intent.putExtra("Foto1", Foto1)
-        intent.putExtra("Foto2", Foto2)
-        intent.putExtra("Foto3", Foto3)
-        intent.putExtra("dataHora", dataHora)
-        intent.putExtra("emergencia", emergencia)
-        val pendingIntent = PendingIntent.getActivity(this,0,intent,PendingIntent.FLAG_IMMUTABLE)
+        val iNotif = Intent(this, EmergenciaActivity::class.java)
+        iNotif.addFlags(Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS)
+        iNotif.putExtra("nome", nome)
+        iNotif.putExtra("telefone", telefone)
+        iNotif.putExtra("Foto1", Foto1)
+        iNotif.putExtra("Foto2", Foto2)
+        iNotif.putExtra("Foto3", Foto3)
+        iNotif.putExtra("dataHora", dataHora)
+        iNotif.putExtra("emergencia", emergencia)
+        val pendingIntent = PendingIntent.getActivity(this,0,iNotif,PendingIntent.FLAG_IMMUTABLE)
         val channelId = "canal_padrao"
         val defaultSoundUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION)
         val notificationBuilder = NotificationCompat.Builder(this, channelId)
